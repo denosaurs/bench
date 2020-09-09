@@ -1,6 +1,10 @@
-import { createApp, setLevel, Loglevel } from "https://deno.land/x/servest/mod.ts";
+import {
+  createApp,
+  setLevel,
+  Loglevel,
+} from "https://deno.land/x/servest/mod.ts";
 
-setLevel(Loglevel.NONE)
+setLevel(Loglevel.NONE);
 
 const app = createApp();
 app.handle("/", async (req) => {

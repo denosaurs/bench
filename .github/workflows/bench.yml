@@ -1,58 +1,57 @@
 name: bench
-
-on:
+'on':
   schedule:
-    - cron: "0 0 * * *"
-  push:
-  pull_request:
-
+    - cron: 0 0 * * *
+  push: null
+  pull_request: null
 jobs:
   bench:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
-
+        with:
+          persist-credentials: false
+          fetch-depth: 0
       - name: Setup nodejs 13
         uses: actions/setup-node@v1
         with:
-          node-version: "13"
-
+          node-version: '13'
       - name: Setup deno 1.x
         uses: denolib/setup-deno@v2
         with:
           deno-version: v1.x
-
       - name: Install Autocannon
         run: npm install -g autocannon
-      
-      - name: OAK
-        run: |
-          deno run -q -r -A bare.ts &
-          sleep 5 && 
-          autocannon -c 100 -d 10 -j http://localhost:8000 > bench.json &&
-          kill $!
-        working-directory: oak
-
-      - name: SERVEST
-        run: |
-          deno run -q -r -A bare.ts &
-          sleep 5 && 
-          autocannon -c 100 -d 10 -j http://localhost:8000 > bench.json &&
-          kill $!
-        working-directory: servest
-
+      - name: START
+        run: echo "Starting Benchmarks"
       - name: DRASH
-        run: |
+        run: |-
           deno run -q -r -A bare.ts &
           sleep 5 && 
           autocannon -c 100 -d 10 -j http://localhost:8000 > bench.json &&
           kill $!
         working-directory: drash
-
+      - name: SERVEST
+        run: |-
+          deno run -q -r -A bare.ts &
+          sleep 5 && 
+          autocannon -c 100 -d 10 -j http://localhost:8000 > bench.json &&
+          kill $!
+        working-directory: servest
+      - name: OAK
+        run: |-
+          deno run -q -r -A bare.ts &
+          sleep 5 && 
+          autocannon -c 100 -d 10 -j http://localhost:8000 > bench.json &&
+          kill $!
+        working-directory: oak
+      - name: END
+        run: echo "End Benchmarks"
       - name: Commit & Push changes
         uses: actions-js/push@master
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: '${{ secrets.GITHUB_TOKEN }}'
           coauthor_email: qu4k@users.noreply.github.com
           coauthor_name: qu4k
+          branch: main
