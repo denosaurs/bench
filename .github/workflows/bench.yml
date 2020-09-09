@@ -46,6 +46,13 @@ jobs:
           autocannon -c 100 -d 10 -j http://localhost:8000 > bench.json &&
           kill $!
         working-directory: oak
+      - name: ABC
+        run: |-
+          deno run -q -r -A bare.ts &
+          sleep 5 && 
+          autocannon -c 100 -d 10 -j http://localhost:8000 > bench.json &&
+          kill $!
+        working-directory: abc
       - name: END
         run: echo "End Benchmarks"
       - name: Commit & Push changes
