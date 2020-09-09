@@ -8,7 +8,7 @@ import { prettyBytes } from "./utils/pretty-bytes.ts";
 function latency(result: Result): [Record<string, unknown>[], Options] {
   const { latency } = result;
   const obj = {
-    name: "Latency",
+    name: "**Latency**",
     p2_5: `${latency.p2_5} ms`,
     p50: `${latency.p50} ms`,
     p97_5: `${latency.p97_5} ms`,
@@ -17,7 +17,7 @@ function latency(result: Result): [Record<string, unknown>[], Options] {
     max: `${latency.max} ms`,
   };
   const opts: Options = {
-    columns: ["Stat", "2.5%", "50%", "95.5%", "Avg", "Stdev", "Max"],
+    columns: ["**Stat**", "2.5%", "50%", "95.5%", "Avg", "Stdev", "Max"],
   };
   return [[obj], opts];
 }
@@ -26,7 +26,7 @@ function performance(result: Result): [Record<string, unknown>[], Options] {
   const { requests } = result;
   const { throughput } = result;
   const req = {
-    name: "Req/Sec",
+    name: "**Req/Sec**",
     p1: requests.p1,
     p2_5: requests.p2_5,
     p50: requests.p50,
@@ -36,7 +36,7 @@ function performance(result: Result): [Record<string, unknown>[], Options] {
     min: requests.min,
   };
   const bytes = {
-    name: "Bytes/Sec",
+    name: "**Bytes/Sec**",
     p1: prettyBytes(throughput.p1),
     p2_5: prettyBytes(throughput.p2_5),
     p50: prettyBytes(throughput.p50),
@@ -46,7 +46,7 @@ function performance(result: Result): [Record<string, unknown>[], Options] {
     min: prettyBytes(throughput.min),
   };
   const opts: Options = {
-    columns: ["Stat", "1%", "2.5%", "50%", "95.5%", "Avg", "Stdev", "Min"],
+    columns: ["**Stat**", "1%", "2.5%", "50%", "95.5%", "Avg", "Stdev", "Min"],
   };
   return [[req, bytes], opts];
 }
@@ -62,9 +62,13 @@ if (import.meta.main) {
   const config = parse(configSource) as Config;
 
   const markdown: string[] = []
+  const toc: string[] = [];
+
+  toc.push("## Table of Contents\n");
 
   for (const group of config.groups) {
-    markdown.push(`## ${group.name}`);
+    markdown.push(`## benchmark \`${group.name}\``);
+    toc.push(`- [benchmark ${group.name}](#benchmark-${group.name})`);
     for (const benchmark of group.benchmarks) {
       const resultPath = join(benchmark.dir, "results", `${group.name}.json`);
       const resultSource = await Deno.readTextFile(resultPath);
@@ -74,11 +78,19 @@ if (import.meta.main) {
       const [perf, perfOpts] = performance(result);
       const perfTable = tablemark(perf, perfOpts);
 
-      markdown.push(`### ${benchmark.name}`);
+      markdown.push(`### [${benchmark.name}](${benchmark.info.url})`);
+      toc.push(`  - [${benchmark.name}](#${benchmark.name})`);
+
+      markdown.push(`> ${benchmark.info.desc}`);
+      markdown.push()
       markdown.push(perfTable);
       markdown.push(latTable);
     }
   }
+
+  markdown.unshift(toc.join("\n"));
+  markdown.push("---");
+  markdown.push(`<p align="center">Generated ${new Date().toISOString()}</p>`)
 
   const results = markdown.join("\n\n");
   const readme = template.replace("<!--RESULTS--->", results);

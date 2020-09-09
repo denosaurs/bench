@@ -2,6 +2,10 @@ export interface Benchmark {
   name: string;
   dir: string;
   exe: string;
+  info: {
+    url: string,
+    desc: string,
+  }
 }
 
 export interface Group {

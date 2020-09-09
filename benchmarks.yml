@@ -1,18 +1,34 @@
 groups:
   - name: bare
     benchmarks:
-      - name: ABC
+      - name: abc
         dir: abc
         exe: deno run -A bare.ts
+        info:
+          url: "https://deno.land/x/abc"
+          desc: |
+            A better Deno framework to create web application.
 
-      - name: DRASH
+      - name: drash
         dir: drash
         exe: deno run -A bare.ts
+        info:
+          url: "https://deno.land/x/drash"
+          desc: |
+            A REST microframework for Deno's HTTP server with zero dependencies.
 
-      - name: OAK
+      - name: oak
         dir: oak
         exe: deno run -A bare.ts
+        info:
+          url: "https://deno.land/x/oak"
+          desc: |
+            A middleware framework for Deno's net server 🐿️ 🦕
 
-      - name: SERVEST
+      - name: servest
         dir: servest
         exe: deno run -A bare.ts
+        info:
+          url: "https://deno.land/x/servest"
+          desc: |
+            🌾A progressive http server for Deno🌾

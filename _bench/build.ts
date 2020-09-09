@@ -80,7 +80,7 @@ function generateResults(previous: string[]): Job {
 }
 
 if (import.meta.main) {
-  const configPath = "banchmarks.yml";
+  const configPath = "benchmarks.yml";
   const actionPath = join(".github", "workflows", "bench.yml");
 
   const actionSource = await Deno.readTextFile(actionPath);
