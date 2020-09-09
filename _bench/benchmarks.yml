@@ -1,0 +1,18 @@
+groups:
+  - name: bare
+    benchmarks:
+      - name: ABC
+        dir: abc
+        exe: deno run -A bare.ts
+
+      - name: DRASH
+        dir: drash
+        exe: deno run -A bare.ts
+
+      - name: OAK
+        dir: oak
+        exe: deno run -A bare.ts
+
+      - name: SERVEST
+        dir: servest
+        exe: deno run -A bare.ts

@@ -13,7 +13,7 @@ app.handle("/", async (req) => {
     headers: new Headers({
       "content-type": "text/plain",
     }),
-    body: "hello deno!",
+    body: "Hello, Bench!",
   });
 });
 
