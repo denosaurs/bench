@@ -9,4 +9,4 @@ export class MyController {
 
 } 
 
-new MandarineCore().MVC().run();
+new MandarineCore().MVC().run({ port: 8000 });
