@@ -1,43 +1,6 @@
-import { join } from "https://deno.land/std@0.68.0/path/mod.ts";
-import {
-  parse,
-  stringify,
-} from "https://deno.land/std@0.68.0/encoding/yaml.ts";
+import { join, parse, stringify } from "./deps.ts";
 
-interface Step extends Record<string, unknown> {
-  name: string;
-  run?: string;
-  "working-directory"?: string;
-}
-
-interface Job extends Record<string, unknown> {
-  "runs-on": string;
-  needs: string[];
-  steps: Step[];
-}
-
-interface Action extends Record<string, unknown> {
-  name: string;
-  on: unknown;
-  jobs: {
-    [key: string]: Job;
-  };
-}
-
-interface Benchmark {
-  name: string;
-  dir: string;
-  exe: string;
-}
-
-interface Group {
-  name: string;
-  benchmarks: Benchmark[];
-}
-
-interface Config {
-  groups: Group[];
-}
+import type { Config, Action, Job, Step } from "./types.ts";
 
 function command(group: string, exe: string): string {
   return `${exe} &
@@ -54,7 +17,7 @@ function wrap(step: Step): Step[] {
       uses: "actions/checkout@master",
       with: { "persist-credentials": false, "fetch-depth": 0 },
     },
-    { name: "Pull changes from other benches", run: "git pull" },
+    { name: "Pull changes from other benchmarks", run: "git pull" },
     {
       name: "Setup nodejs 13",
       uses: "actions/setup-node@v1",
@@ -82,8 +45,42 @@ function wrap(step: Step): Step[] {
   ];
 }
 
+function generateResults(previous: string[]): Job {
+  return {
+    "runs-on": "ubuntu-latest",
+    needs: [...previous],
+    steps: [
+      {
+        name: "Checkout Repository",
+        uses: "actions/checkout@master",
+        with: { "persist-credentials": false, "fetch-depth": 0 },
+      },
+      { name: "Pull changes from other benchmarks", run: "git pull" },
+      {
+        name: "Setup deno 1.x",
+        uses: "denolib/setup-deno@v2",
+        with: { "deno-version": "v1.x" },
+      },
+      {
+        name: "Generate README.md",
+        run: "deno run -A --unstable _bench/readme.md",
+      },
+      {
+        name: "Commit & Push changes",
+        uses: "actions-js/push@master",
+        with: {
+          github_token: "${{ secrets.GITHUB_TOKEN }}",
+          coauthor_email: "qu4k@users.noreply.github.com",
+          coauthor_name: "qu4k",
+          branch: "main",
+        },
+      },
+    ],
+  };
+}
+
 if (import.meta.main) {
-  const configPath = join("_bench", "benchmarks.yml");
+  const configPath = "banchmarks.yml";
   const actionPath = join(".github", "workflows", "bench.yml");
 
   const actionSource = await Deno.readTextFile(actionPath);
@@ -112,6 +109,8 @@ if (import.meta.main) {
       previous.push(name);
     }
   }
+
+  action.jobs["_results"] = generateResults(previous);
 
   await Deno.writeTextFile(actionPath, stringify(action));
 }
