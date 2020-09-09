@@ -4,7 +4,7 @@ import { MandarineCore, Controller, GET } from "https://deno.land/x/mandarinets/
 export class MyController { 
     @GET('/') 
     public httpHandler() { 
-        return "Welcome to MandarineTS Framework!"; 
+        return "Hello, Bench!"; 
     } 
 
 } 

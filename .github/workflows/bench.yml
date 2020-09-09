@@ -201,7 +201,7 @@ jobs:
         run: echo "Starting Benchmarks"
       - name: mandarinets
         run: |-
-          deno run -A bare.ts &
+          deno run --config tsconfig.json -A bare.ts &
           sleep 15 && 
           mkdir -p results &&
           autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
