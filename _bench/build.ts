@@ -63,7 +63,7 @@ function generateResults(previous: string[]): Job {
       },
       {
         name: "Generate README.md",
-        run: "deno run -A --unstable _bench/readme.md",
+        run: "deno run -A --unstable _bench/readme.ts",
       },
       {
         name: "Commit & Push changes",

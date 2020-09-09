@@ -172,7 +172,7 @@ jobs:
           coauthor_email: qu4k@users.noreply.github.com
           coauthor_name: qu4k
           branch: main
-  _results:
+  bare_mandarinets:
     runs-on: ubuntu-latest
     needs:
       - bare_abc
@@ -187,12 +187,57 @@ jobs:
           fetch-depth: 0
       - name: Pull changes from other benchmarks
         run: git pull
+      - name: Setup nodejs 13
+        uses: actions/setup-node@v1
+        with:
+          node-version: '13'
+      - name: Setup deno 1.x
+        uses: denolib/setup-deno@v2
+        with:
+          deno-version: v1.x
+      - name: Install Autocannon
+        run: npm install -g autocannon
+      - name: START
+        run: echo "Starting Benchmarks"
+      - name: mandarinets
+        run: |-
+          deno run -A bare.ts &
+          sleep 15 && 
+          mkdir -p results &&
+          autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
+          kill $!
+        working-directory: mandarinets
+      - name: END
+        run: echo "End Benchmarks"
+      - name: Commit & Push changes
+        uses: actions-js/push@master
+        with:
+          github_token: '${{ secrets.GITHUB_TOKEN }}'
+          coauthor_email: qu4k@users.noreply.github.com
+          coauthor_name: qu4k
+          branch: main
+  _results:
+    runs-on: ubuntu-latest
+    needs:
+      - bare_abc
+      - bare_drash
+      - bare_oak
+      - bare_servest
+      - bare_mandarinets
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@master
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - name: Pull changes from other benchmarks
+        run: git pull
       - name: Setup deno 1.x
         uses: denolib/setup-deno@v2
         with:
           deno-version: v1.x
       - name: Generate README.md
-        run: deno run -A --unstable _bench/readme.md
+        run: deno run -A --unstable _bench/readme.ts
       - name: Commit & Push changes
         uses: actions-js/push@master
         with:

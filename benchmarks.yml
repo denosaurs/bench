@@ -16,6 +16,7 @@ groups:
           url: "https://deno.land/x/drash"
           desc: |
             A REST microframework for Deno's HTTP server with zero dependencies.
+            ⚠️ Drash seems to have problems running in GH action...
 
       - name: oak
         dir: oak
@@ -32,3 +33,13 @@ groups:
           url: "https://deno.land/x/servest"
           desc: |
             🌾A progressive http server for Deno🌾
+
+      - name: mandarinets
+        dir: mandarinets
+        exe: deno run -A bare.ts
+        info:
+          url: "https://deno.land/x/mandarinets"
+          desc: |
+            A minimalist, 
+            decorator-driven, 
+            MVC framework for Deno.
