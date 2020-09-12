@@ -15,7 +15,15 @@ groups:
         info:
           url: "https://deno.land/x/alosaur"
           desc: |
-            Deno web framework with many decorators 
+            Deno web framework with many decorators
+
+      - name: dinatra
+        dir: dinatra
+        exe: deno run -A bare.ts
+        info:
+          url: "https://github.com/syumai/dinatra"
+          desc: |
+            Sinatra like light weight web app framework for deno.
 
       - name: oak
         dir: oak

@@ -15,7 +15,7 @@ class HomeArea {}
 
 const app = new App({
   areas: [HomeArea],
-  logging: false
+  logging: false,
 });
 
 app.listen();
