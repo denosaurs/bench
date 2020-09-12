@@ -99,15 +99,13 @@ interface Options {
 export function prettyBytes(number: number, options?: Options) {
   if (!Number.isFinite(number)) {
     throw new TypeError(
-      `Expected a finite number, got ${typeof number}: ${number}`
+      `Expected a finite number, got ${typeof number}: ${number}`,
     );
   }
 
   options = Object.assign({ bits: false, binary: false }, options);
   const UNITS = options.bits
-    ? options.binary
-      ? BIBIT_UNITS
-      : BIT_UNITS
+    ? options.binary ? BIBIT_UNITS : BIT_UNITS
     : options.binary
     ? BIBYTE_UNITS
     : BYTE_UNITS;
@@ -132,12 +130,12 @@ export function prettyBytes(number: number, options?: Options) {
     Math.floor(
       options.binary
         ? Math.log(number) / Math.log(1024)
-        : Math.log10(number) / 3
+        : Math.log10(number) / 3,
     ),
-    UNITS.length - 1
+    UNITS.length - 1,
   );
   number = Number(
-    (number / Math.pow(options.binary ? 1024 : 1000, exponent)).toPrecision(3)
+    (number / Math.pow(options.binary ? 1024 : 1000, exponent)).toPrecision(3),
   );
   const numberString = toLocaleString(number, options.locale);
 

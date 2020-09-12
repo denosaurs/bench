@@ -3,9 +3,9 @@ export interface Benchmark {
   dir: string;
   exe: string;
   info: {
-    url: string,
-    desc: string,
-  }
+    url: string;
+    desc: string;
+  };
 }
 
 export interface Group {

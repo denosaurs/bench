@@ -39,7 +39,7 @@ const row = (
   alignments: (string | undefined)[],
   widths: number[],
   columns: string[],
-  gutters: boolean
+  gutters: boolean,
 ) => {
   const width = columns.length;
   const values = new Array(width);
@@ -98,7 +98,10 @@ export interface Options {
   };
 }
 
-export function tablemark(input: Record<string, unknown>[], opts?: Options): string {
+export function tablemark(
+  input: Record<string, unknown>[],
+  opts?: Options,
+): string {
   if (!Array.isArray(input)) {
     throw new TypeError(`Expected an Array, got ${typeof input}`);
   }
@@ -114,9 +117,9 @@ export function tablemark(input: Record<string, unknown>[], opts?: Options): str
           width: Infinity,
           gutters: false,
         },
-        opts && opts.wrap
+        opts && opts.wrap,
       ),
-    }
+    },
   );
 
   const { stringify } = options;
@@ -144,7 +147,7 @@ export function tablemark(input: Record<string, unknown>[], opts?: Options): str
       keys.map((key, i) =>
         Math.max(width(stringify(item[key]), columnsMaxWidth), sizes[i])
       ),
-    titles.map((t) => Math.max(columnsWidthMin, width(t, columnsMaxWidth)))
+    titles.map((t) => Math.max(columnsWidthMin, width(t, columnsMaxWidth))),
   );
 
   const alignments = keys.map((_, i) => {
@@ -173,9 +176,9 @@ export function tablemark(input: Record<string, unknown>[], opts?: Options): str
       (align, i) =>
         (align === "LEFT" || align === "CENTER" ? ":" : "-") +
         "-".repeat(widths[i] - 2) +
-        (align === "RIGHT" || align === "CENTER" ? ":" : "-")
+        (align === "RIGHT" || align === "CENTER" ? ":" : "-"),
     ),
-    true
+    true,
   );
 
   // table body
@@ -185,7 +188,7 @@ export function tablemark(input: Record<string, unknown>[], opts?: Options): str
         alignments,
         widths,
         keys.map((key) => stringify(item[key])),
-        gutters
+        gutters,
       )
     )
     .join("");

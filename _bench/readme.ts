@@ -61,7 +61,7 @@ if (import.meta.main) {
   const configSource = await Deno.readTextFile(configPath);
   const config = parse(configSource) as Config;
 
-  const markdown: string[] = []
+  const markdown: string[] = [];
   const toc: string[] = [];
 
   toc.push("## Table of Contents\n");
@@ -82,7 +82,7 @@ if (import.meta.main) {
       toc.push(`  - [${benchmark.name}](#${benchmark.name})`);
 
       markdown.push(`> ${benchmark.info.desc}`);
-      markdown.push()
+      markdown.push();
       markdown.push(perfTable);
       markdown.push(latTable);
     }
@@ -90,7 +90,7 @@ if (import.meta.main) {
 
   markdown.unshift(toc.join("\n"));
   markdown.push("---");
-  markdown.push(`<p align="center">Generated ${new Date().toISOString()}</p>`)
+  markdown.push(`<p align="center">Generated ${new Date().toISOString()}</p>`);
 
   const results = markdown.join("\n\n");
   const readme = template.replace("<!--RESULTS--->", results);
