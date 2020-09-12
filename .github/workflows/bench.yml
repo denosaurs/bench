@@ -46,7 +46,7 @@ jobs:
           coauthor_email: qu4k@users.noreply.github.com
           coauthor_name: qu4k
           branch: main
-  bare_drash:
+  bare_alosaur:
     runs-on: ubuntu-latest
     needs:
       - bare_abc
@@ -70,14 +70,14 @@ jobs:
         run: npm install -g autocannon
       - name: START
         run: echo "Starting Benchmarks"
-      - name: drash
+      - name: alosaur
         run: |-
           deno run -A bare.ts &
           sleep 15 && 
           mkdir -p results &&
           autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
           kill $!
-        working-directory: drash
+        working-directory: alosaur
       - name: END
         run: echo "End Benchmarks"
       - name: Commit & Push changes
@@ -91,7 +91,7 @@ jobs:
     runs-on: ubuntu-latest
     needs:
       - bare_abc
-      - bare_drash
+      - bare_alosaur
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
@@ -133,7 +133,7 @@ jobs:
     runs-on: ubuntu-latest
     needs:
       - bare_abc
-      - bare_drash
+      - bare_alosaur
       - bare_oak
     steps:
       - name: Checkout Repository
@@ -176,7 +176,7 @@ jobs:
     runs-on: ubuntu-latest
     needs:
       - bare_abc
-      - bare_drash
+      - bare_alosaur
       - bare_oak
       - bare_pogo
     steps:
@@ -220,7 +220,7 @@ jobs:
     runs-on: ubuntu-latest
     needs:
       - bare_abc
-      - bare_drash
+      - bare_alosaur
       - bare_oak
       - bare_pogo
       - bare_servest
@@ -265,7 +265,7 @@ jobs:
     runs-on: ubuntu-latest
     needs:
       - bare_abc
-      - bare_drash
+      - bare_alosaur
       - bare_oak
       - bare_pogo
       - bare_servest
