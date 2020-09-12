@@ -8,15 +8,14 @@ class HomeController {
   }
 }
 
-// Declare module
 @Area({
   controllers: [HomeController],
 })
 class HomeArea {}
 
-// Create alosaur application
 const app = new App({
   areas: [HomeArea],
+  logging: false
 });
 
 app.listen();
