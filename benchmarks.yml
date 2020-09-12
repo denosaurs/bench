@@ -8,15 +8,14 @@ groups:
           url: "https://deno.land/x/abc"
           desc: |
             A better Deno framework to create web application.
-
-      - name: drash
-        dir: drash
+            
+      - name: alosaur
+        dir: alosaur
         exe: deno run -A bare.ts
         info:
-          url: "https://deno.land/x/drash"
+          url: "https://deno.land/x/alosaur"
           desc: |
-            A REST microframework for Deno's HTTP server with zero dependencies.
-            ⚠️ Drash seems to have problems running in GH action...
+            Deno web framework with many decorators 
 
       - name: oak
         dir: oak
