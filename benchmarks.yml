@@ -26,6 +26,15 @@ groups:
           desc: |
             A middleware framework for Deno's net server 🐿️ 🦕
 
+      - name: pogo
+        dir: pogo
+        exe: deno run -A bare.ts
+        info:
+          url: "https://deno.land/x/pogo"
+          desc: |
+            Pogo is an easy-to-use, safe, and expressive framework
+            for writing webservers and applications. 
+
       - name: servest
         dir: servest
         exe: deno run -A bare.ts
