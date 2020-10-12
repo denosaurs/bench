@@ -24,6 +24,14 @@ groups:
           url: "https://github.com/syumai/dinatra"
           desc: |
             Sinatra like light weight web app framework for deno.
+            
+      - name: drash
+        dir: drash
+        exe: deno run -A bare.ts
+        info:
+          url: "https://deno.land/x/drash"
+          desc: |
+            A REST microframework for Deno's HTTP server with zero dependencies.
 
       - name: oak
         dir: oak
