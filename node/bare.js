@@ -5,5 +5,3 @@ http
     res.end("Hello World!");
   })
   .listen(port);
-
-console.log("server started");
