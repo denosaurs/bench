@@ -17,6 +17,14 @@ groups:
           desc: |
             Deno web framework with many decorators
 
+      - name: deno
+        dir: deno
+        exe: deno run -A bare.ts
+        info:
+          url: "https://deno.land/std/http"
+          desc: |
+            Pure TypeScript and JavaScript Runtime
+
       - name: dinatra
         dir: dinatra
         exe: deno run -A bare.ts
@@ -32,6 +40,38 @@ groups:
           url: "https://deno.land/x/drash"
           desc: |
             A REST microframework for Deno's HTTP server with zero dependencies.
+
+      - name: express
+        dir: express
+        exe: npm i && node bare.js
+        info:
+          url: "https://expressjs.com/"
+          desc: |
+            Fast, unopinionated, minimalist web framework for Node.js
+
+      - name: fastify
+        dir: fastify
+        exe: npm i && node bare.js
+        info:
+          url: "https://www.fastify.io/"
+          desc: |
+            Fast and low overhead web framework, for Node.js
+
+      - name: fastro
+        dir: fastro
+        exe: deno run -A bare.ts
+        info:
+          url: "https://deno.land/x/fastro"
+          desc: |
+            Fast and simple web framework for deno
+
+      - name: node
+        dir: node
+        exe: node bare.js
+        info:
+          url: "https://nodejs.org"
+          desc: |
+            Node.js JavaScript runtime
 
       - name: oak
         dir: oak
