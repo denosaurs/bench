@@ -245,6 +245,7 @@ jobs:
         run: echo "Starting Benchmarks"
       - name: express
         run: |-
+          npm i
           node bare.js &
           sleep 15 &&
           mkdir -p results &&
@@ -288,6 +289,7 @@ jobs:
         run: echo "Starting Benchmarks"
       - name: fastify
         run: |-
+          npm i
           node bare.js &
           sleep 15 &&
           mkdir -p results &&

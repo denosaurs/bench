@@ -43,7 +43,7 @@ groups:
 
       - name: express
         dir: express
-        exe: node bare.js
+        exe: npm i && node bare.js
         info:
           url: "https://expressjs.com/"
           desc: |
@@ -51,7 +51,7 @@ groups:
 
       - name: fastify
         dir: fastify
-        exe: node bare.js
+        exe: npm i && node bare.js
         info:
           url: "https://www.fastify.io/"
           desc: |
