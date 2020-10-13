@@ -5,6 +5,7 @@ name: bench
   push:
     paths:
       - '**.ts'
+      - '**.js'
 jobs:
   bare_abc:
     runs-on: ubuntu-latest
