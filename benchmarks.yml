@@ -57,6 +57,14 @@ groups:
           desc: |
             Fast and low overhead web framework, for Node.js
 
+      - name: fastro
+        dir: fastro
+        exe: deno run -A bare.ts
+        info:
+          url: "https://deno.land/x/fastro"
+          desc: |
+            Fast and simple web framework for deno
+
       - name: node
         dir: node
         exe: node bare.js
