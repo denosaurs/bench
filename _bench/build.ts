@@ -26,7 +26,6 @@ function wrap(step: Step): Step[] {
     {
       name: "Setup deno 1.x",
       uses: "denolib/setup-deno@v2",
-      with: { "deno-version": "v1.x" },
     },
     { name: "Install Autocannon", run: "npm install -g autocannon" },
     { name: "START", run: 'echo "Starting Benchmarks"' },
@@ -59,7 +58,6 @@ function generateResults(previous: string[]): Job {
       {
         name: "Setup deno 1.x",
         uses: "denolib/setup-deno@v2",
-        with: { "deno-version": "v1.x" },
       },
       {
         name: "Generate README.md",
