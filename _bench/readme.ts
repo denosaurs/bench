@@ -34,6 +34,7 @@ function performance(result: Result): [Record<string, unknown>[], Options] {
     avg: requests.average,
     stdev: requests.stddev,
     min: requests.min,
+    total: requests.total
   };
   const bytes = {
     name: "**Bytes/Sec**",
@@ -44,6 +45,7 @@ function performance(result: Result): [Record<string, unknown>[], Options] {
     avg: prettyBytes(throughput.average),
     stdev: prettyBytes(throughput.stddev),
     min: prettyBytes(throughput.min),
+    total: prettyBytes(throughput.total)
   };
   const opts: Options = {
     columns: ["**Stat**", "1%", "2.5%", "50%", "95.5%", "Avg", "Stdev", "Min"],
@@ -65,6 +67,45 @@ if (import.meta.main) {
   const toc: string[] = [];
 
   toc.push("## Table of Contents\n");
+
+  // Do overview section
+  toc.push("- [Overview](#overview)");
+  markdown.push(`## Overview`);
+  for (const group of config.groups) {
+    let results: {[key: string]: {
+      average: number,
+      total: number
+    }} = {};
+    for (const benchmark of group.benchmarks) {
+      const resultPath = join(benchmark.dir, "results", `${group.name}.json`);
+      const resultSource = await Deno.readTextFile(resultPath);
+      const result = JSON.parse(resultSource) as Result;
+      results[benchmark.name] = {
+        average: result.requests.average,
+        total: result.requests.total
+      }
+    }
+    let table = "| **Framework** |"
+    // set headings
+    Object.keys(results).forEach((key) => {
+      table += ` ${key} |`
+    })
+    table += "\n| --- | "
+    Object.keys(results).forEach((key) => {
+      table += `--- |`
+    })
+    // set average row
+    table += "\n| **Average** |"
+    Object.keys(results).forEach((key) => {
+      table += ` ${results[key].average} |`
+    })
+    // set average row
+    table += "\n| **Total** |"
+    Object.keys(results).forEach((key) => {
+      table += ` ${results[key].total} |`
+    })
+    markdown.push(table)
+  }
 
   for (const group of config.groups) {
     markdown.push(`## benchmark \`${group.name}\``);
