@@ -107,3 +107,11 @@ groups:
             A minimalist, 
             decorator-driven, 
             MVC framework for Deno.
+
+      - name: aqua
+        dir: aqua
+        exe: deno run -A bare.ts
+        info:
+          url: "https://deno.land/x/aqua"
+          desc: |
+            A minimal and fast 🏃 web framework for Deno
