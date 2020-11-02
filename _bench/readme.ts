@@ -3,7 +3,7 @@ import { parse } from "https://deno.land/std@0.68.0/encoding/yaml.ts";
 
 import type { Config, Result } from "./types.ts";
 import { tablemark, Options } from "./utils/tablemark.ts";
-import { prettyBytes } from "./utils/pretty-bytes.ts";
+import { prettyBytes } from "./utils/pretty_bytes.ts";
 
 function latency(result: Result): [Record<string, unknown>[], Options] {
   const { latency } = result;
