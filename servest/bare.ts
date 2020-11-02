@@ -1,7 +1,7 @@
 import {
   createApp,
-  setLevel,
   Loglevel,
+  setLevel,
 } from "https://deno.land/x/servest/mod.ts";
 
 setLevel(Loglevel.NONE);

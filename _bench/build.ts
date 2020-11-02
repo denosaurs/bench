@@ -1,6 +1,6 @@
 import { join, parse, stringify } from "./deps.ts";
 
-import type { Config, Action, Job, Step } from "./types.ts";
+import type { Action, Config, Job, Step } from "./types.ts";
 
 function command(group: string, exe: string): string {
   return `${exe} &

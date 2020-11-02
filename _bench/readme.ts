@@ -2,7 +2,7 @@ import { join } from "https://deno.land/std@0.68.0/path/mod.ts";
 import { parse } from "https://deno.land/std@0.68.0/encoding/yaml.ts";
 
 import type { Config, Result } from "./types.ts";
-import { tablemark, Options } from "./utils/tablemark.ts";
+import { Options, tablemark } from "./utils/tablemark.ts";
 import { prettyBytes } from "./utils/pretty_bytes.ts";
 
 function latency(result: Result): [Record<string, unknown>[], Options] {
@@ -34,7 +34,7 @@ function performance(result: Result): [Record<string, unknown>[], Options] {
     avg: requests.average,
     stdev: requests.stddev,
     min: requests.min,
-    total: requests.total
+    total: requests.total,
   };
   const bytes = {
     name: "**Bytes/Sec**",
@@ -45,7 +45,7 @@ function performance(result: Result): [Record<string, unknown>[], Options] {
     avg: prettyBytes(throughput.average),
     stdev: prettyBytes(throughput.stddev),
     min: prettyBytes(throughput.min),
-    total: prettyBytes(throughput.total)
+    total: prettyBytes(throughput.total),
   };
   const opts: Options = {
     columns: ["**Stat**", "1%", "2.5%", "50%", "95.5%", "Avg", "Stdev", "Min"],
@@ -72,39 +72,41 @@ if (import.meta.main) {
   toc.push("- [Overview](#overview)");
   markdown.push(`## Overview`);
   for (const group of config.groups) {
-    let results: {[key: string]: {
-      average: number,
-      total: number
-    }} = {};
+    let results: {
+      [key: string]: {
+        average: number;
+        total: number;
+      };
+    } = {};
     for (const benchmark of group.benchmarks) {
       const resultPath = join(benchmark.dir, "results", `${group.name}.json`);
       const resultSource = await Deno.readTextFile(resultPath);
       const result = JSON.parse(resultSource) as Result;
       results[benchmark.name] = {
         average: result.requests.average,
-        total: result.requests.total
-      }
+        total: result.requests.total,
+      };
     }
-    let table = "| **Framework** |"
+    let table = "| **Framework** |";
     // set headings
     Object.keys(results).forEach((key) => {
-      table += ` ${key} |`
-    })
-    table += "\n| --- | "
+      table += ` ${key} |`;
+    });
+    table += "\n| --- | ";
     Object.keys(results).forEach((key) => {
-      table += `--- |`
-    })
+      table += `--- |`;
+    });
     // set average row
-    table += "\n| **Average** |"
+    table += "\n| **Average** |";
     Object.keys(results).forEach((key) => {
-      table += ` ${results[key].average} |`
-    })
+      table += ` ${results[key].average} |`;
+    });
     // set average row
-    table += "\n| **Total** |"
+    table += "\n| **Total** |";
     Object.keys(results).forEach((key) => {
-      table += ` ${results[key].total} |`
-    })
-    markdown.push(table)
+      table += ` ${results[key].total} |`;
+    });
+    markdown.push(table);
   }
 
   for (const group of config.groups) {

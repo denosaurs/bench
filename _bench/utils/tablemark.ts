@@ -2,7 +2,7 @@
 
 import { EOL, sentenceCase } from "../deps.ts";
 
-import { width, split } from "./text_to_chunks.ts";
+import { split, width } from "./text_to_chunks.ts";
 
 const columnsWidthMin = 5;
 const alignmentOptions = new Set(["LEFT", "CENTER", "RIGHT"]);

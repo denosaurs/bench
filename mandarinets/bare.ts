@@ -1,7 +1,7 @@
 import {
-  MandarineCore,
   Controller,
   GET,
+  MandarineCore,
 } from "https://deno.land/x/mandarinets/mod.ts";
 
 @Controller()

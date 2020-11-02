@@ -1,9 +1,9 @@
-const fastify = require('fastify')()
+const fastify = require("fastify")();
 
 // Declare a route
-fastify.get('/', (request, reply) => {
+fastify.get("/", (request, reply) => {
   return "Hello World!";
-})
+});
 
 // Run the server!
 fastify.listen(8000);
