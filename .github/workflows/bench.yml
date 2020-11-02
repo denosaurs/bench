@@ -6,6 +6,7 @@ name: bench
     paths:
       - '**.ts'
       - '**.js'
+      - '**.yml'
 jobs:
   bare_abc:
     runs-on: ubuntu-latest
