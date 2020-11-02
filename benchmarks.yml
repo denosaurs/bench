@@ -83,7 +83,7 @@ groups:
 
       - name: pogo
         dir: pogo
-        exe: deno run -A bare.ts
+        exe: deno run --config tsconfig.json -A bare.ts
         info:
           url: "https://deno.land/x/pogo"
           desc: |
