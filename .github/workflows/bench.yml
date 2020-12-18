@@ -32,7 +32,7 @@ jobs:
       - name: abc
         run: |-
           deno run -A bare.ts &
-          sleep 15 && 
+          sleep 15 &&
           mkdir -p results &&
           autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
           kill $!
@@ -71,7 +71,7 @@ jobs:
       - name: alosaur
         run: |-
           deno run --config tsconfig.json -A bare.ts &
-          sleep 15 && 
+          sleep 15 &&
           mkdir -p results &&
           autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
           kill $!
@@ -111,7 +111,7 @@ jobs:
       - name: deno
         run: |-
           deno run -A bare.ts &
-          sleep 15 && 
+          sleep 15 &&
           mkdir -p results &&
           autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
           kill $!
@@ -152,7 +152,7 @@ jobs:
       - name: dinatra
         run: |-
           deno run --config tsconfig.json -A bare.ts &
-          sleep 15 && 
+          sleep 15 &&
           mkdir -p results &&
           autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
           kill $!
@@ -194,7 +194,7 @@ jobs:
       - name: drash
         run: |-
           deno run -A bare.ts &
-          sleep 15 && 
+          sleep 15 &&
           mkdir -p results &&
           autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
           kill $!
@@ -237,7 +237,7 @@ jobs:
       - name: express
         run: |-
           npm i && node bare.js &
-          sleep 15 && 
+          sleep 15 &&
           mkdir -p results &&
           autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
           kill $!
@@ -281,7 +281,7 @@ jobs:
       - name: fastify
         run: |-
           npm i && node bare.js &
-          sleep 15 && 
+          sleep 15 &&
           mkdir -p results &&
           autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
           kill $!
@@ -326,7 +326,7 @@ jobs:
       - name: node
         run: |-
           node bare.js &
-          sleep 15 && 
+          sleep 15 &&
           mkdir -p results &&
           autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
           kill $!
@@ -372,7 +372,7 @@ jobs:
       - name: oak
         run: |-
           deno run -A bare.ts &
-          sleep 15 && 
+          sleep 15 &&
           mkdir -p results &&
           autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
           kill $!
@@ -412,8 +412,6 @@ jobs:
           node-version: '13'
       - name: Setup deno 1.x
         uses: denolib/setup-deno@v2
-        with:
-          deno-version: v1.5.0 # TODO: fix type imports within Pogo source
       - name: Install Autocannon
         run: npm install -g autocannon
       - name: START
@@ -421,7 +419,7 @@ jobs:
       - name: pogo
         run: |-
           deno run --config tsconfig.json -A bare.ts &
-          sleep 15 && 
+          sleep 15 &&
           mkdir -p results &&
           autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
           kill $!
@@ -469,7 +467,7 @@ jobs:
       - name: servest
         run: |-
           deno run -A bare.ts &
-          sleep 15 && 
+          sleep 15 &&
           mkdir -p results &&
           autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
           kill $!
@@ -518,7 +516,7 @@ jobs:
       - name: mandarinets
         run: |-
           deno run --config tsconfig.json -A bare.ts &
-          sleep 15 && 
+          sleep 15 &&
           mkdir -p results &&
           autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
           kill $!
@@ -568,7 +566,7 @@ jobs:
       - name: aqua
         run: |-
           deno run -A bare.ts &
-          sleep 15 && 
+          sleep 15 &&
           mkdir -p results &&
           autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
           kill $!
@@ -582,7 +580,7 @@ jobs:
           coauthor_email: qu4k@users.noreply.github.com
           coauthor_name: qu4k
           branch: main
-          
+
   bare_reno:
     runs-on: ubuntu-latest
     needs:
@@ -620,7 +618,7 @@ jobs:
       - name: reno
         run: |-
           deno run -A bare.ts &
-          sleep 15 && 
+          sleep 15 &&
           mkdir -p results &&
           autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
           kill $!
@@ -633,8 +631,8 @@ jobs:
           github_token: '${{ secrets.GITHUB_TOKEN }}'
           coauthor_email: qu4k@users.noreply.github.com
           coauthor_name: qu4k
-          branch: main        
-  
+          branch: main
+
   _results:
     runs-on: ubuntu-latest
     needs:
