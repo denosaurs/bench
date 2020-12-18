@@ -115,3 +115,11 @@ groups:
           url: "https://deno.land/x/aqua"
           desc: |
             A minimal and fast 🏃 web framework for Deno
+
+      - name: reno
+        dir: reno
+        exe: deno run -A bare.ts
+        info:
+          url: "https://deno.land/x/reno"
+          desc: |
+            A thin, testable routing library designed to sit on top of Deno's standard HTTP module
