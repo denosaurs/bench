@@ -70,7 +70,7 @@ jobs:
         run: echo "Starting Benchmarks"
       - name: alosaur
         run: |-
-          deno run --config tsconfig.json -A bare.ts &
+          deno run -A bare.ts &
           sleep 15 && 
           mkdir -p results &&
           autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
@@ -151,7 +151,7 @@ jobs:
         run: echo "Starting Benchmarks"
       - name: dinatra
         run: |-
-          deno run --config tsconfig.json -A bare.ts &
+          deno run -A bare.ts &
           sleep 15 && 
           mkdir -p results &&
           autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
@@ -386,53 +386,6 @@ jobs:
           coauthor_email: qu4k@users.noreply.github.com
           coauthor_name: qu4k
           branch: main
-  bare_pogo:
-    runs-on: ubuntu-latest
-    needs:
-      - bare_abc
-      - bare_alosaur
-      - bare_deno
-      - bare_dinatra
-      - bare_drash
-      - bare_express
-      - bare_fastify
-      - bare_node
-      - bare_oak
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@master
-        with:
-          persist-credentials: false
-          fetch-depth: 0
-      - name: Pull changes from other benchmarks
-        run: git pull
-      - name: Setup nodejs 13
-        uses: actions/setup-node@v1
-        with:
-          node-version: '13'
-      - name: Setup deno 1.x
-        uses: denolib/setup-deno@v2
-      - name: Install Autocannon
-        run: npm install -g autocannon
-      - name: START
-        run: echo "Starting Benchmarks"
-      - name: pogo
-        run: |-
-          deno run --config tsconfig.json -A bare.ts &
-          sleep 15 && 
-          mkdir -p results &&
-          autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
-          kill $!
-        working-directory: pogo
-      - name: END
-        run: echo "End Benchmarks"
-      - name: Commit & Push changes
-        uses: actions-js/push@master
-        with:
-          github_token: '${{ secrets.GITHUB_TOKEN }}'
-          coauthor_email: qu4k@users.noreply.github.com
-          coauthor_name: qu4k
-          branch: main
   bare_servest:
     runs-on: ubuntu-latest
     needs:
@@ -445,7 +398,6 @@ jobs:
       - bare_fastify
       - bare_node
       - bare_oak
-      - bare_pogo
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
@@ -493,7 +445,6 @@ jobs:
       - bare_fastify
       - bare_node
       - bare_oak
-      - bare_pogo
       - bare_servest
     steps:
       - name: Checkout Repository
@@ -542,7 +493,6 @@ jobs:
       - bare_fastify
       - bare_node
       - bare_oak
-      - bare_pogo
       - bare_servest
       - bare_mandarinets
     steps:
@@ -592,7 +542,6 @@ jobs:
       - bare_fastify
       - bare_node
       - bare_oak
-      - bare_pogo
       - bare_servest
       - bare_mandarinets
       - bare_aqua
@@ -643,7 +592,6 @@ jobs:
       - bare_fastify
       - bare_node
       - bare_oak
-      - bare_pogo
       - bare_servest
       - bare_mandarinets
       - bare_aqua
