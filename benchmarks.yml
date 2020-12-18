@@ -11,7 +11,7 @@ groups:
             
       - name: alosaur
         dir: alosaur
-        exe: deno run --config tsconfig.json -A bare.ts
+        exe: deno run -A bare.ts
         info:
           url: "https://deno.land/x/alosaur"
           desc: |
@@ -27,7 +27,7 @@ groups:
 
       - name: dinatra
         dir: dinatra
-        exe: deno run --config tsconfig.json -A bare.ts
+        exe: deno run -A bare.ts
         info:
           url: "https://github.com/syumai/dinatra"
           desc: |
