@@ -1,8 +1,10 @@
 import { listenAndServe } from "https://deno.land/std/http/server.ts";
-import { createRouter } from "https://deno.land/x/reno/reno/mod.ts";
+import { createRouter, textResponse } from "https://deno.land/x/reno/reno/mod.ts";
+
+const BINDING = ":8000";
 
 const router = createRouter([
-  ["/", "Hello, Bench!"],
+  ["/", () => textResponse("Hello, Bench!")],
 ]);
 
 await listenAndServe(BINDING, async (req) => {
