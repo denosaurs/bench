@@ -5,9 +5,9 @@ import {
 } from "https://deno.land/x/mandarinets/mod.ts";
 
 @Controller()
-export class MyController {
+export class Boo {
   @GET("/")
-  public httpHandler() {
+  public httpHandler(): string {
     return "Hello, Bench!";
   }
 }
