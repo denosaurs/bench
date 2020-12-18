@@ -649,6 +649,7 @@ jobs:
       - bare_servest
       - bare_mandarinets
       - bare_aqua
+      - bare_reno
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
