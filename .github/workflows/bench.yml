@@ -412,6 +412,8 @@ jobs:
           node-version: '13'
       - name: Setup deno 1.x
         uses: denolib/setup-deno@v2
+        with:
+          deno-version: v1.5.0 # TODO: fix type imports within Pogo source
       - name: Install Autocannon
         run: npm install -g autocannon
       - name: START
