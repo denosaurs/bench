@@ -115,7 +115,7 @@ groups:
           url: "https://deno.land/x/aqua"
           desc: |
             A minimal and fast 🏃 web framework for Deno
-            - name: aqua
+
       - name: reno
         dir: reno
         exe: deno run -A bare.ts
