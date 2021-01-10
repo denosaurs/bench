@@ -43,8 +43,8 @@ jobs:
         uses: actions-js/push@master
         with:
           github_token: '${{ secrets.GITHUB_TOKEN }}'
-          coauthor_email: qu4k@users.noreply.github.com
-          coauthor_name: qu4k
+          coauthor_email: filipporeds@users.noreply.github.com
+          coauthor_name: filipporeds
           branch: main
   bare_alosaur:
     runs-on: ubuntu-latest
@@ -82,8 +82,8 @@ jobs:
         uses: actions-js/push@master
         with:
           github_token: '${{ secrets.GITHUB_TOKEN }}'
-          coauthor_email: qu4k@users.noreply.github.com
-          coauthor_name: qu4k
+          coauthor_email: filipporeds@users.noreply.github.com
+          coauthor_name: filipporeds
           branch: main
   bare_deno:
     runs-on: ubuntu-latest
@@ -122,8 +122,8 @@ jobs:
         uses: actions-js/push@master
         with:
           github_token: '${{ secrets.GITHUB_TOKEN }}'
-          coauthor_email: qu4k@users.noreply.github.com
-          coauthor_name: qu4k
+          coauthor_email: filipporeds@users.noreply.github.com
+          coauthor_name: filipporeds
           branch: main
   bare_dinatra:
     runs-on: ubuntu-latest
@@ -163,8 +163,8 @@ jobs:
         uses: actions-js/push@master
         with:
           github_token: '${{ secrets.GITHUB_TOKEN }}'
-          coauthor_email: qu4k@users.noreply.github.com
-          coauthor_name: qu4k
+          coauthor_email: filipporeds@users.noreply.github.com
+          coauthor_name: filipporeds
           branch: main
   bare_drash:
     runs-on: ubuntu-latest
@@ -205,8 +205,8 @@ jobs:
         uses: actions-js/push@master
         with:
           github_token: '${{ secrets.GITHUB_TOKEN }}'
-          coauthor_email: qu4k@users.noreply.github.com
-          coauthor_name: qu4k
+          coauthor_email: filipporeds@users.noreply.github.com
+          coauthor_name: filipporeds
           branch: main
   bare_express:
     runs-on: ubuntu-latest
@@ -248,8 +248,8 @@ jobs:
         uses: actions-js/push@master
         with:
           github_token: '${{ secrets.GITHUB_TOKEN }}'
-          coauthor_email: qu4k@users.noreply.github.com
-          coauthor_name: qu4k
+          coauthor_email: filipporeds@users.noreply.github.com
+          coauthor_name: filipporeds
           branch: main
   bare_fastify:
     runs-on: ubuntu-latest
@@ -292,8 +292,8 @@ jobs:
         uses: actions-js/push@master
         with:
           github_token: '${{ secrets.GITHUB_TOKEN }}'
-          coauthor_email: qu4k@users.noreply.github.com
-          coauthor_name: qu4k
+          coauthor_email: filipporeds@users.noreply.github.com
+          coauthor_name: filipporeds
           branch: main
   bare_node:
     runs-on: ubuntu-latest
@@ -337,8 +337,8 @@ jobs:
         uses: actions-js/push@master
         with:
           github_token: '${{ secrets.GITHUB_TOKEN }}'
-          coauthor_email: qu4k@users.noreply.github.com
-          coauthor_name: qu4k
+          coauthor_email: filipporeds@users.noreply.github.com
+          coauthor_name: filipporeds
           branch: main
   bare_oak:
     runs-on: ubuntu-latest
@@ -383,8 +383,8 @@ jobs:
         uses: actions-js/push@master
         with:
           github_token: '${{ secrets.GITHUB_TOKEN }}'
-          coauthor_email: qu4k@users.noreply.github.com
-          coauthor_name: qu4k
+          coauthor_email: filipporeds@users.noreply.github.com
+          coauthor_name: filipporeds
           branch: main
   bare_servest:
     runs-on: ubuntu-latest
@@ -430,8 +430,8 @@ jobs:
         uses: actions-js/push@master
         with:
           github_token: '${{ secrets.GITHUB_TOKEN }}'
-          coauthor_email: qu4k@users.noreply.github.com
-          coauthor_name: qu4k
+          coauthor_email: filipporeds@users.noreply.github.com
+          coauthor_name: filipporeds
           branch: main
   bare_mandarinets:
     runs-on: ubuntu-latest
@@ -478,8 +478,8 @@ jobs:
         uses: actions-js/push@master
         with:
           github_token: '${{ secrets.GITHUB_TOKEN }}'
-          coauthor_email: qu4k@users.noreply.github.com
-          coauthor_name: qu4k
+          coauthor_email: filipporeds@users.noreply.github.com
+          coauthor_name: filipporeds
           branch: main
   bare_aqua:
     runs-on: ubuntu-latest
@@ -527,8 +527,8 @@ jobs:
         uses: actions-js/push@master
         with:
           github_token: '${{ secrets.GITHUB_TOKEN }}'
-          coauthor_email: qu4k@users.noreply.github.com
-          coauthor_name: qu4k
+          coauthor_email: filipporeds@users.noreply.github.com
+          coauthor_name: filipporeds
           branch: main
   bare_reno:
     runs-on: ubuntu-latest
@@ -577,8 +577,8 @@ jobs:
         uses: actions-js/push@master
         with:
           github_token: '${{ secrets.GITHUB_TOKEN }}'
-          coauthor_email: qu4k@users.noreply.github.com
-          coauthor_name: qu4k
+          coauthor_email: filipporeds@users.noreply.github.com
+          coauthor_name: filipporeds
           branch: main
   _results:
     runs-on: ubuntu-latest
@@ -612,6 +612,6 @@ jobs:
         uses: actions-js/push@master
         with:
           github_token: '${{ secrets.GITHUB_TOKEN }}'
-          coauthor_email: qu4k@users.noreply.github.com
-          coauthor_name: qu4k
+          coauthor_email: filipporeds@users.noreply.github.com
+          coauthor_name: filipporeds
           branch: main
