@@ -36,8 +36,8 @@ function wrap(step: Step): Step[] {
       uses: "actions-js/push@master",
       with: {
         github_token: "${{ secrets.GITHUB_TOKEN }}",
-        coauthor_email: "qu4k@users.noreply.github.com",
-        coauthor_name: "qu4k",
+        coauthor_email: "filipporeds@users.noreply.github.com",
+        coauthor_name: "filipporeds",
         branch: "main",
       },
     },
