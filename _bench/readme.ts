@@ -89,7 +89,11 @@ if (import.meta.main) {
     let table =
       "| **Framework** | **Average** | **Total** |\n| --- | --- | --- |\n";
 
-    for (const [key, { average, total }] of Object.entries(results)) {
+    for (
+      const [key, { average, total }] of Object.entries(results).sort(
+        ([, { average: a }], [, { average: b }]) => a - b,
+      )
+    ) {
       table += `| ${key} | ${average} | ${total} |\n`;
     }
 
