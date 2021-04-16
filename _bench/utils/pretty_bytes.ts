@@ -1,5 +1,3 @@
-"use strict";
-
 const BYTE_UNITS = ["B", "kB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"];
 
 const BIBYTE_UNITS = [

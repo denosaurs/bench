@@ -1,5 +1,3 @@
-"use strict";
-
 import { EOL, sentenceCase } from "../deps.ts";
 
 import { split, width } from "./text_to_chunks.ts";

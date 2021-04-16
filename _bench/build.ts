@@ -82,7 +82,7 @@ if (import.meta.main) {
   const actionPath = join(".github", "workflows", "bench.yml");
 
   const actionSource = await Deno.readTextFile(actionPath);
-  let action = parse(actionSource) as Action;
+  const action = parse(actionSource) as Action;
   action.jobs = {};
 
   const configSource = await Deno.readTextFile(configPath);

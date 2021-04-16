@@ -3,7 +3,7 @@ groups:
     benchmarks:
       - name: abc
         dir: abc
-        exe: deno run -A bare.ts
+        exe: deno run -A --unstable bare.ts
         info:
           url: "https://deno.land/x/abc"
           desc: |
@@ -11,36 +11,44 @@ groups:
             
       - name: alosaur
         dir: alosaur
-        exe: deno run -A bare.ts
+        exe: deno run -A --unstable bare.ts
         info:
           url: "https://deno.land/x/alosaur"
           desc: |
             Deno web framework with many decorators
 
+      - name: aqua
+        dir: aqua
+        exe: deno run -A --unstable bare.ts
+        info:
+          url: "https://deno.land/x/aqua"
+          desc: |
+            A minimal and fast 🏃 web framework for Deno
+
       - name: deno
         dir: deno
-        exe: deno run -A bare.ts
+        exe: deno run -A --unstable bare.ts
         info:
-          url: "https://deno.land/std/http"
+          url: "https://deno.land/"
           desc: |
-            Pure TypeScript and JavaScript Runtime
+            A secure runtime for JavaScript and TypeScript
 
       - name: dinatra
         dir: dinatra
-        exe: deno run -A bare.ts
+        exe: deno run -A --unstable bare.ts
         info:
           url: "https://github.com/syumai/dinatra"
           desc: |
             Sinatra like light weight web app framework for deno.
-            
+
       - name: drash
         dir: drash
-        exe: deno run -A bare.ts
+        exe: deno run -A --unstable bare.ts
         info:
           url: "https://deno.land/x/drash"
           desc: |
             A REST microframework for Deno's HTTP server with zero dependencies.
-
+            
       - name: express
         dir: express
         exe: npm i && node bare.js
@@ -57,13 +65,23 @@ groups:
           desc: |
             Fast and low overhead web framework, for Node.js
 
-#      - name: fastro
-#        dir: fastro
-#        exe: deno run -A bare.ts
-#        info:
-#          url: "https://deno.land/x/fastro"
-#          desc: |
-#            Fast and simple web framework for deno
+      - name: http
+        dir: http
+        exe: deno run -A --unstable bare.ts
+        info:
+          url: "https://deno.land/std/http"
+          desc: |
+            Deno standard library
+
+      - name: mandarinets
+        dir: mandarinets
+        exe: deno run -A --unstable bare.ts
+        info:
+          url: "https://deno.land/x/mandarinets"
+          desc: |
+            A minimalist, 
+            decorator-driven, 
+            MVC framework for Deno.
 
       - name: node
         dir: node
@@ -75,51 +93,33 @@ groups:
 
       - name: oak
         dir: oak
-        exe: deno run -A bare.ts
+        exe: deno run -A --unstable bare.ts
         info:
           url: "https://deno.land/x/oak"
           desc: |
             A middleware framework for Deno's net server 🐿️ 🦕
 
-#      - name: pogo
-#        dir: pogo
-#        exe: deno run --config tsconfig.json -A bare.ts
-#        info:
-#          url: "https://deno.land/x/pogo"
-#          desc: |
-#            Pogo is an easy-to-use, safe, and expressive framework
-#            for writing webservers and applications. 
-
-      - name: servest
-        dir: servest
-        exe: deno run -A bare.ts
+      - name: pogo
+        dir: pogo
+        exe: deno run -A --unstable bare.ts
         info:
-          url: "https://deno.land/x/servest"
+          url: "https://deno.land/x/pogo"
           desc: |
-            🌾A progressive http server for Deno🌾
-
-      - name: mandarinets
-        dir: mandarinets
-        exe: deno run --config tsconfig.json -A bare.ts
-        info:
-          url: "https://deno.land/x/mandarinets"
-          desc: |
-            A minimalist, 
-            decorator-driven, 
-            MVC framework for Deno.
-
-      - name: aqua
-        dir: aqua
-        exe: deno run -A bare.ts
-        info:
-          url: "https://deno.land/x/aqua"
-          desc: |
-            A minimal and fast 🏃 web framework for Deno
+            Pogo is an easy-to-use, safe, and expressive framework
+            for writing webservers and applications. 
 
       - name: reno
         dir: reno
-        exe: deno run -A bare.ts
+        exe: deno run -A --unstable bare.ts
         info:
           url: "https://deno.land/x/reno"
           desc: |
             A thin, testable routing library designed to sit on top of Deno's standard HTTP module
+
+      - name: servest
+        dir: servest
+        exe: deno run -A --unstable bare.ts
+        info:
+          url: "https://deno.land/x/servest"
+          desc: |
+            🌾A progressive http server for Deno🌾

@@ -1,5 +1,4 @@
-import { join } from "https://deno.land/std@0.68.0/path/mod.ts";
-import { parse } from "https://deno.land/std@0.68.0/encoding/yaml.ts";
+import { join, parse } from "./deps.ts";
 
 import type { Config, Result } from "./types.ts";
 import { Options, tablemark } from "./utils/tablemark.ts";

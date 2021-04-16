@@ -7,7 +7,7 @@ import {
 @Controller()
 export class Boo {
   @GET("/")
-  public httpHandler(): string {
+  httpHandler() {
     return "Hello, Bench!";
   }
 }
