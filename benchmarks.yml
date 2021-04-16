@@ -9,13 +9,13 @@ groups:
           desc: |
             A better Deno framework to create web application.
             
-      - name: alosaur
-        dir: alosaur
-        exe: deno run -A --unstable bare.ts
-        info:
-          url: "https://deno.land/x/alosaur"
-          desc: |
-            Deno web framework with many decorators
+#      - name: alosaur
+#        dir: alosaur
+#        exe: deno run -A --unstable bare.ts
+#        info:
+#          url: "https://deno.land/x/alosaur"
+#          desc: |
+#            Deno web framework with many decorators
 
       - name: aqua
         dir: aqua
