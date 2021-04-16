@@ -91,7 +91,7 @@ if (import.meta.main) {
 
     for (
       const [key, { average, total }] of Object.entries(results).sort(
-        ([, { average: a }], [, { average: b }]) => a - b,
+        ([, { average: a }], [, { average: b }]) => b - a,
       )
     ) {
       table += `| ${key} | ${average} | ${total} |\n`;
