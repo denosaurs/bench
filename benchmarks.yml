@@ -116,10 +116,10 @@ groups:
           desc: |
             A thin, testable routing library designed to sit on top of Deno's standard HTTP module
 
-      - name: servest
-        dir: servest
-        exe: deno run -A --unstable bare.ts
+      - name: opine
+        dir: opine
+        exe: deno run -A bare.ts
         info:
-          url: "https://deno.land/x/servest"
+          url: "https://deno.land/x/opine"
           desc: |
-            🌾A progressive http server for Deno🌾
+            Fast, minimalist web framework for Deno ported from ExpressJS.
