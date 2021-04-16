@@ -90,7 +90,7 @@ if (import.meta.main) {
       "| **Framework** | **Average** | **Total** |\n| --- | --- | --- |\n";
 
     for (const [key, { average, total }] of Object.entries(results)) {
-      table += `| ${key} | ${average} | ${total} |`;
+      table += `| ${key} | ${average} | ${total} |\n`;
     }
 
     markdown.push(table);

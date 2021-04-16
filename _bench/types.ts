@@ -25,7 +25,7 @@ export interface Step extends Record<string, unknown> {
 
 export interface Job extends Record<string, unknown> {
   "runs-on": string;
-  needs: string[];
+  needs?: string[];
   steps: Step[];
 }
 
