@@ -86,25 +86,13 @@ if (import.meta.main) {
         total: result.requests.total,
       };
     }
-    let table = "| **Framework** |";
-    // set headings
-    Object.keys(results).forEach((key) => {
-      table += ` ${key} |`;
-    });
-    table += "\n| --- | ";
-    Object.keys(results).forEach((key) => {
-      table += `--- |`;
-    });
-    // set average row
-    table += "\n| **Average** |";
-    Object.keys(results).forEach((key) => {
-      table += ` ${results[key].average} |`;
-    });
-    // set average row
-    table += "\n| **Total** |";
-    Object.keys(results).forEach((key) => {
-      table += ` ${results[key].total} |`;
-    });
+    let table =
+      "| **Framework** | **Average** | **Total** |\n| --- | --- | --- |\n";
+
+    for (const [key, { average, total }] of Object.entries(results)) {
+      table += `| ${key} | ${average} | ${total} |`;
+    }
+
     markdown.push(table);
   }
 
