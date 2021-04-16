@@ -123,3 +123,10 @@ groups:
           url: "https://deno.land/x/reno"
           desc: |
             A thin, testable routing library designed to sit on top of Deno's standard HTTP module
+      - name: opine
+        dir: opine
+        exe: deno run -A bare.ts
+        info:
+          url: "https://deno.land/x/opine"
+          desc: |
+            Fast, minimalist web framework for Deno ported from ExpressJS.
