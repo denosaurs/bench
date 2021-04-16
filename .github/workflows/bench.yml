@@ -10,6 +10,7 @@ name: bench
 jobs:
   bare_abc:
     runs-on: ubuntu-latest
+    needs: []
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
@@ -47,6 +48,8 @@ jobs:
           branch: main
   bare_aqua:
     runs-on: ubuntu-latest
+    needs:
+      - bare_abc
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
@@ -84,6 +87,9 @@ jobs:
           branch: main
   bare_deno:
     runs-on: ubuntu-latest
+    needs:
+      - bare_abc
+      - bare_aqua
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
@@ -121,6 +127,10 @@ jobs:
           branch: main
   bare_dinatra:
     runs-on: ubuntu-latest
+    needs:
+      - bare_abc
+      - bare_aqua
+      - bare_deno
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
@@ -158,6 +168,11 @@ jobs:
           branch: main
   bare_drash:
     runs-on: ubuntu-latest
+    needs:
+      - bare_abc
+      - bare_aqua
+      - bare_deno
+      - bare_dinatra
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
@@ -195,6 +210,12 @@ jobs:
           branch: main
   bare_express:
     runs-on: ubuntu-latest
+    needs:
+      - bare_abc
+      - bare_aqua
+      - bare_deno
+      - bare_dinatra
+      - bare_drash
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
@@ -232,6 +253,13 @@ jobs:
           branch: main
   bare_fastify:
     runs-on: ubuntu-latest
+    needs:
+      - bare_abc
+      - bare_aqua
+      - bare_deno
+      - bare_dinatra
+      - bare_drash
+      - bare_express
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
@@ -269,6 +297,14 @@ jobs:
           branch: main
   bare_http:
     runs-on: ubuntu-latest
+    needs:
+      - bare_abc
+      - bare_aqua
+      - bare_deno
+      - bare_dinatra
+      - bare_drash
+      - bare_express
+      - bare_fastify
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
@@ -306,6 +342,15 @@ jobs:
           branch: main
   bare_mandarinets:
     runs-on: ubuntu-latest
+    needs:
+      - bare_abc
+      - bare_aqua
+      - bare_deno
+      - bare_dinatra
+      - bare_drash
+      - bare_express
+      - bare_fastify
+      - bare_http
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
@@ -343,6 +388,16 @@ jobs:
           branch: main
   bare_node:
     runs-on: ubuntu-latest
+    needs:
+      - bare_abc
+      - bare_aqua
+      - bare_deno
+      - bare_dinatra
+      - bare_drash
+      - bare_express
+      - bare_fastify
+      - bare_http
+      - bare_mandarinets
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
@@ -380,6 +435,17 @@ jobs:
           branch: main
   bare_oak:
     runs-on: ubuntu-latest
+    needs:
+      - bare_abc
+      - bare_aqua
+      - bare_deno
+      - bare_dinatra
+      - bare_drash
+      - bare_express
+      - bare_fastify
+      - bare_http
+      - bare_mandarinets
+      - bare_node
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
@@ -417,6 +483,18 @@ jobs:
           branch: main
   bare_pogo:
     runs-on: ubuntu-latest
+    needs:
+      - bare_abc
+      - bare_aqua
+      - bare_deno
+      - bare_dinatra
+      - bare_drash
+      - bare_express
+      - bare_fastify
+      - bare_http
+      - bare_mandarinets
+      - bare_node
+      - bare_oak
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
@@ -454,6 +532,19 @@ jobs:
           branch: main
   bare_reno:
     runs-on: ubuntu-latest
+    needs:
+      - bare_abc
+      - bare_aqua
+      - bare_deno
+      - bare_dinatra
+      - bare_drash
+      - bare_express
+      - bare_fastify
+      - bare_http
+      - bare_mandarinets
+      - bare_node
+      - bare_oak
+      - bare_pogo
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
@@ -491,6 +582,20 @@ jobs:
           branch: main
   bare_opine:
     runs-on: ubuntu-latest
+    needs:
+      - bare_abc
+      - bare_aqua
+      - bare_deno
+      - bare_dinatra
+      - bare_drash
+      - bare_express
+      - bare_fastify
+      - bare_http
+      - bare_mandarinets
+      - bare_node
+      - bare_oak
+      - bare_pogo
+      - bare_reno
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master

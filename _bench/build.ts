@@ -101,7 +101,7 @@ if (import.meta.main) {
       const steps = wrap(test);
       action.jobs[name] = {
         "runs-on": "ubuntu-latest",
-        // needs: [...previous],
+        needs: [...previous],
         steps,
       };
       previous.push(name);
