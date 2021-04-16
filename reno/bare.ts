@@ -3,8 +3,8 @@ import { listenAndServe } from "https://deno.land/std/http/server.ts";
 import {
   createRouteMap,
   createRouter,
-  textResponse,
   ServerRequest,
+  textResponse,
 } from "https://deno.land/x/reno/reno/mod.ts";
 
 const BINDING = ":8000";
