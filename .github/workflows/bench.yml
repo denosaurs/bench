@@ -31,7 +31,7 @@ jobs:
         run: echo "Starting Benchmarks"
       - name: abc
         run: |-
-          deno run -A bare.ts &
+          deno run -A --unstable bare.ts &
           sleep 15 && 
           mkdir -p results &&
           autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
@@ -46,7 +46,7 @@ jobs:
           coauthor_email: filipporeds@users.noreply.github.com
           coauthor_name: filipporeds
           branch: main
-  bare_alosaur:
+  bare_aqua:
     runs-on: ubuntu-latest
     needs:
       - bare_abc
@@ -68,14 +68,14 @@ jobs:
         run: npm install -g autocannon
       - name: START
         run: echo "Starting Benchmarks"
-      - name: alosaur
+      - name: aqua
         run: |-
-          deno run -A bare.ts &
+          deno run -A --unstable bare.ts &
           sleep 15 && 
           mkdir -p results &&
           autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
           kill $!
-        working-directory: alosaur
+        working-directory: aqua
       - name: END
         run: echo "End Benchmarks"
       - name: Commit & Push changes
@@ -89,7 +89,7 @@ jobs:
     runs-on: ubuntu-latest
     needs:
       - bare_abc
-      - bare_alosaur
+      - bare_aqua
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
@@ -110,7 +110,7 @@ jobs:
         run: echo "Starting Benchmarks"
       - name: deno
         run: |-
-          deno run -A bare.ts &
+          deno run -A --unstable bare.ts &
           sleep 15 && 
           mkdir -p results &&
           autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
@@ -129,7 +129,7 @@ jobs:
     runs-on: ubuntu-latest
     needs:
       - bare_abc
-      - bare_alosaur
+      - bare_aqua
       - bare_deno
     steps:
       - name: Checkout Repository
@@ -151,7 +151,7 @@ jobs:
         run: echo "Starting Benchmarks"
       - name: dinatra
         run: |-
-          deno run -A bare.ts &
+          deno run -A --unstable bare.ts &
           sleep 15 && 
           mkdir -p results &&
           autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
@@ -170,7 +170,7 @@ jobs:
     runs-on: ubuntu-latest
     needs:
       - bare_abc
-      - bare_alosaur
+      - bare_aqua
       - bare_deno
       - bare_dinatra
     steps:
@@ -193,7 +193,7 @@ jobs:
         run: echo "Starting Benchmarks"
       - name: drash
         run: |-
-          deno run -A bare.ts &
+          deno run -A --unstable bare.ts &
           sleep 15 && 
           mkdir -p results &&
           autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
@@ -212,7 +212,7 @@ jobs:
     runs-on: ubuntu-latest
     needs:
       - bare_abc
-      - bare_alosaur
+      - bare_aqua
       - bare_deno
       - bare_dinatra
       - bare_drash
@@ -255,7 +255,7 @@ jobs:
     runs-on: ubuntu-latest
     needs:
       - bare_abc
-      - bare_alosaur
+      - bare_aqua
       - bare_deno
       - bare_dinatra
       - bare_drash
@@ -295,16 +295,109 @@ jobs:
           coauthor_email: filipporeds@users.noreply.github.com
           coauthor_name: filipporeds
           branch: main
-  bare_node:
+  bare_http:
     runs-on: ubuntu-latest
     needs:
       - bare_abc
-      - bare_alosaur
+      - bare_aqua
       - bare_deno
       - bare_dinatra
       - bare_drash
       - bare_express
       - bare_fastify
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@master
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - name: Pull changes from other benchmarks
+        run: git pull
+      - name: Setup nodejs 13
+        uses: actions/setup-node@v1
+        with:
+          node-version: '13'
+      - name: Setup deno 1.x
+        uses: denolib/setup-deno@v2
+      - name: Install Autocannon
+        run: npm install -g autocannon
+      - name: START
+        run: echo "Starting Benchmarks"
+      - name: http
+        run: |-
+          deno run -A --unstable bare.ts &
+          sleep 15 && 
+          mkdir -p results &&
+          autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
+          kill $!
+        working-directory: http
+      - name: END
+        run: echo "End Benchmarks"
+      - name: Commit & Push changes
+        uses: actions-js/push@master
+        with:
+          github_token: '${{ secrets.GITHUB_TOKEN }}'
+          coauthor_email: filipporeds@users.noreply.github.com
+          coauthor_name: filipporeds
+          branch: main
+  bare_mandarinets:
+    runs-on: ubuntu-latest
+    needs:
+      - bare_abc
+      - bare_aqua
+      - bare_deno
+      - bare_dinatra
+      - bare_drash
+      - bare_express
+      - bare_fastify
+      - bare_http
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@master
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - name: Pull changes from other benchmarks
+        run: git pull
+      - name: Setup nodejs 13
+        uses: actions/setup-node@v1
+        with:
+          node-version: '13'
+      - name: Setup deno 1.x
+        uses: denolib/setup-deno@v2
+      - name: Install Autocannon
+        run: npm install -g autocannon
+      - name: START
+        run: echo "Starting Benchmarks"
+      - name: mandarinets
+        run: |-
+          deno run -A --unstable bare.ts &
+          sleep 15 && 
+          mkdir -p results &&
+          autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
+          kill $!
+        working-directory: mandarinets
+      - name: END
+        run: echo "End Benchmarks"
+      - name: Commit & Push changes
+        uses: actions-js/push@master
+        with:
+          github_token: '${{ secrets.GITHUB_TOKEN }}'
+          coauthor_email: filipporeds@users.noreply.github.com
+          coauthor_name: filipporeds
+          branch: main
+  bare_node:
+    runs-on: ubuntu-latest
+    needs:
+      - bare_abc
+      - bare_aqua
+      - bare_deno
+      - bare_dinatra
+      - bare_drash
+      - bare_express
+      - bare_fastify
+      - bare_http
+      - bare_mandarinets
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
@@ -344,12 +437,14 @@ jobs:
     runs-on: ubuntu-latest
     needs:
       - bare_abc
-      - bare_alosaur
+      - bare_aqua
       - bare_deno
       - bare_dinatra
       - bare_drash
       - bare_express
       - bare_fastify
+      - bare_http
+      - bare_mandarinets
       - bare_node
     steps:
       - name: Checkout Repository
@@ -371,7 +466,7 @@ jobs:
         run: echo "Starting Benchmarks"
       - name: oak
         run: |-
-          deno run -A bare.ts &
+          deno run -A --unstable bare.ts &
           sleep 15 && 
           mkdir -p results &&
           autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
@@ -386,115 +481,20 @@ jobs:
           coauthor_email: filipporeds@users.noreply.github.com
           coauthor_name: filipporeds
           branch: main
-  bare_servest:
+  bare_pogo:
     runs-on: ubuntu-latest
     needs:
       - bare_abc
-      - bare_alosaur
+      - bare_aqua
       - bare_deno
       - bare_dinatra
       - bare_drash
       - bare_express
       - bare_fastify
-      - bare_node
-      - bare_oak
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@master
-        with:
-          persist-credentials: false
-          fetch-depth: 0
-      - name: Pull changes from other benchmarks
-        run: git pull
-      - name: Setup nodejs 13
-        uses: actions/setup-node@v1
-        with:
-          node-version: '13'
-      - name: Setup deno 1.x
-        uses: denolib/setup-deno@v2
-      - name: Install Autocannon
-        run: npm install -g autocannon
-      - name: START
-        run: echo "Starting Benchmarks"
-      - name: servest
-        run: |-
-          deno run -A bare.ts &
-          sleep 15 && 
-          mkdir -p results &&
-          autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
-          kill $!
-        working-directory: servest
-      - name: END
-        run: echo "End Benchmarks"
-      - name: Commit & Push changes
-        uses: actions-js/push@master
-        with:
-          github_token: '${{ secrets.GITHUB_TOKEN }}'
-          coauthor_email: filipporeds@users.noreply.github.com
-          coauthor_name: filipporeds
-          branch: main
-  bare_mandarinets:
-    runs-on: ubuntu-latest
-    needs:
-      - bare_abc
-      - bare_alosaur
-      - bare_deno
-      - bare_dinatra
-      - bare_drash
-      - bare_express
-      - bare_fastify
-      - bare_node
-      - bare_oak
-      - bare_servest
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@master
-        with:
-          persist-credentials: false
-          fetch-depth: 0
-      - name: Pull changes from other benchmarks
-        run: git pull
-      - name: Setup nodejs 13
-        uses: actions/setup-node@v1
-        with:
-          node-version: '13'
-      - name: Setup deno 1.x
-        uses: denolib/setup-deno@v2
-      - name: Install Autocannon
-        run: npm install -g autocannon
-      - name: START
-        run: echo "Starting Benchmarks"
-      - name: mandarinets
-        run: |-
-          deno run --config tsconfig.json -A bare.ts &
-          sleep 15 && 
-          mkdir -p results &&
-          autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
-          kill $!
-        working-directory: mandarinets
-      - name: END
-        run: echo "End Benchmarks"
-      - name: Commit & Push changes
-        uses: actions-js/push@master
-        with:
-          github_token: '${{ secrets.GITHUB_TOKEN }}'
-          coauthor_email: filipporeds@users.noreply.github.com
-          coauthor_name: filipporeds
-          branch: main
-  bare_aqua:
-    runs-on: ubuntu-latest
-    needs:
-      - bare_abc
-      - bare_alosaur
-      - bare_deno
-      - bare_dinatra
-      - bare_drash
-      - bare_express
-      - bare_fastify
-      - bare_node
-      - bare_oak
-      - bare_servest
+      - bare_http
       - bare_mandarinets
+      - bare_node
+      - bare_oak
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
@@ -513,14 +513,14 @@ jobs:
         run: npm install -g autocannon
       - name: START
         run: echo "Starting Benchmarks"
-      - name: aqua
+      - name: pogo
         run: |-
-          deno run -A bare.ts &
+          deno run -A --unstable bare.ts &
           sleep 15 && 
           mkdir -p results &&
           autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
           kill $!
-        working-directory: aqua
+        working-directory: pogo
       - name: END
         run: echo "End Benchmarks"
       - name: Commit & Push changes
@@ -534,17 +534,17 @@ jobs:
     runs-on: ubuntu-latest
     needs:
       - bare_abc
-      - bare_alosaur
+      - bare_aqua
       - bare_deno
       - bare_dinatra
       - bare_drash
       - bare_express
       - bare_fastify
+      - bare_http
+      - bare_mandarinets
       - bare_node
       - bare_oak
-      - bare_servest
-      - bare_mandarinets
-      - bare_aqua
+      - bare_pogo
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
@@ -565,7 +565,7 @@ jobs:
         run: echo "Starting Benchmarks"
       - name: reno
         run: |-
-          deno run -A bare.ts &
+          deno run -A --unstable bare.ts &
           sleep 15 && 
           mkdir -p results &&
           autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
@@ -584,17 +584,17 @@ jobs:
     runs-on: ubuntu-latest
     needs:
       - bare_abc
-      - bare_alosaur
+      - bare_aqua
       - bare_deno
       - bare_dinatra
       - bare_drash
       - bare_express
       - bare_fastify
+      - bare_http
+      - bare_mandarinets
       - bare_node
       - bare_oak
-      - bare_servest
-      - bare_mandarinets
-      - bare_aqua
+      - bare_pogo
       - bare_reno
     steps:
       - name: Checkout Repository
@@ -635,17 +635,17 @@ jobs:
     runs-on: ubuntu-latest
     needs:
       - bare_abc
-      - bare_alosaur
+      - bare_aqua
       - bare_deno
       - bare_dinatra
       - bare_drash
       - bare_express
       - bare_fastify
+      - bare_http
+      - bare_mandarinets
       - bare_node
       - bare_oak
-      - bare_servest
-      - bare_mandarinets
-      - bare_aqua
+      - bare_pogo
       - bare_reno
       - bare_opine
     steps:
