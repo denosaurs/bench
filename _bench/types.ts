@@ -2,6 +2,7 @@ export interface Benchmark {
   name: string;
   dir: string;
   exe: string;
+  env?: Record<string, string>;
   info: {
     url: string;
     desc: string;
@@ -21,6 +22,7 @@ export interface Step extends Record<string, unknown> {
   name: string;
   run?: string;
   "working-directory"?: string;
+  env?: Record<string, string>;
 }
 
 export interface Job extends Record<string, unknown> {

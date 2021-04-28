@@ -76,6 +76,8 @@ groups:
       - name: mandarinets
         dir: mandarinets
         exe: deno run -A --unstable bare.ts
+        env:
+          MANDARINE_SERVER_SESSION_MIDDLEWARE: false
         info:
           url: "https://deno.land/x/mandarinets"
           desc: |

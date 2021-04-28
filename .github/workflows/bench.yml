@@ -377,6 +377,8 @@ jobs:
           autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
           kill $!
         working-directory: mandarinets
+        env:
+          MANDARINE_SERVER_SESSION_MIDDLEWARE: false
       - name: END
         run: echo "End Benchmarks"
       - name: Commit & Push changes

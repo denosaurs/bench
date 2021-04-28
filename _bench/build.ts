@@ -92,11 +92,16 @@ if (import.meta.main) {
 
   for (const group of config.groups) {
     for (const benchmark of group.benchmarks) {
-      const test = {
+      const test: Step = {
         name: benchmark.name,
         run: command(group.name, benchmark.exe),
         "working-directory": benchmark.dir,
       };
+
+      if (benchmark.env !== undefined) {
+        test.env = benchmark.env;
+      }
+
       const name = `${group.name}_${benchmark.name}`;
       const steps = wrap(test);
       action.jobs[name] = {
