@@ -102,7 +102,6 @@ groups:
             MVC framework for Deno.
 
       - name: mandarinets_canary
-        version: v1.9.0  
         dir: mandarinets_canary
         exe: deno run -A --unstable bare.ts
         env:

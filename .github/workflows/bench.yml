@@ -509,10 +509,8 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '13'
-      - name: Setup deno v1.9.0
+      - name: Setup deno 1.x
         uses: denolib/setup-deno@v2
-        with:
-          deno-version: v1.9.0
       - name: Install Autocannon
         run: npm install -g autocannon
       - name: START
