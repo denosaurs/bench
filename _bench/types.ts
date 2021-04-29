@@ -2,6 +2,7 @@ export interface Benchmark {
   name: string;
   dir: string;
   exe: string;
+  version?: string;
   env?: Record<string, string>;
   info: {
     url: string;

@@ -10,7 +10,15 @@ autocannon -c 40 -d 10 -j http://localhost:8000 > results/${group}.json &&
 kill $!`;
 }
 
-function wrap(step: Step): Step[] {
+function wrap(step: Step, version?: string): Step[] {
+  const deno: any = {
+    name: "Setup deno 1.x",
+    uses: "denolib/setup-deno@v2",
+  };
+  if(version) {
+    deno.name = `Setup deno ${version}`
+    deno.with = { ["deno-version"]: version }
+  }
   return [
     {
       name: "Checkout Repository",
@@ -23,10 +31,7 @@ function wrap(step: Step): Step[] {
       uses: "actions/setup-node@v1",
       with: { "node-version": "13" },
     },
-    {
-      name: "Setup deno 1.x",
-      uses: "denolib/setup-deno@v2",
-    },
+    {...deno},
     { name: "Install Autocannon", run: "npm install -g autocannon" },
     { name: "START", run: 'echo "Starting Benchmarks"' },
     step,
@@ -103,7 +108,7 @@ if (import.meta.main) {
       }
 
       const name = `${group.name}_${benchmark.name}`;
-      const steps = wrap(test);
+      const steps = wrap(test, benchmark.version);
       action.jobs[name] = {
         "runs-on": "ubuntu-latest",
         needs: [...previous],

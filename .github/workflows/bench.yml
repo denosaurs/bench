@@ -483,7 +483,7 @@ jobs:
           coauthor_email: filipporeds@users.noreply.github.com
           coauthor_name: filipporeds
           branch: main
-  bare_mandarinetsCanary:
+  bare_mandarinets_canary:
     runs-on: ubuntu-latest
     needs:
       - bare_abc
@@ -509,13 +509,15 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '13'
-      - name: Setup deno 1.x
+      - name: Setup deno v1.9.0
         uses: denolib/setup-deno@v2
+        with:
+          deno-version: v1.9.0
       - name: Install Autocannon
         run: npm install -g autocannon
       - name: START
         run: echo "Starting Benchmarks"
-      - name: mandarinets canary
+      - name: mandarinets_canary
         run: |-
           deno run -A --unstable bare.ts &
           sleep 15 && 
@@ -533,7 +535,7 @@ jobs:
           github_token: '${{ secrets.GITHUB_TOKEN }}'
           coauthor_email: filipporeds@users.noreply.github.com
           coauthor_name: filipporeds
-          branch: main          
+          branch: main
   bare_node:
     runs-on: ubuntu-latest
     needs:
@@ -548,7 +550,7 @@ jobs:
       - bare_little_native
       - bare_little_std
       - bare_mandarinets
-      - bare_mandarinetsCanary
+      - bare_mandarinets_canary
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
@@ -598,7 +600,7 @@ jobs:
       - bare_little_native
       - bare_little_std
       - bare_mandarinets
-      - bare_mandarinetsCanary
+      - bare_mandarinets_canary
       - bare_node
     steps:
       - name: Checkout Repository
@@ -649,7 +651,7 @@ jobs:
       - bare_little_native
       - bare_little_std
       - bare_mandarinets
-      - bare_mandarinetsCanary
+      - bare_mandarinets_canary
       - bare_node
       - bare_oak
     steps:
@@ -701,7 +703,7 @@ jobs:
       - bare_little_native
       - bare_little_std
       - bare_mandarinets
-      - bare_mandarinetsCanary
+      - bare_mandarinets_canary
       - bare_node
       - bare_oak
       - bare_pogo
@@ -754,7 +756,7 @@ jobs:
       - bare_little_native
       - bare_little_std
       - bare_mandarinets
-      - bare_mandarinetsCanary
+      - bare_mandarinets_canary
       - bare_node
       - bare_oak
       - bare_pogo
@@ -808,7 +810,7 @@ jobs:
       - bare_little_native
       - bare_little_std
       - bare_mandarinets
-      - bare_mandarinetsCanary
+      - bare_mandarinets_canary
       - bare_node
       - bare_oak
       - bare_pogo
@@ -863,7 +865,7 @@ jobs:
       - bare_little_native
       - bare_little_std
       - bare_mandarinets
-      - bare_mandarinetsCanary
+      - bare_mandarinets_canary
       - bare_node
       - bare_oak
       - bare_pogo
