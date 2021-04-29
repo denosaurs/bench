@@ -73,6 +73,22 @@ groups:
           desc: |
             Deno standard library
 
+      - name: little native
+        dir: little
+        exe: deno run -A --unstable bare.ts
+        info:
+          url: "https://deno.land/x/little"
+          desc: |
+            A minimalistic connect-like web framework. Automatically works out of the box with Deno Deploy, Deno's Native HTTP and Deno's Standard HTTP server.
+
+      - name: little std
+        dir: little
+        exe: deno run -A bare.ts
+        info:
+          url: "https://deno.land/x/little"
+          desc: |
+            A minimalistic connect-like web framework. Automatically works out of the box with Deno Deploy, Deno's Native HTTP and Deno's Standard HTTP server.
+
       - name: mandarinets
         dir: mandarinets
         exe: deno run -A --unstable bare.ts
@@ -125,3 +141,11 @@ groups:
           url: "https://deno.land/x/opine"
           desc: |
             Fast, minimalist web framework for Deno ported from ExpressJS.
+
+      - name: tinyhttp
+        dir: tinyhttp
+        exe: deno run -A bare.ts
+        info:
+          url: "https://deno.land/x/tinyhttp"
+          desc: |
+            Deno port of tinyhttp, 0-legacy, tiny & fast web framework.
