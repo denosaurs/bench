@@ -23,31 +23,38 @@
   - [express](#express)
   - [fastify](#fastify)
   - [http](#http)
+  - [little_native](#little_native)
+  - [little_std](#little_std)
   - [mandarinets](#mandarinets)
   - [node](#node)
   - [oak](#oak)
   - [pogo](#pogo)
   - [reno](#reno)
   - [opine](#opine)
+  - [tinyhttp](#tinyhttp)
 
 ## Overview
 
 | **Framework** | **Average** | **Total** |
-| ------------- | ----------- | --------- |
-| deno          | 42551.2     | 425505    |
-| fastify       | 37442.19    | 411883    |
-| node          | 23580.4     | 235824    |
-| http          | 18489.1     | 203366    |
-| aqua          | 13708.8     | 137076    |
-| dinatra       | 12027.82    | 132309    |
-| oak           | 10862.2     | 108609    |
-| abc           | 10591       | 105905    |
-| drash         | 9496.21     | 94963     |
-| express       | 8875.37     | 97628     |
-| reno          | 8402.21     | 84014     |
-| mandarinets   | 7303.2      | 73023     |
-| opine         | 4231.4      | 42307     |
-| pogo          | 0           | 0         |
+| --- | --- | --- |
+| deno | 50272 | 502746 |
+| node | 22874 | 228736 |
+| fastify | 22715.28 | 249850 |
+| http | 18239.6 | 182389 |
+| oak | 16567.6 | 165694 |
+| aqua | 14589.6 | 145890 |
+| express | 14043.8 | 140445 |
+| drash | 12288.6 | 122871 |
+| mandarinets | 11092.2 | 110919 |
+| abc | 10535.8 | 105361 |
+| dinatra | 8246.55 | 90703 |
+| reno | 7627.1 | 83889 |
+| tinyhttp | 6886.4 | 68860 |
+| little_native | 5553.3 | 55529 |
+| little_std | 5553.3 | 55529 |
+| opine | 4445.7 | 44444 |
+| pogo | 0 | 0 |
+
 
 ## benchmark `bare`
 
@@ -55,186 +62,277 @@
 
 > A better Deno framework to create web application.
 
-| **Stat**      | 1%     | 2.5%   | 50%     | 95.5%   | Avg    | Stdev   | Min    | Total   |
-| ------------- | ------ | ------ | ------- | ------- | ------ | ------- | ------ | ------- |
-| **Req/Sec**   | 7043   | 7043   | 10959   | 11231   | 10591  | 1201.69 | 7040   | 105905  |
-| **Bytes/Sec** | 655 kB | 655 kB | 1.02 MB | 1.04 MB | 985 kB | 112 kB  | 655 kB | 9.85 MB |
 
-| **Stat**    | 2.5% | 50%  | 95.5% | Avg     | Stdev   | Max   |
-| ----------- | ---- | ---- | ----- | ------- | ------- | ----- |
-| **Latency** | 2 ms | 3 ms | 6 ms  | 3.32 ms | 1.32 ms | 77 ms |
+| **Stat**      | 1%     | 2.5%   | 50%     | 95.5%   | Avg     | Stdev   | Min    | Total  |
+| ------------- | ------ | ------ | ------- | ------- | ------- | ------- | ------ | ------ |
+| **Req/Sec**   | 7275   | 7275   | 11023   | 11615   | 10535.8 | 1209.26 | 7274   | 105361 |
+| **Bytes/Sec** | 677 kB | 677 kB | 1.03 MB | 1.08 MB | 980 kB  | 112 kB  | 676 kB | 9.8 MB |
+
+
+| **Stat**    | 2.5%  | 50%   | 95.5% | Avg     | Stdev   | Max   |
+| ----------- | ----- | ----- | ----- | ------- | ------- | ----- |
+| **Latency** | 3 ms  | 3 ms  | 5 ms  | 3.28 ms | 1.17 ms | 51 ms |
+
 
 ### [aqua](https://deno.land/x/aqua)
 
 > A minimal and fast 🏃 web framework for Deno
 
-| **Stat**      | 1%     | 2.5%   | 50%    | 95.5%   | Avg     | Stdev  | Min    | Total   |
-| ------------- | ------ | ------ | ------ | ------- | ------- | ------ | ------ | ------- |
-| **Req/Sec**   | 9135   | 9135   | 14183  | 14639   | 13708.8 | 1546.2 | 9131   | 137076  |
-| **Bytes/Sec** | 840 kB | 840 kB | 1.3 MB | 1.35 MB | 1.26 MB | 142 kB | 840 kB | 12.6 MB |
 
-| **Stat**    | 2.5% | 50%  | 95.5% | Avg     | Stdev   | Max   |
-| ----------- | ---- | ---- | ----- | ------- | ------- | ----- |
-| **Latency** | 2 ms | 2 ms | 4 ms  | 2.27 ms | 1.07 ms | 39 ms |
+| **Stat**      | 1%     | 2.5%   | 50%     | 95.5%   | Avg     | Stdev   | Min    | Total   |
+| ------------- | ------ | ------ | ------- | ------- | ------- | ------- | ------ | ------- |
+| **Req/Sec**   | 10823  | 10823  | 15055   | 15087   | 14589.6 | 1259.87 | 10822  | 145890  |
+| **Bytes/Sec** | 996 kB | 996 kB | 1.39 MB | 1.39 MB | 1.34 MB | 116 kB  | 996 kB | 13.4 MB |
+
+
+| **Stat**    | 2.5%  | 50%   | 95.5% | Avg     | Stdev   | Max   |
+| ----------- | ----- | ----- | ----- | ------- | ------- | ----- |
+| **Latency** | 2 ms  | 2 ms  | 3 ms  | 2.17 ms | 0.81 ms | 55 ms |
+
 
 ### [deno](https://deno.land/)
 
 > A secure runtime for JavaScript and TypeScript
 
+
 | **Stat**      | 1%      | 2.5%    | 50%     | 95.5%   | Avg     | Stdev   | Min     | Total   |
 | ------------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- |
-| **Req/Sec**   | 31135   | 31135   | 43295   | 45887   | 42551.2 | 4035.12 | 31125   | 425505  |
-| **Bytes/Sec** | 2.77 MB | 2.77 MB | 3.85 MB | 4.08 MB | 3.79 MB | 359 kB  | 2.77 MB | 37.9 MB |
+| **Req/Sec**   | 39711   | 39711   | 49855   | 54687   | 50272   | 4141.71 | 39704   | 502746  |
+| **Bytes/Sec** | 3.53 MB | 3.53 MB | 4.44 MB | 4.87 MB | 4.47 MB | 368 kB  | 3.53 MB | 44.7 MB |
 
-| **Stat**    | 2.5% | 50%  | 95.5% | Avg     | Stdev   | Max   |
-| ----------- | ---- | ---- | ----- | ------- | ------- | ----- |
-| **Latency** | 0 ms | 0 ms | 1 ms  | 0.35 ms | 0.72 ms | 54 ms |
+
+| **Stat**    | 2.5%  | 50%   | 95.5% | Avg     | Stdev   | Max   |
+| ----------- | ----- | ----- | ----- | ------- | ------- | ----- |
+| **Latency** | 0 ms  | 0 ms  | 1 ms  | 0.29 ms | 0.53 ms | 14 ms |
+
 
 ### [dinatra](https://github.com/syumai/dinatra)
 
 > Sinatra like light weight web app framework for deno.
 
-| **Stat**      | 1%     | 2.5%   | 50%    | 95.5%  | Avg      | Stdev   | Min    | Total   |
-| ------------- | ------ | ------ | ------ | ------ | -------- | ------- | ------ | ------- |
-| **Req/Sec**   | 8067   | 8067   | 12503  | 12663  | 12027.82 | 1278.38 | 8064   | 132309  |
-| **Bytes/Sec** | 420 kB | 420 kB | 650 kB | 659 kB | 625 kB   | 66.5 kB | 419 kB | 6.88 MB |
 
-| **Stat**    | 2.5% | 50%  | 95.5% | Avg     | Stdev   | Max   |
-| ----------- | ---- | ---- | ----- | ------- | ------- | ----- |
-| **Latency** | 2 ms | 3 ms | 6 ms  | 3.01 ms | 1.19 ms | 30 ms |
+| **Stat**      | 1%     | 2.5%   | 50%    | 95.5%  | Avg     | Stdev   | Min    | Total   |
+| ------------- | ------ | ------ | ------ | ------ | ------- | ------- | ------ | ------- |
+| **Req/Sec**   | 6127   | 6127   | 8431   | 8679   | 8246.55 | 684.75  | 6124   | 90703   |
+| **Bytes/Sec** | 318 kB | 318 kB | 438 kB | 451 kB | 429 kB  | 35.7 kB | 318 kB | 4.72 MB |
+
+
+| **Stat**    | 2.5%  | 50%   | 95.5% | Avg    | Stdev  | Max   |
+| ----------- | ----- | ----- | ----- | ------ | ------ | ----- |
+| **Latency** | 3 ms  | 4 ms  | 8 ms  | 4.4 ms | 1.4 ms | 30 ms |
+
 
 ### [drash](https://deno.land/x/drash)
 
 > A REST microframework for Deno's HTTP server with zero dependencies.
 
-| **Stat**      | 1%     | 2.5%   | 50%    | 95.5%  | Avg     | Stdev   | Min    | Total   |
-| ------------- | ------ | ------ | ------ | ------ | ------- | ------- | ------ | ------- |
-| **Req/Sec**   | 6135   | 6135   | 9879   | 10127  | 9496.21 | 1142.7  | 6132   | 94963   |
-| **Bytes/Sec** | 527 kB | 527 kB | 850 kB | 871 kB | 817 kB  | 98.4 kB | 527 kB | 8.17 MB |
 
-| **Stat**    | 2.5% | 50%  | 95.5% | Avg     | Stdev   | Max   |
-| ----------- | ---- | ---- | ----- | ------- | ------- | ----- |
-| **Latency** | 3 ms | 3 ms | 7 ms  | 3.62 ms | 1.45 ms | 74 ms |
+| **Stat**      | 1%     | 2.5%   | 50%    | 95.5%   | Avg     | Stdev   | Min    | Total   |
+| ------------- | ------ | ------ | ------ | ------- | ------- | ------- | ------ | ------- |
+| **Req/Sec**   | 8043   | 8043   | 12767  | 12911   | 12288.6 | 1419.73 | 8042   | 122871  |
+| **Bytes/Sec** | 692 kB | 692 kB | 1.1 MB | 1.11 MB | 1.06 MB | 122 kB  | 692 kB | 10.6 MB |
+
+
+| **Stat**    | 2.5%  | 50%   | 95.5% | Avg     | Stdev   | Max   |
+| ----------- | ----- | ----- | ----- | ------- | ------- | ----- |
+| **Latency** | 2 ms  | 3 ms  | 5 ms  | 2.93 ms | 1.05 ms | 57 ms |
+
 
 ### [express](https://expressjs.com/)
 
 > Fast, unopinionated, minimalist web framework for Node.js
 
-| **Stat**      | 1%     | 2.5%   | 50%     | 95.5%  | Avg     | Stdev   | Min    | Total   |
-| ------------- | ------ | ------ | ------- | ------ | ------- | ------- | ------ | ------- |
-| **Req/Sec**   | 3891   | 3891   | 9511    | 10183  | 8875.37 | 1708.78 | 3891   | 97628   |
-| **Bytes/Sec** | 841 kB | 841 kB | 2.06 MB | 2.2 MB | 1.92 MB | 369 kB  | 840 kB | 21.1 MB |
 
-| **Stat**    | 2.5% | 50%  | 95.5% | Avg     | Stdev   | Max   |
-| ----------- | ---- | ---- | ----- | ------- | ------- | ----- |
-| **Latency** | 1 ms | 4 ms | 10 ms | 3.96 ms | 2.22 ms | 42 ms |
+| **Stat**      | 1%      | 2.5%    | 50%     | 95.5%   | Avg     | Stdev  | Min     | Total   |
+| ------------- | ------- | ------- | ------- | ------- | ------- | ------ | ------- | ------- |
+| **Req/Sec**   | 6075    | 6075    | 15095   | 15319   | 14043.8 | 2710.8 | 6075    | 140445  |
+| **Bytes/Sec** | 1.31 MB | 1.31 MB | 3.26 MB | 3.31 MB | 3.03 MB | 585 kB | 1.31 MB | 30.3 MB |
+
+
+| **Stat**    | 2.5%  | 50%   | 95.5% | Avg    | Stdev   | Max   |
+| ----------- | ----- | ----- | ----- | ------ | ------- | ----- |
+| **Latency** | 2 ms  | 2 ms  | 5 ms  | 2.3 ms | 1.31 ms | 32 ms |
+
 
 ### [fastify](https://www.fastify.io/)
 
 > Fast and low overhead web framework, for Node.js
 
-| **Stat**      | 1%      | 2.5%    | 50%     | 95.5%   | Avg      | Stdev   | Min     | Total   |
-| ------------- | ------- | ------- | ------- | ------- | -------- | ------- | ------- | ------- |
-| **Req/Sec**   | 22815   | 22815   | 39039   | 39487   | 37442.19 | 4661.81 | 22802   | 411883  |
-| **Bytes/Sec** | 3.51 MB | 3.51 MB | 6.01 MB | 6.08 MB | 5.77 MB  | 718 kB  | 3.51 MB | 63.4 MB |
 
-| **Stat**    | 2.5% | 50%  | 95.5% | Avg     | Stdev   | Max   |
-| ----------- | ---- | ---- | ----- | ------- | ------- | ----- |
-| **Latency** | 0 ms | 0 ms | 2 ms  | 0.28 ms | 0.72 ms | 20 ms |
+| **Stat**      | 1%      | 2.5%    | 50%     | 95.5%  | Avg      | Stdev   | Min     | Total   |
+| ------------- | ------- | ------- | ------- | ------ | -------- | ------- | ------- | ------- |
+| **Req/Sec**   | 11359   | 11359   | 23935   | 24703  | 22715.28 | 3646.48 | 11353   | 249850  |
+| **Bytes/Sec** | 1.75 MB | 1.75 MB | 3.69 MB | 3.8 MB | 3.5 MB   | 562 kB  | 1.75 MB | 38.5 MB |
+
+
+| **Stat**    | 2.5%  | 50%   | 95.5% | Avg     | Stdev   | Max   |
+| ----------- | ----- | ----- | ----- | ------- | ------- | ----- |
+| **Latency** | 0 ms  | 1 ms  | 3 ms  | 1.26 ms | 1.04 ms | 24 ms |
+
 
 ### [http](https://deno.land/std/http)
 
 > Deno standard library
 
-| **Stat**      | 1%     | 2.5%   | 50%    | 95.5%   | Avg     | Stdev   | Min    | Total   |
-| ------------- | ------ | ------ | ------ | ------- | ------- | ------- | ------ | ------- |
-| **Req/Sec**   | 12807  | 12807  | 19167  | 20255   | 18489.1 | 1985.67 | 12802  | 203366  |
-| **Bytes/Sec** | 666 kB | 666 kB | 997 kB | 1.05 MB | 961 kB  | 103 kB  | 666 kB | 10.6 MB |
 
-| **Stat**    | 2.5% | 50%  | 95.5% | Avg     | Stdev   | Max   |
-| ----------- | ---- | ---- | ----- | ------- | ------- | ----- |
-| **Latency** | 1 ms | 1 ms | 4 ms  | 1.52 ms | 1.15 ms | 31 ms |
+| **Stat**      | 1%     | 2.5%   | 50%    | 95.5% | Avg     | Stdev   | Min    | Total   |
+| ------------- | ------ | ------ | ------ | ----- | ------- | ------- | ------ | ------- |
+| **Req/Sec**   | 12439  | 12439  | 18799  | 19247 | 18239.6 | 1946.54 | 12438  | 182389  |
+| **Bytes/Sec** | 647 kB | 647 kB | 977 kB | 1 MB  | 948 kB  | 101 kB  | 647 kB | 9.48 MB |
 
-### [mandarinets](https://deno.land/x/mandarinets)
 
-> A minimalist, decorator-driven, MVC framework for Deno.
+| **Stat**    | 2.5%  | 50%   | 95.5% | Avg     | Stdev | Max   |
+| ----------- | ----- | ----- | ----- | ------- | ----- | ----- |
+| **Latency** | 1 ms  | 1 ms  | 4 ms  | 1.59 ms | 1 ms  | 46 ms |
+
+
+### [little_native](https://deno.land/x/little)
+
+> A minimalistic connect-like web framework. Automatically works out of the box with Deno Deploy, Deno's Native HTTP and Deno's Standard HTTP server.
+
 
 | **Stat**      | 1%     | 2.5%   | 50%    | 95.5%  | Avg    | Stdev   | Min    | Total   |
 | ------------- | ------ | ------ | ------ | ------ | ------ | ------- | ------ | ------- |
-| **Req/Sec**   | 4447   | 4447   | 7639   | 7707   | 7303.2 | 956.02  | 4445   | 73023   |
-| **Bytes/Sec** | 413 kB | 413 kB | 711 kB | 717 kB | 679 kB | 88.9 kB | 413 kB | 6.79 MB |
+| **Req/Sec**   | 3295   | 3295   | 5863   | 5951   | 5553.3 | 773.61  | 3295   | 55529   |
+| **Bytes/Sec** | 303 kB | 303 kB | 540 kB | 547 kB | 511 kB | 71.2 kB | 303 kB | 5.11 MB |
 
-| **Stat**    | 2.5% | 50%  | 95.5% | Avg     | Stdev   | Max   |
-| ----------- | ---- | ---- | ----- | ------- | ------- | ----- |
-| **Latency** | 4 ms | 5 ms | 9 ms  | 4.96 ms | 1.66 ms | 94 ms |
+
+| **Stat**    | 2.5%  | 50%   | 95.5% | Avg     | Stdev   | Max   |
+| ----------- | ----- | ----- | ----- | ------- | ------- | ----- |
+| **Latency** | 6 ms  | 6 ms  | 12 ms | 6.65 ms | 1.93 ms | 39 ms |
+
+
+### [little_std](https://deno.land/x/little)
+
+> A minimalistic connect-like web framework. Automatically works out of the box with Deno Deploy, Deno's Native HTTP and Deno's Standard HTTP server.
+
+
+| **Stat**      | 1%     | 2.5%   | 50%    | 95.5%  | Avg    | Stdev   | Min    | Total   |
+| ------------- | ------ | ------ | ------ | ------ | ------ | ------- | ------ | ------- |
+| **Req/Sec**   | 3295   | 3295   | 5863   | 5951   | 5553.3 | 773.61  | 3295   | 55529   |
+| **Bytes/Sec** | 303 kB | 303 kB | 540 kB | 547 kB | 511 kB | 71.2 kB | 303 kB | 5.11 MB |
+
+
+| **Stat**    | 2.5%  | 50%   | 95.5% | Avg     | Stdev   | Max   |
+| ----------- | ----- | ----- | ----- | ------- | ------- | ----- |
+| **Latency** | 6 ms  | 6 ms  | 12 ms | 6.65 ms | 1.93 ms | 39 ms |
+
+
+### [mandarinets](https://deno.land/x/mandarinets)
+
+> A minimalist, 
+decorator-driven, 
+MVC framework for Deno.
+
+
+| **Stat**      | 1%     | 2.5%   | 50%     | 95.5%   | Avg     | Stdev   | Min    | Total   |
+| ------------- | ------ | ------ | ------- | ------- | ------- | ------- | ------ | ------- |
+| **Req/Sec**   | 7855   | 7855   | 10991   | 12367   | 11092.2 | 1223.73 | 7853   | 110919  |
+| **Bytes/Sec** | 731 kB | 731 kB | 1.02 MB | 1.15 MB | 1.03 MB | 114 kB  | 730 kB | 10.3 MB |
+
+
+| **Stat**    | 2.5%  | 50%   | 95.5% | Avg     | Stdev   | Max   |
+| ----------- | ----- | ----- | ----- | ------- | ------- | ----- |
+| **Latency** | 2 ms  | 3 ms  | 6 ms  | 3.21 ms | 1.04 ms | 59 ms |
+
 
 ### [node](https://nodejs.org)
 
 > Node.js JavaScript runtime
 
-| **Stat**      | 1%      | 2.5%    | 50%    | 95.5%   | Avg     | Stdev   | Min     | Total   |
-| ------------- | ------- | ------- | ------ | ------- | ------- | ------- | ------- | ------- |
-| **Req/Sec**   | 12583   | 12583   | 25023  | 25263   | 23580.4 | 3703.17 | 12582   | 235824  |
-| **Bytes/Sec** | 1.41 MB | 1.41 MB | 2.8 MB | 2.83 MB | 2.64 MB | 415 kB  | 1.41 MB | 26.4 MB |
 
-| **Stat**    | 2.5% | 50%  | 95.5% | Avg     | Stdev   | Max   |
-| ----------- | ---- | ---- | ----- | ------- | ------- | ----- |
-| **Latency** | 0 ms | 1 ms | 3 ms  | 1.23 ms | 0.96 ms | 29 ms |
+| **Stat**      | 1%      | 2.5%    | 50%     | 95.5%   | Avg     | Stdev   | Min     | Total   |
+| ------------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- |
+| **Req/Sec**   | 13535   | 13535   | 23759   | 24719   | 22874   | 3136.75 | 13528   | 228736  |
+| **Bytes/Sec** | 1.52 MB | 1.52 MB | 2.66 MB | 2.77 MB | 2.56 MB | 352 kB  | 1.52 MB | 25.6 MB |
+
+
+| **Stat**    | 2.5%  | 50%   | 95.5% | Avg     | Stdev  | Max   |
+| ----------- | ----- | ----- | ----- | ------- | ------ | ----- |
+| **Latency** | 0 ms  | 1 ms  | 3 ms  | 1.27 ms | 0.9 ms | 23 ms |
+
 
 ### [oak](https://deno.land/x/oak)
 
 > A middleware framework for Deno's net server 🐿️ 🦕
 
-| **Stat**      | 1%     | 2.5%   | 50%     | 95.5%   | Avg     | Stdev   | Min    | Total   |
-| ------------- | ------ | ------ | ------- | ------- | ------- | ------- | ------ | ------- |
-| **Req/Sec**   | 6539   | 6539   | 11359   | 12239   | 10862.2 | 1518.11 | 6537   | 108609  |
-| **Bytes/Sec** | 850 kB | 850 kB | 1.48 MB | 1.59 MB | 1.41 MB | 197 kB  | 850 kB | 14.1 MB |
 
-| **Stat**    | 2.5% | 50%  | 95.5% | Avg    | Stdev   | Max   |
-| ----------- | ---- | ---- | ----- | ------ | ------- | ----- |
-| **Latency** | 2 ms | 3 ms | 6 ms  | 3.2 ms | 1.39 ms | 62 ms |
+| **Stat**      | 1%      | 2.5%    | 50%     | 95.5%   | Avg     | Stdev  | Min     | Total   |
+| ------------- | ------- | ------- | ------- | ------- | ------- | ------ | ------- | ------- |
+| **Req/Sec**   | 11991   | 11991   | 17071   | 17327   | 16567.6 | 1551.3 | 11986   | 165694  |
+| **Bytes/Sec** | 1.56 MB | 1.56 MB | 2.22 MB | 2.25 MB | 2.15 MB | 202 kB | 1.56 MB | 21.5 MB |
+
+
+| **Stat**    | 2.5%  | 50%   | 95.5% | Avg     | Stdev   | Max   |
+| ----------- | ----- | ----- | ----- | ------- | ------- | ----- |
+| **Latency** | 2 ms  | 2 ms  | 3 ms  | 2.11 ms | 0.69 ms | 21 ms |
+
 
 ### [pogo](https://deno.land/x/pogo)
 
-> Pogo is an easy-to-use, safe, and expressive framework for writing webservers
-> and applications.
+> Pogo is an easy-to-use, safe, and expressive framework
+for writing webservers and applications. 
 
-| **Stat**      | 1%  | 2.5% | 50% | 95.5% | Avg | Stdev | Min | Total |
-| ------------- | --- | ---- | --- | ----- | --- | ----- | --- | ----- |
-| **Req/Sec**   | 0   | 0    | 0   | 0     | 0   | 0     | 0   | 0     |
-| **Bytes/Sec** | 0 B | 0 B  | 0 B | 0 B   | 0 B | 0 B   | 0 B | 0 B   |
 
-| **Stat**    | 2.5% | 50%  | 95.5% | Avg  | Stdev | Max  |
-| ----------- | ---- | ---- | ----- | ---- | ----- | ---- |
-| **Latency** | 0 ms | 0 ms | 0 ms  | 0 ms | 0 ms  | 0 ms |
+| **Stat**      | 1%    | 2.5%  | 50%   | 95.5% | Avg   | Stdev | Min   | Total |
+| ------------- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- |
+| **Req/Sec**   | 0     | 0     | 0     | 0     | 0     | 0     | 0     | 0     |
+| **Bytes/Sec** | 0 B   | 0 B   | 0 B   | 0 B   | 0 B   | 0 B   | 0 B   | 0 B   |
+
+
+| **Stat**    | 2.5%  | 50%   | 95.5% | Avg   | Stdev | Max   |
+| ----------- | ----- | ----- | ----- | ----- | ----- | ----- |
+| **Latency** | 0 ms  | 0 ms  | 0 ms  | 0 ms  | 0 ms  | 0 ms  |
+
 
 ### [reno](https://deno.land/x/reno)
 
-> A thin, testable routing library designed to sit on top of Deno's standard
-> HTTP module
+> A thin, testable routing library designed to sit on top of Deno's standard HTTP module
 
-| **Stat**      | 1%     | 2.5%   | 50%    | 95.5%  | Avg     | Stdev   | Min    | Total   |
-| ------------- | ------ | ------ | ------ | ------ | ------- | ------- | ------ | ------- |
-| **Req/Sec**   | 5539   | 5539   | 8647   | 8967   | 8402.21 | 966.28  | 5537   | 84014   |
-| **Bytes/Sec** | 432 kB | 432 kB | 675 kB | 699 kB | 655 kB  | 75.4 kB | 432 kB | 6.55 MB |
 
-| **Stat**    | 2.5% | 50%  | 95.5% | Avg    | Stdev  | Max    |
-| ----------- | ---- | ---- | ----- | ------ | ------ | ------ |
-| **Latency** | 4 ms | 4 ms | 8 ms  | 4.4 ms | 1.7 ms | 101 ms |
+| **Stat**      | 1%     | 2.5%   | 50%    | 95.5%  | Avg    | Stdev   | Min    | Total   |
+| ------------- | ------ | ------ | ------ | ------ | ------ | ------- | ------ | ------- |
+| **Req/Sec**   | 4867   | 4867   | 7907   | 8131   | 7627.1 | 895.11  | 4864   | 83889   |
+| **Bytes/Sec** | 380 kB | 380 kB | 617 kB | 634 kB | 595 kB | 69.8 kB | 379 kB | 6.54 MB |
+
+
+| **Stat**    | 2.5%  | 50%   | 95.5% | Avg     | Stdev   | Max    |
+| ----------- | ----- | ----- | ----- | ------- | ------- | ------ |
+| **Latency** | 4 ms  | 4 ms  | 9 ms  | 4.69 ms | 1.91 ms | 110 ms |
+
 
 ### [opine](https://deno.land/x/opine)
 
 > Fast, minimalist web framework for Deno ported from ExpressJS.
 
+
+| **Stat**      | 1%     | 2.5%   | 50%    | 95.5%  | Avg    | Stdev   | Min    | Total   |
+| ------------- | ------ | ------ | ------ | ------ | ------ | ------- | ------ | ------- |
+| **Req/Sec**   | 3139   | 3139   | 4547   | 4855   | 4445.7 | 467.16  | 3139   | 44444   |
+| **Bytes/Sec** | 484 kB | 484 kB | 700 kB | 748 kB | 684 kB | 71.8 kB | 483 kB | 6.84 MB |
+
+
+| **Stat**    | 2.5%  | 50%   | 95.5% | Avg     | Stdev   | Max   |
+| ----------- | ----- | ----- | ----- | ------- | ------- | ----- |
+| **Latency** | 7 ms  | 8 ms  | 13 ms | 8.48 ms | 2.34 ms | 98 ms |
+
+
+### [tinyhttp](https://deno.land/x/tinyhttp)
+
+> Deno port of tinyhttp, 0-legacy, tiny & fast web framework.
+
+
 | **Stat**      | 1%     | 2.5%   | 50%    | 95.5%  | Avg    | Stdev  | Min    | Total   |
 | ------------- | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------- |
-| **Req/Sec**   | 2933   | 2933   | 4387   | 4539   | 4231.4 | 454.73 | 2932   | 42307   |
-| **Bytes/Sec** | 452 kB | 452 kB | 676 kB | 699 kB | 652 kB | 70 kB  | 452 kB | 6.52 MB |
+| **Req/Sec**   | 4671   | 4671   | 7151   | 7351   | 6886.4 | 767.38 | 4671   | 68860   |
+| **Bytes/Sec** | 622 kB | 622 kB | 951 kB | 978 kB | 916 kB | 102 kB | 621 kB | 9.16 MB |
 
-| **Stat**    | 2.5% | 50%  | 95.5% | Avg     | Stdev   | Max    |
-| ----------- | ---- | ---- | ----- | ------- | ------- | ------ |
-| **Latency** | 7 ms | 8 ms | 14 ms | 8.96 ms | 2.22 ms | 100 ms |
+
+| **Stat**    | 2.5%  | 50%   | 95.5% | Avg     | Stdev   | Max   |
+| ----------- | ----- | ----- | ----- | ------- | ------- | ----- |
+| **Latency** | 3 ms  | 5 ms  | 9 ms  | 5.19 ms | 1.73 ms | 63 ms |
+
 
 ---
 
-<p align="center">Generated 2021-04-28T22:53:14.468Z</p>
+<p align="center">Generated 2021-04-29T07:47:55.573Z</p>
