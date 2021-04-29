@@ -73,7 +73,7 @@ groups:
           desc: |
             Deno standard library
 
-      - name: little native
+      - name: little_native
         dir: little
         exe: deno run -A --unstable bare.ts
         info:
@@ -81,7 +81,7 @@ groups:
           desc: |
             A minimalistic connect-like web framework. Automatically works out of the box with Deno Deploy, Deno's Native HTTP and Deno's Standard HTTP server.
 
-      - name: little std
+      - name: little_std
         dir: little
         exe: deno run -A bare.ts
         info:
