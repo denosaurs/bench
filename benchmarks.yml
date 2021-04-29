@@ -101,6 +101,19 @@ groups:
             decorator-driven, 
             MVC framework for Deno.
 
+      - name: mandarinets_canary
+        version: v1.9.0  
+        dir: mandarinets_canary
+        exe: deno run -A --unstable bare.ts
+        env:
+          MANDARINE_SERVER_SESSION_MIDDLEWARE: false
+        info:
+          url: "https://raw.githubusercontent.com/mandarineorg/mandarinets/master"
+          desc: |
+            A minimalist, 
+            decorator-driven, 
+            MVC framework for Deno.            
+
       - name: node
         dir: node
         exe: node bare.js
