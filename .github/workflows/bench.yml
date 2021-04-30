@@ -10,7 +10,6 @@ name: bench
 jobs:
   bare_abc:
     runs-on: ubuntu-latest
-    needs: []
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
@@ -46,10 +45,9 @@ jobs:
           coauthor_email: filipporeds@users.noreply.github.com
           coauthor_name: filipporeds
           branch: main
+          force: true
   bare_alosaur:
     runs-on: ubuntu-latest
-    needs:
-      - bare_abc
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
@@ -85,11 +83,9 @@ jobs:
           coauthor_email: filipporeds@users.noreply.github.com
           coauthor_name: filipporeds
           branch: main
+          force: true
   bare_aqua:
     runs-on: ubuntu-latest
-    needs:
-      - bare_abc
-      - bare_alosaur
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
@@ -125,12 +121,9 @@ jobs:
           coauthor_email: filipporeds@users.noreply.github.com
           coauthor_name: filipporeds
           branch: main
+          force: true
   bare_deno:
     runs-on: ubuntu-latest
-    needs:
-      - bare_abc
-      - bare_alosaur
-      - bare_aqua
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
@@ -166,13 +159,9 @@ jobs:
           coauthor_email: filipporeds@users.noreply.github.com
           coauthor_name: filipporeds
           branch: main
+          force: true
   bare_dinatra:
     runs-on: ubuntu-latest
-    needs:
-      - bare_abc
-      - bare_alosaur
-      - bare_aqua
-      - bare_deno
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
@@ -208,14 +197,9 @@ jobs:
           coauthor_email: filipporeds@users.noreply.github.com
           coauthor_name: filipporeds
           branch: main
+          force: true
   bare_drash:
     runs-on: ubuntu-latest
-    needs:
-      - bare_abc
-      - bare_alosaur
-      - bare_aqua
-      - bare_deno
-      - bare_dinatra
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
@@ -251,15 +235,9 @@ jobs:
           coauthor_email: filipporeds@users.noreply.github.com
           coauthor_name: filipporeds
           branch: main
+          force: true
   bare_express:
     runs-on: ubuntu-latest
-    needs:
-      - bare_abc
-      - bare_alosaur
-      - bare_aqua
-      - bare_deno
-      - bare_dinatra
-      - bare_drash
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
@@ -295,16 +273,9 @@ jobs:
           coauthor_email: filipporeds@users.noreply.github.com
           coauthor_name: filipporeds
           branch: main
+          force: true
   bare_fastify:
     runs-on: ubuntu-latest
-    needs:
-      - bare_abc
-      - bare_alosaur
-      - bare_aqua
-      - bare_deno
-      - bare_dinatra
-      - bare_drash
-      - bare_express
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
@@ -340,17 +311,9 @@ jobs:
           coauthor_email: filipporeds@users.noreply.github.com
           coauthor_name: filipporeds
           branch: main
+          force: true
   bare_http:
     runs-on: ubuntu-latest
-    needs:
-      - bare_abc
-      - bare_alosaur
-      - bare_aqua
-      - bare_deno
-      - bare_dinatra
-      - bare_drash
-      - bare_express
-      - bare_fastify
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
@@ -386,18 +349,9 @@ jobs:
           coauthor_email: filipporeds@users.noreply.github.com
           coauthor_name: filipporeds
           branch: main
+          force: true
   bare_little_native:
     runs-on: ubuntu-latest
-    needs:
-      - bare_abc
-      - bare_alosaur
-      - bare_aqua
-      - bare_deno
-      - bare_dinatra
-      - bare_drash
-      - bare_express
-      - bare_fastify
-      - bare_http
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
@@ -433,19 +387,9 @@ jobs:
           coauthor_email: filipporeds@users.noreply.github.com
           coauthor_name: filipporeds
           branch: main
+          force: true
   bare_little_std:
     runs-on: ubuntu-latest
-    needs:
-      - bare_abc
-      - bare_alosaur
-      - bare_aqua
-      - bare_deno
-      - bare_dinatra
-      - bare_drash
-      - bare_express
-      - bare_fastify
-      - bare_http
-      - bare_little_native
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
@@ -481,20 +425,9 @@ jobs:
           coauthor_email: filipporeds@users.noreply.github.com
           coauthor_name: filipporeds
           branch: main
+          force: true
   bare_mandarinets:
     runs-on: ubuntu-latest
-    needs:
-      - bare_abc
-      - bare_alosaur
-      - bare_aqua
-      - bare_deno
-      - bare_dinatra
-      - bare_drash
-      - bare_express
-      - bare_fastify
-      - bare_http
-      - bare_little_native
-      - bare_little_std
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
@@ -532,21 +465,9 @@ jobs:
           coauthor_email: filipporeds@users.noreply.github.com
           coauthor_name: filipporeds
           branch: main
+          force: true
   bare_mandarinets_canary:
     runs-on: ubuntu-latest
-    needs:
-      - bare_abc
-      - bare_alosaur
-      - bare_aqua
-      - bare_deno
-      - bare_dinatra
-      - bare_drash
-      - bare_express
-      - bare_fastify
-      - bare_http
-      - bare_little_native
-      - bare_little_std
-      - bare_mandarinets
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
@@ -586,22 +507,9 @@ jobs:
           coauthor_email: filipporeds@users.noreply.github.com
           coauthor_name: filipporeds
           branch: main
+          force: true
   bare_node:
     runs-on: ubuntu-latest
-    needs:
-      - bare_abc
-      - bare_alosaur
-      - bare_aqua
-      - bare_deno
-      - bare_dinatra
-      - bare_drash
-      - bare_express
-      - bare_fastify
-      - bare_http
-      - bare_little_native
-      - bare_little_std
-      - bare_mandarinets
-      - bare_mandarinets_canary
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
@@ -637,23 +545,9 @@ jobs:
           coauthor_email: filipporeds@users.noreply.github.com
           coauthor_name: filipporeds
           branch: main
+          force: true
   bare_oak:
     runs-on: ubuntu-latest
-    needs:
-      - bare_abc
-      - bare_alosaur
-      - bare_aqua
-      - bare_deno
-      - bare_dinatra
-      - bare_drash
-      - bare_express
-      - bare_fastify
-      - bare_http
-      - bare_little_native
-      - bare_little_std
-      - bare_mandarinets
-      - bare_mandarinets_canary
-      - bare_node
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
@@ -689,24 +583,9 @@ jobs:
           coauthor_email: filipporeds@users.noreply.github.com
           coauthor_name: filipporeds
           branch: main
+          force: true
   bare_pogo:
     runs-on: ubuntu-latest
-    needs:
-      - bare_abc
-      - bare_alosaur
-      - bare_aqua
-      - bare_deno
-      - bare_dinatra
-      - bare_drash
-      - bare_express
-      - bare_fastify
-      - bare_http
-      - bare_little_native
-      - bare_little_std
-      - bare_mandarinets
-      - bare_mandarinets_canary
-      - bare_node
-      - bare_oak
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
@@ -742,25 +621,9 @@ jobs:
           coauthor_email: filipporeds@users.noreply.github.com
           coauthor_name: filipporeds
           branch: main
+          force: true
   bare_reno:
     runs-on: ubuntu-latest
-    needs:
-      - bare_abc
-      - bare_alosaur
-      - bare_aqua
-      - bare_deno
-      - bare_dinatra
-      - bare_drash
-      - bare_express
-      - bare_fastify
-      - bare_http
-      - bare_little_native
-      - bare_little_std
-      - bare_mandarinets
-      - bare_mandarinets_canary
-      - bare_node
-      - bare_oak
-      - bare_pogo
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
@@ -796,26 +659,9 @@ jobs:
           coauthor_email: filipporeds@users.noreply.github.com
           coauthor_name: filipporeds
           branch: main
+          force: true
   bare_opine:
     runs-on: ubuntu-latest
-    needs:
-      - bare_abc
-      - bare_alosaur
-      - bare_aqua
-      - bare_deno
-      - bare_dinatra
-      - bare_drash
-      - bare_express
-      - bare_fastify
-      - bare_http
-      - bare_little_native
-      - bare_little_std
-      - bare_mandarinets
-      - bare_mandarinets_canary
-      - bare_node
-      - bare_oak
-      - bare_pogo
-      - bare_reno
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
@@ -851,27 +697,9 @@ jobs:
           coauthor_email: filipporeds@users.noreply.github.com
           coauthor_name: filipporeds
           branch: main
+          force: true
   bare_tinyhttp:
     runs-on: ubuntu-latest
-    needs:
-      - bare_abc
-      - bare_alosaur
-      - bare_aqua
-      - bare_deno
-      - bare_dinatra
-      - bare_drash
-      - bare_express
-      - bare_fastify
-      - bare_http
-      - bare_little_native
-      - bare_little_std
-      - bare_mandarinets
-      - bare_mandarinets_canary
-      - bare_node
-      - bare_oak
-      - bare_pogo
-      - bare_reno
-      - bare_opine
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
@@ -907,6 +735,7 @@ jobs:
           coauthor_email: filipporeds@users.noreply.github.com
           coauthor_name: filipporeds
           branch: main
+          force: true
   _results:
     runs-on: ubuntu-latest
     needs:
