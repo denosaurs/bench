@@ -10,6 +10,8 @@ name: bench
 jobs:
   bare_abc:
     runs-on: ubuntu-latest
+    outputs:
+      result: '${{ steps.result.outputs.result }}'
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
@@ -38,17 +40,16 @@ jobs:
         working-directory: abc
       - name: END
         run: echo "End Benchmarks"
-      - name: Pull latest commits
-        run: git pull
-      - name: Commit & Push changes
-        uses: actions-js/push@master
-        with:
-          github_token: '${{ secrets.GITHUB_TOKEN }}'
-          coauthor_email: filipporeds@users.noreply.github.com
-          coauthor_name: filipporeds
-          branch: main
+      - name: Set result output
+        id: result
+        run: |-
+          |
+                  RESULT="$(cat abc/results/bare.json)"
+                  echo "::set-output name=result::$RESULT"
   bare_alosaur:
     runs-on: ubuntu-latest
+    outputs:
+      result: '${{ steps.result.outputs.result }}'
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
@@ -77,17 +78,16 @@ jobs:
         working-directory: alosaur
       - name: END
         run: echo "End Benchmarks"
-      - name: Pull latest commits
-        run: git pull
-      - name: Commit & Push changes
-        uses: actions-js/push@master
-        with:
-          github_token: '${{ secrets.GITHUB_TOKEN }}'
-          coauthor_email: filipporeds@users.noreply.github.com
-          coauthor_name: filipporeds
-          branch: main
+      - name: Set result output
+        id: result
+        run: |-
+          |
+                  RESULT="$(cat alosaur/results/bare.json)"
+                  echo "::set-output name=result::$RESULT"
   bare_aqua:
     runs-on: ubuntu-latest
+    outputs:
+      result: '${{ steps.result.outputs.result }}'
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
@@ -116,17 +116,16 @@ jobs:
         working-directory: aqua
       - name: END
         run: echo "End Benchmarks"
-      - name: Pull latest commits
-        run: git pull
-      - name: Commit & Push changes
-        uses: actions-js/push@master
-        with:
-          github_token: '${{ secrets.GITHUB_TOKEN }}'
-          coauthor_email: filipporeds@users.noreply.github.com
-          coauthor_name: filipporeds
-          branch: main
+      - name: Set result output
+        id: result
+        run: |-
+          |
+                  RESULT="$(cat aqua/results/bare.json)"
+                  echo "::set-output name=result::$RESULT"
   bare_deno:
     runs-on: ubuntu-latest
+    outputs:
+      result: '${{ steps.result.outputs.result }}'
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
@@ -155,17 +154,16 @@ jobs:
         working-directory: deno
       - name: END
         run: echo "End Benchmarks"
-      - name: Pull latest commits
-        run: git pull
-      - name: Commit & Push changes
-        uses: actions-js/push@master
-        with:
-          github_token: '${{ secrets.GITHUB_TOKEN }}'
-          coauthor_email: filipporeds@users.noreply.github.com
-          coauthor_name: filipporeds
-          branch: main
+      - name: Set result output
+        id: result
+        run: |-
+          |
+                  RESULT="$(cat deno/results/bare.json)"
+                  echo "::set-output name=result::$RESULT"
   bare_dinatra:
     runs-on: ubuntu-latest
+    outputs:
+      result: '${{ steps.result.outputs.result }}'
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
@@ -194,17 +192,16 @@ jobs:
         working-directory: dinatra
       - name: END
         run: echo "End Benchmarks"
-      - name: Pull latest commits
-        run: git pull
-      - name: Commit & Push changes
-        uses: actions-js/push@master
-        with:
-          github_token: '${{ secrets.GITHUB_TOKEN }}'
-          coauthor_email: filipporeds@users.noreply.github.com
-          coauthor_name: filipporeds
-          branch: main
+      - name: Set result output
+        id: result
+        run: |-
+          |
+                  RESULT="$(cat dinatra/results/bare.json)"
+                  echo "::set-output name=result::$RESULT"
   bare_drash:
     runs-on: ubuntu-latest
+    outputs:
+      result: '${{ steps.result.outputs.result }}'
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
@@ -233,17 +230,16 @@ jobs:
         working-directory: drash
       - name: END
         run: echo "End Benchmarks"
-      - name: Pull latest commits
-        run: git pull
-      - name: Commit & Push changes
-        uses: actions-js/push@master
-        with:
-          github_token: '${{ secrets.GITHUB_TOKEN }}'
-          coauthor_email: filipporeds@users.noreply.github.com
-          coauthor_name: filipporeds
-          branch: main
+      - name: Set result output
+        id: result
+        run: |-
+          |
+                  RESULT="$(cat drash/results/bare.json)"
+                  echo "::set-output name=result::$RESULT"
   bare_express:
     runs-on: ubuntu-latest
+    outputs:
+      result: '${{ steps.result.outputs.result }}'
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
@@ -272,17 +268,16 @@ jobs:
         working-directory: express
       - name: END
         run: echo "End Benchmarks"
-      - name: Pull latest commits
-        run: git pull
-      - name: Commit & Push changes
-        uses: actions-js/push@master
-        with:
-          github_token: '${{ secrets.GITHUB_TOKEN }}'
-          coauthor_email: filipporeds@users.noreply.github.com
-          coauthor_name: filipporeds
-          branch: main
+      - name: Set result output
+        id: result
+        run: |-
+          |
+                  RESULT="$(cat express/results/bare.json)"
+                  echo "::set-output name=result::$RESULT"
   bare_fastify:
     runs-on: ubuntu-latest
+    outputs:
+      result: '${{ steps.result.outputs.result }}'
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
@@ -311,17 +306,16 @@ jobs:
         working-directory: fastify
       - name: END
         run: echo "End Benchmarks"
-      - name: Pull latest commits
-        run: git pull
-      - name: Commit & Push changes
-        uses: actions-js/push@master
-        with:
-          github_token: '${{ secrets.GITHUB_TOKEN }}'
-          coauthor_email: filipporeds@users.noreply.github.com
-          coauthor_name: filipporeds
-          branch: main
+      - name: Set result output
+        id: result
+        run: |-
+          |
+                  RESULT="$(cat fastify/results/bare.json)"
+                  echo "::set-output name=result::$RESULT"
   bare_http:
     runs-on: ubuntu-latest
+    outputs:
+      result: '${{ steps.result.outputs.result }}'
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
@@ -350,17 +344,16 @@ jobs:
         working-directory: http
       - name: END
         run: echo "End Benchmarks"
-      - name: Pull latest commits
-        run: git pull
-      - name: Commit & Push changes
-        uses: actions-js/push@master
-        with:
-          github_token: '${{ secrets.GITHUB_TOKEN }}'
-          coauthor_email: filipporeds@users.noreply.github.com
-          coauthor_name: filipporeds
-          branch: main
+      - name: Set result output
+        id: result
+        run: |-
+          |
+                  RESULT="$(cat http/results/bare.json)"
+                  echo "::set-output name=result::$RESULT"
   bare_little_native:
     runs-on: ubuntu-latest
+    outputs:
+      result: '${{ steps.result.outputs.result }}'
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
@@ -389,17 +382,16 @@ jobs:
         working-directory: little
       - name: END
         run: echo "End Benchmarks"
-      - name: Pull latest commits
-        run: git pull
-      - name: Commit & Push changes
-        uses: actions-js/push@master
-        with:
-          github_token: '${{ secrets.GITHUB_TOKEN }}'
-          coauthor_email: filipporeds@users.noreply.github.com
-          coauthor_name: filipporeds
-          branch: main
+      - name: Set result output
+        id: result
+        run: |-
+          |
+                  RESULT="$(cat little/results/bare.json)"
+                  echo "::set-output name=result::$RESULT"
   bare_little_std:
     runs-on: ubuntu-latest
+    outputs:
+      result: '${{ steps.result.outputs.result }}'
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
@@ -428,17 +420,16 @@ jobs:
         working-directory: little
       - name: END
         run: echo "End Benchmarks"
-      - name: Pull latest commits
-        run: git pull
-      - name: Commit & Push changes
-        uses: actions-js/push@master
-        with:
-          github_token: '${{ secrets.GITHUB_TOKEN }}'
-          coauthor_email: filipporeds@users.noreply.github.com
-          coauthor_name: filipporeds
-          branch: main
+      - name: Set result output
+        id: result
+        run: |-
+          |
+                  RESULT="$(cat little/results/bare.json)"
+                  echo "::set-output name=result::$RESULT"
   bare_mandarinets:
     runs-on: ubuntu-latest
+    outputs:
+      result: '${{ steps.result.outputs.result }}'
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
@@ -469,17 +460,16 @@ jobs:
           MANDARINE_SERVER_SESSION_MIDDLEWARE: false
       - name: END
         run: echo "End Benchmarks"
-      - name: Pull latest commits
-        run: git pull
-      - name: Commit & Push changes
-        uses: actions-js/push@master
-        with:
-          github_token: '${{ secrets.GITHUB_TOKEN }}'
-          coauthor_email: filipporeds@users.noreply.github.com
-          coauthor_name: filipporeds
-          branch: main
+      - name: Set result output
+        id: result
+        run: |-
+          |
+                  RESULT="$(cat mandarinets/results/bare.json)"
+                  echo "::set-output name=result::$RESULT"
   bare_mandarinets_canary:
     runs-on: ubuntu-latest
+    outputs:
+      result: '${{ steps.result.outputs.result }}'
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
@@ -512,17 +502,16 @@ jobs:
           MANDARINE_SERVER_SESSION_MIDDLEWARE: false
       - name: END
         run: echo "End Benchmarks"
-      - name: Pull latest commits
-        run: git pull
-      - name: Commit & Push changes
-        uses: actions-js/push@master
-        with:
-          github_token: '${{ secrets.GITHUB_TOKEN }}'
-          coauthor_email: filipporeds@users.noreply.github.com
-          coauthor_name: filipporeds
-          branch: main
+      - name: Set result output
+        id: result
+        run: |-
+          |
+                  RESULT="$(cat mandarinets_canary/results/bare.json)"
+                  echo "::set-output name=result::$RESULT"
   bare_node:
     runs-on: ubuntu-latest
+    outputs:
+      result: '${{ steps.result.outputs.result }}'
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
@@ -551,17 +540,16 @@ jobs:
         working-directory: node
       - name: END
         run: echo "End Benchmarks"
-      - name: Pull latest commits
-        run: git pull
-      - name: Commit & Push changes
-        uses: actions-js/push@master
-        with:
-          github_token: '${{ secrets.GITHUB_TOKEN }}'
-          coauthor_email: filipporeds@users.noreply.github.com
-          coauthor_name: filipporeds
-          branch: main
+      - name: Set result output
+        id: result
+        run: |-
+          |
+                  RESULT="$(cat node/results/bare.json)"
+                  echo "::set-output name=result::$RESULT"
   bare_oak:
     runs-on: ubuntu-latest
+    outputs:
+      result: '${{ steps.result.outputs.result }}'
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
@@ -590,17 +578,16 @@ jobs:
         working-directory: oak
       - name: END
         run: echo "End Benchmarks"
-      - name: Pull latest commits
-        run: git pull
-      - name: Commit & Push changes
-        uses: actions-js/push@master
-        with:
-          github_token: '${{ secrets.GITHUB_TOKEN }}'
-          coauthor_email: filipporeds@users.noreply.github.com
-          coauthor_name: filipporeds
-          branch: main
+      - name: Set result output
+        id: result
+        run: |-
+          |
+                  RESULT="$(cat oak/results/bare.json)"
+                  echo "::set-output name=result::$RESULT"
   bare_pogo:
     runs-on: ubuntu-latest
+    outputs:
+      result: '${{ steps.result.outputs.result }}'
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
@@ -629,17 +616,16 @@ jobs:
         working-directory: pogo
       - name: END
         run: echo "End Benchmarks"
-      - name: Pull latest commits
-        run: git pull
-      - name: Commit & Push changes
-        uses: actions-js/push@master
-        with:
-          github_token: '${{ secrets.GITHUB_TOKEN }}'
-          coauthor_email: filipporeds@users.noreply.github.com
-          coauthor_name: filipporeds
-          branch: main
+      - name: Set result output
+        id: result
+        run: |-
+          |
+                  RESULT="$(cat pogo/results/bare.json)"
+                  echo "::set-output name=result::$RESULT"
   bare_reno:
     runs-on: ubuntu-latest
+    outputs:
+      result: '${{ steps.result.outputs.result }}'
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
@@ -668,17 +654,16 @@ jobs:
         working-directory: reno
       - name: END
         run: echo "End Benchmarks"
-      - name: Pull latest commits
-        run: git pull
-      - name: Commit & Push changes
-        uses: actions-js/push@master
-        with:
-          github_token: '${{ secrets.GITHUB_TOKEN }}'
-          coauthor_email: filipporeds@users.noreply.github.com
-          coauthor_name: filipporeds
-          branch: main
+      - name: Set result output
+        id: result
+        run: |-
+          |
+                  RESULT="$(cat reno/results/bare.json)"
+                  echo "::set-output name=result::$RESULT"
   bare_opine:
     runs-on: ubuntu-latest
+    outputs:
+      result: '${{ steps.result.outputs.result }}'
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
@@ -707,17 +692,16 @@ jobs:
         working-directory: opine
       - name: END
         run: echo "End Benchmarks"
-      - name: Pull latest commits
-        run: git pull
-      - name: Commit & Push changes
-        uses: actions-js/push@master
-        with:
-          github_token: '${{ secrets.GITHUB_TOKEN }}'
-          coauthor_email: filipporeds@users.noreply.github.com
-          coauthor_name: filipporeds
-          branch: main
+      - name: Set result output
+        id: result
+        run: |-
+          |
+                  RESULT="$(cat opine/results/bare.json)"
+                  echo "::set-output name=result::$RESULT"
   bare_tinyhttp:
     runs-on: ubuntu-latest
+    outputs:
+      result: '${{ steps.result.outputs.result }}'
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
@@ -746,15 +730,12 @@ jobs:
         working-directory: tinyhttp
       - name: END
         run: echo "End Benchmarks"
-      - name: Pull latest commits
-        run: git pull
-      - name: Commit & Push changes
-        uses: actions-js/push@master
-        with:
-          github_token: '${{ secrets.GITHUB_TOKEN }}'
-          coauthor_email: filipporeds@users.noreply.github.com
-          coauthor_name: filipporeds
-          branch: main
+      - name: Set result output
+        id: result
+        run: |-
+          |
+                  RESULT="$(cat tinyhttp/results/bare.json)"
+                  echo "::set-output name=result::$RESULT"
   _results:
     runs-on: ubuntu-latest
     needs:

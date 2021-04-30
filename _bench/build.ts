@@ -10,7 +10,7 @@ autocannon -c 40 -d 10 -j http://localhost:8000 > results/${group}.json &&
 kill $!`;
 }
 
-function wrap(step: Step, version?: string): Step[] {
+function wrap(step: Step, dir: string, group: string, version?: string): Step[] {
   const deno: Step = {
     name: "Setup deno latest",
     uses: "denoland/setup-deno@main",
@@ -37,19 +37,26 @@ function wrap(step: Step, version?: string): Step[] {
     { name: "START", run: 'echo "Starting Benchmarks"' },
     step,
     { name: "END", run: 'echo "End Benchmarks"' },
+    //{
+    //  name: "Pull latest commits",
+    //  run: "git pull",
+    //},
+    //{
+    //  name: "Commit & Push changes",
+    //  uses: "actions-js/push@master",
+    //  with: {
+    //    github_token: "${{ secrets.GITHUB_TOKEN }}",
+    //    coauthor_email: "filipporeds@users.noreply.github.com",
+    //    coauthor_name: "filipporeds",
+    //    branch: "main",
+    //  },
+    //},
     {
-      name: "Pull latest commits",
-      run: "git pull",
-    },
-    {
-      name: "Commit & Push changes",
-      uses: "actions-js/push@master",
-      with: {
-        github_token: "${{ secrets.GITHUB_TOKEN }}",
-        coauthor_email: "filipporeds@users.noreply.github.com",
-        coauthor_name: "filipporeds",
-        branch: "main",
-      },
+      name: "Set result output",
+      id: "result",
+      run: `|
+        RESULT="$(cat ${dir}/results/${group}.json)"
+        echo "::set-output name=result::$RESULT"`,
     },
   ];
 }
@@ -108,15 +115,18 @@ if (import.meta.main) {
         "working-directory": benchmark.dir,
       };
 
-      if (benchmark.env !== undefined) {
+      if (benchmark.env) {
         test.env = benchmark.env;
       }
 
       const name = `${group.name}_${benchmark.name}`;
-      const steps = wrap(test, benchmark.version);
+      const steps = wrap(test, benchmark.dir, group.name, benchmark.version);
       action.jobs[name] = {
         "runs-on": "ubuntu-latest",
         // needs: [...previous],
+        outputs: {
+          "result": "${{ steps.result.outputs.result }}",
+        },
         steps,
       };
       previous.push(name);
