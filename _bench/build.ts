@@ -38,6 +38,15 @@ function wrap(step: Step, version?: string): Step[] {
     step,
     { name: "END", run: 'echo "End Benchmarks"' },
     {
+      name: "Pull latest commits",
+      uses: "actions/checkout@master",
+      with: {
+        "persist-credentials": false,
+        "fetch-depth": 0,
+        "clean": false,
+      },
+    },
+    {
       name: "Commit & Push changes",
       uses: "actions-js/push@master",
       with: {
@@ -45,7 +54,6 @@ function wrap(step: Step, version?: string): Step[] {
         coauthor_email: "filipporeds@users.noreply.github.com",
         coauthor_name: "filipporeds",
         branch: "main",
-        force: true
       },
     },
   ];
@@ -78,7 +86,6 @@ function generateResults(previous: string[]): Job {
           coauthor_email: "qu4k@users.noreply.github.com",
           coauthor_name: "qu4k",
           branch: "main",
-          force: true
         },
       },
     ],
