@@ -39,7 +39,6 @@ function wrap(step: Step, version?: string): Step[] {
     { name: "END", run: 'echo "End Benchmarks"' },
     {
       name: "Pull latest commits",
-      uses: "actions/checkout@master",
       run: "git pull",
     },
     {
