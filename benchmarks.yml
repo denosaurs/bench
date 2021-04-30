@@ -8,14 +8,14 @@ groups:
           url: "https://deno.land/x/abc"
           desc: |
             A better Deno framework to create web application.
-            
-#      - name: alosaur
-#        dir: alosaur
-#        exe: deno run -A --unstable bare.ts
-#        info:
-#          url: "https://deno.land/x/alosaur"
-#          desc: |
-#            Deno web framework with many decorators
+
+      - name: alosaur
+        dir: alosaur
+        exe: deno run -A --unstable bare.ts
+        info:
+          url: "https://deno.land/x/alosaur"
+          desc: |
+            Deno web framework with many decorators
 
       - name: aqua
         dir: aqua
@@ -106,6 +106,7 @@ groups:
         exe: deno run -A --unstable bare.ts
         env:
           MANDARINE_SERVER_SESSION_MIDDLEWARE: false
+        version: 1.9.0
         info:
           url: "https://raw.githubusercontent.com/mandarineorg/mandarinets/master"
           desc: |
