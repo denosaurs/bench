@@ -40,10 +40,7 @@ jobs:
         run: echo "End Benchmarks"
       - name: Pull latest commits
         uses: actions/checkout@master
-        with:
-          persist-credentials: false
-          fetch-depth: 0
-          clean: false
+        run: git pull
       - name: Commit & Push changes
         uses: actions-js/push@master
         with:
@@ -83,10 +80,7 @@ jobs:
         run: echo "End Benchmarks"
       - name: Pull latest commits
         uses: actions/checkout@master
-        with:
-          persist-credentials: false
-          fetch-depth: 0
-          clean: false
+        run: git pull
       - name: Commit & Push changes
         uses: actions-js/push@master
         with:
@@ -126,10 +120,7 @@ jobs:
         run: echo "End Benchmarks"
       - name: Pull latest commits
         uses: actions/checkout@master
-        with:
-          persist-credentials: false
-          fetch-depth: 0
-          clean: false
+        run: git pull
       - name: Commit & Push changes
         uses: actions-js/push@master
         with:
@@ -169,10 +160,7 @@ jobs:
         run: echo "End Benchmarks"
       - name: Pull latest commits
         uses: actions/checkout@master
-        with:
-          persist-credentials: false
-          fetch-depth: 0
-          clean: false
+        run: git pull
       - name: Commit & Push changes
         uses: actions-js/push@master
         with:
@@ -212,10 +200,7 @@ jobs:
         run: echo "End Benchmarks"
       - name: Pull latest commits
         uses: actions/checkout@master
-        with:
-          persist-credentials: false
-          fetch-depth: 0
-          clean: false
+        run: git pull
       - name: Commit & Push changes
         uses: actions-js/push@master
         with:
@@ -255,10 +240,7 @@ jobs:
         run: echo "End Benchmarks"
       - name: Pull latest commits
         uses: actions/checkout@master
-        with:
-          persist-credentials: false
-          fetch-depth: 0
-          clean: false
+        run: git pull
       - name: Commit & Push changes
         uses: actions-js/push@master
         with:
@@ -298,10 +280,7 @@ jobs:
         run: echo "End Benchmarks"
       - name: Pull latest commits
         uses: actions/checkout@master
-        with:
-          persist-credentials: false
-          fetch-depth: 0
-          clean: false
+        run: git pull
       - name: Commit & Push changes
         uses: actions-js/push@master
         with:
@@ -341,10 +320,7 @@ jobs:
         run: echo "End Benchmarks"
       - name: Pull latest commits
         uses: actions/checkout@master
-        with:
-          persist-credentials: false
-          fetch-depth: 0
-          clean: false
+        run: git pull
       - name: Commit & Push changes
         uses: actions-js/push@master
         with:
@@ -384,10 +360,7 @@ jobs:
         run: echo "End Benchmarks"
       - name: Pull latest commits
         uses: actions/checkout@master
-        with:
-          persist-credentials: false
-          fetch-depth: 0
-          clean: false
+        run: git pull
       - name: Commit & Push changes
         uses: actions-js/push@master
         with:
@@ -427,10 +400,7 @@ jobs:
         run: echo "End Benchmarks"
       - name: Pull latest commits
         uses: actions/checkout@master
-        with:
-          persist-credentials: false
-          fetch-depth: 0
-          clean: false
+        run: git pull
       - name: Commit & Push changes
         uses: actions-js/push@master
         with:
@@ -470,10 +440,7 @@ jobs:
         run: echo "End Benchmarks"
       - name: Pull latest commits
         uses: actions/checkout@master
-        with:
-          persist-credentials: false
-          fetch-depth: 0
-          clean: false
+        run: git pull
       - name: Commit & Push changes
         uses: actions-js/push@master
         with:
@@ -515,10 +482,7 @@ jobs:
         run: echo "End Benchmarks"
       - name: Pull latest commits
         uses: actions/checkout@master
-        with:
-          persist-credentials: false
-          fetch-depth: 0
-          clean: false
+        run: git pull
       - name: Commit & Push changes
         uses: actions-js/push@master
         with:
@@ -562,10 +526,7 @@ jobs:
         run: echo "End Benchmarks"
       - name: Pull latest commits
         uses: actions/checkout@master
-        with:
-          persist-credentials: false
-          fetch-depth: 0
-          clean: false
+        run: git pull
       - name: Commit & Push changes
         uses: actions-js/push@master
         with:
@@ -605,10 +566,7 @@ jobs:
         run: echo "End Benchmarks"
       - name: Pull latest commits
         uses: actions/checkout@master
-        with:
-          persist-credentials: false
-          fetch-depth: 0
-          clean: false
+        run: git pull
       - name: Commit & Push changes
         uses: actions-js/push@master
         with:
@@ -648,10 +606,7 @@ jobs:
         run: echo "End Benchmarks"
       - name: Pull latest commits
         uses: actions/checkout@master
-        with:
-          persist-credentials: false
-          fetch-depth: 0
-          clean: false
+        run: git pull
       - name: Commit & Push changes
         uses: actions-js/push@master
         with:
@@ -691,10 +646,7 @@ jobs:
         run: echo "End Benchmarks"
       - name: Pull latest commits
         uses: actions/checkout@master
-        with:
-          persist-credentials: false
-          fetch-depth: 0
-          clean: false
+        run: git pull
       - name: Commit & Push changes
         uses: actions-js/push@master
         with:
@@ -734,10 +686,7 @@ jobs:
         run: echo "End Benchmarks"
       - name: Pull latest commits
         uses: actions/checkout@master
-        with:
-          persist-credentials: false
-          fetch-depth: 0
-          clean: false
+        run: git pull
       - name: Commit & Push changes
         uses: actions-js/push@master
         with:
@@ -777,10 +726,7 @@ jobs:
         run: echo "End Benchmarks"
       - name: Pull latest commits
         uses: actions/checkout@master
-        with:
-          persist-credentials: false
-          fetch-depth: 0
-          clean: false
+        run: git pull
       - name: Commit & Push changes
         uses: actions-js/push@master
         with:
@@ -820,10 +766,7 @@ jobs:
         run: echo "End Benchmarks"
       - name: Pull latest commits
         uses: actions/checkout@master
-        with:
-          persist-credentials: false
-          fetch-depth: 0
-          clean: false
+        run: git pull
       - name: Commit & Push changes
         uses: actions-js/push@master
         with:

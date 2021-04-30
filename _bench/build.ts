@@ -40,11 +40,7 @@ function wrap(step: Step, version?: string): Step[] {
     {
       name: "Pull latest commits",
       uses: "actions/checkout@master",
-      with: {
-        "persist-credentials": false,
-        "fetch-depth": 0,
-        "clean": false,
-      },
+      run: "git pull",
     },
     {
       name: "Commit & Push changes",
