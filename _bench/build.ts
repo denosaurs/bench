@@ -10,7 +10,12 @@ autocannon -c 40 -d 10 -j http://localhost:8000 > results/${group}.json &&
 kill $!`;
 }
 
-function wrap(step: Step, dir: string, group: string, version?: string): Step[] {
+function wrap(
+  step: Step,
+  dir: string,
+  group: string,
+  version?: string,
+): Step[] {
   const deno: Step = {
     name: "Setup deno latest",
     uses: "denoland/setup-deno@main",
@@ -54,14 +59,25 @@ function wrap(step: Step, dir: string, group: string, version?: string): Step[] 
     {
       name: "Set result output",
       id: "result",
-      run: `|
-        RESULT="$(cat ${dir}/results/${group}.json)"
-        echo "::set-output name=result::$RESULT"`,
+      run: `RESULT_PATH="${dir}/results/${group}.json"
+RESULT="$(cat ${dir}/results/${group}.json)"
+echo "::set-output name=result_path::$RESULT_PATH"
+echo "::set-output name=result::$RESULT"
+`,
     },
   ];
 }
 
 function generateResults(previous: string[]): Job {
+  const steps: Step[] = [];
+
+  for (const step of previous) {
+    steps.push({
+      name: `Save ${step} results`,
+      run: `echo \${{needs.${step}.outputs.result}} | tee \${{needs.${step}.outputs.result_path}}`,
+    });
+  }
+
   return {
     "runs-on": "ubuntu-latest",
     needs: [...previous],
@@ -71,7 +87,8 @@ function generateResults(previous: string[]): Job {
         uses: "actions/checkout@master",
         with: { "persist-credentials": false, "fetch-depth": 0 },
       },
-      { name: "Pull changes from other benchmarks", run: "git pull" },
+      // { name: "Pull changes from other benchmarks", run: "git pull" },
+      ...steps,
       {
         name: "Setup deno 1.x",
         uses: "denolib/setup-deno@v2",
@@ -125,6 +142,7 @@ if (import.meta.main) {
         "runs-on": "ubuntu-latest",
         // needs: [...previous],
         outputs: {
+          "result_path": "${{ steps.result.outputs.result_path }}",
           "result": "${{ steps.result.outputs.result }}",
         },
         steps,

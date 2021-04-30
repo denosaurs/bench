@@ -11,6 +11,7 @@ jobs:
   bare_abc:
     runs-on: ubuntu-latest
     outputs:
+      result_path: '${{ steps.result.outputs.result_path }}'
       result: '${{ steps.result.outputs.result }}'
     steps:
       - name: Checkout Repository
@@ -42,13 +43,15 @@ jobs:
         run: echo "End Benchmarks"
       - name: Set result output
         id: result
-        run: |-
-          |
-                  RESULT="$(cat abc/results/bare.json)"
-                  echo "::set-output name=result::$RESULT"
+        run: |
+          RESULT_PATH="abc/results/bare.json"
+          RESULT="$(cat abc/results/bare.json)"
+          echo "::set-output name=result_path::$RESULT_PATH"
+          echo "::set-output name=result::$RESULT"
   bare_alosaur:
     runs-on: ubuntu-latest
     outputs:
+      result_path: '${{ steps.result.outputs.result_path }}'
       result: '${{ steps.result.outputs.result }}'
     steps:
       - name: Checkout Repository
@@ -80,13 +83,15 @@ jobs:
         run: echo "End Benchmarks"
       - name: Set result output
         id: result
-        run: |-
-          |
-                  RESULT="$(cat alosaur/results/bare.json)"
-                  echo "::set-output name=result::$RESULT"
+        run: |
+          RESULT_PATH="alosaur/results/bare.json"
+          RESULT="$(cat alosaur/results/bare.json)"
+          echo "::set-output name=result_path::$RESULT_PATH"
+          echo "::set-output name=result::$RESULT"
   bare_aqua:
     runs-on: ubuntu-latest
     outputs:
+      result_path: '${{ steps.result.outputs.result_path }}'
       result: '${{ steps.result.outputs.result }}'
     steps:
       - name: Checkout Repository
@@ -118,13 +123,15 @@ jobs:
         run: echo "End Benchmarks"
       - name: Set result output
         id: result
-        run: |-
-          |
-                  RESULT="$(cat aqua/results/bare.json)"
-                  echo "::set-output name=result::$RESULT"
+        run: |
+          RESULT_PATH="aqua/results/bare.json"
+          RESULT="$(cat aqua/results/bare.json)"
+          echo "::set-output name=result_path::$RESULT_PATH"
+          echo "::set-output name=result::$RESULT"
   bare_deno:
     runs-on: ubuntu-latest
     outputs:
+      result_path: '${{ steps.result.outputs.result_path }}'
       result: '${{ steps.result.outputs.result }}'
     steps:
       - name: Checkout Repository
@@ -156,13 +163,15 @@ jobs:
         run: echo "End Benchmarks"
       - name: Set result output
         id: result
-        run: |-
-          |
-                  RESULT="$(cat deno/results/bare.json)"
-                  echo "::set-output name=result::$RESULT"
+        run: |
+          RESULT_PATH="deno/results/bare.json"
+          RESULT="$(cat deno/results/bare.json)"
+          echo "::set-output name=result_path::$RESULT_PATH"
+          echo "::set-output name=result::$RESULT"
   bare_dinatra:
     runs-on: ubuntu-latest
     outputs:
+      result_path: '${{ steps.result.outputs.result_path }}'
       result: '${{ steps.result.outputs.result }}'
     steps:
       - name: Checkout Repository
@@ -194,13 +203,15 @@ jobs:
         run: echo "End Benchmarks"
       - name: Set result output
         id: result
-        run: |-
-          |
-                  RESULT="$(cat dinatra/results/bare.json)"
-                  echo "::set-output name=result::$RESULT"
+        run: |
+          RESULT_PATH="dinatra/results/bare.json"
+          RESULT="$(cat dinatra/results/bare.json)"
+          echo "::set-output name=result_path::$RESULT_PATH"
+          echo "::set-output name=result::$RESULT"
   bare_drash:
     runs-on: ubuntu-latest
     outputs:
+      result_path: '${{ steps.result.outputs.result_path }}'
       result: '${{ steps.result.outputs.result }}'
     steps:
       - name: Checkout Repository
@@ -232,13 +243,15 @@ jobs:
         run: echo "End Benchmarks"
       - name: Set result output
         id: result
-        run: |-
-          |
-                  RESULT="$(cat drash/results/bare.json)"
-                  echo "::set-output name=result::$RESULT"
+        run: |
+          RESULT_PATH="drash/results/bare.json"
+          RESULT="$(cat drash/results/bare.json)"
+          echo "::set-output name=result_path::$RESULT_PATH"
+          echo "::set-output name=result::$RESULT"
   bare_express:
     runs-on: ubuntu-latest
     outputs:
+      result_path: '${{ steps.result.outputs.result_path }}'
       result: '${{ steps.result.outputs.result }}'
     steps:
       - name: Checkout Repository
@@ -270,13 +283,15 @@ jobs:
         run: echo "End Benchmarks"
       - name: Set result output
         id: result
-        run: |-
-          |
-                  RESULT="$(cat express/results/bare.json)"
-                  echo "::set-output name=result::$RESULT"
+        run: |
+          RESULT_PATH="express/results/bare.json"
+          RESULT="$(cat express/results/bare.json)"
+          echo "::set-output name=result_path::$RESULT_PATH"
+          echo "::set-output name=result::$RESULT"
   bare_fastify:
     runs-on: ubuntu-latest
     outputs:
+      result_path: '${{ steps.result.outputs.result_path }}'
       result: '${{ steps.result.outputs.result }}'
     steps:
       - name: Checkout Repository
@@ -308,13 +323,15 @@ jobs:
         run: echo "End Benchmarks"
       - name: Set result output
         id: result
-        run: |-
-          |
-                  RESULT="$(cat fastify/results/bare.json)"
-                  echo "::set-output name=result::$RESULT"
+        run: |
+          RESULT_PATH="fastify/results/bare.json"
+          RESULT="$(cat fastify/results/bare.json)"
+          echo "::set-output name=result_path::$RESULT_PATH"
+          echo "::set-output name=result::$RESULT"
   bare_http:
     runs-on: ubuntu-latest
     outputs:
+      result_path: '${{ steps.result.outputs.result_path }}'
       result: '${{ steps.result.outputs.result }}'
     steps:
       - name: Checkout Repository
@@ -346,13 +363,15 @@ jobs:
         run: echo "End Benchmarks"
       - name: Set result output
         id: result
-        run: |-
-          |
-                  RESULT="$(cat http/results/bare.json)"
-                  echo "::set-output name=result::$RESULT"
+        run: |
+          RESULT_PATH="http/results/bare.json"
+          RESULT="$(cat http/results/bare.json)"
+          echo "::set-output name=result_path::$RESULT_PATH"
+          echo "::set-output name=result::$RESULT"
   bare_little_native:
     runs-on: ubuntu-latest
     outputs:
+      result_path: '${{ steps.result.outputs.result_path }}'
       result: '${{ steps.result.outputs.result }}'
     steps:
       - name: Checkout Repository
@@ -384,13 +403,15 @@ jobs:
         run: echo "End Benchmarks"
       - name: Set result output
         id: result
-        run: |-
-          |
-                  RESULT="$(cat little/results/bare.json)"
-                  echo "::set-output name=result::$RESULT"
+        run: |
+          RESULT_PATH="little/results/bare.json"
+          RESULT="$(cat little/results/bare.json)"
+          echo "::set-output name=result_path::$RESULT_PATH"
+          echo "::set-output name=result::$RESULT"
   bare_little_std:
     runs-on: ubuntu-latest
     outputs:
+      result_path: '${{ steps.result.outputs.result_path }}'
       result: '${{ steps.result.outputs.result }}'
     steps:
       - name: Checkout Repository
@@ -422,13 +443,15 @@ jobs:
         run: echo "End Benchmarks"
       - name: Set result output
         id: result
-        run: |-
-          |
-                  RESULT="$(cat little/results/bare.json)"
-                  echo "::set-output name=result::$RESULT"
+        run: |
+          RESULT_PATH="little/results/bare.json"
+          RESULT="$(cat little/results/bare.json)"
+          echo "::set-output name=result_path::$RESULT_PATH"
+          echo "::set-output name=result::$RESULT"
   bare_mandarinets:
     runs-on: ubuntu-latest
     outputs:
+      result_path: '${{ steps.result.outputs.result_path }}'
       result: '${{ steps.result.outputs.result }}'
     steps:
       - name: Checkout Repository
@@ -462,13 +485,15 @@ jobs:
         run: echo "End Benchmarks"
       - name: Set result output
         id: result
-        run: |-
-          |
-                  RESULT="$(cat mandarinets/results/bare.json)"
-                  echo "::set-output name=result::$RESULT"
+        run: |
+          RESULT_PATH="mandarinets/results/bare.json"
+          RESULT="$(cat mandarinets/results/bare.json)"
+          echo "::set-output name=result_path::$RESULT_PATH"
+          echo "::set-output name=result::$RESULT"
   bare_mandarinets_canary:
     runs-on: ubuntu-latest
     outputs:
+      result_path: '${{ steps.result.outputs.result_path }}'
       result: '${{ steps.result.outputs.result }}'
     steps:
       - name: Checkout Repository
@@ -504,13 +529,15 @@ jobs:
         run: echo "End Benchmarks"
       - name: Set result output
         id: result
-        run: |-
-          |
-                  RESULT="$(cat mandarinets_canary/results/bare.json)"
-                  echo "::set-output name=result::$RESULT"
+        run: |
+          RESULT_PATH="mandarinets_canary/results/bare.json"
+          RESULT="$(cat mandarinets_canary/results/bare.json)"
+          echo "::set-output name=result_path::$RESULT_PATH"
+          echo "::set-output name=result::$RESULT"
   bare_node:
     runs-on: ubuntu-latest
     outputs:
+      result_path: '${{ steps.result.outputs.result_path }}'
       result: '${{ steps.result.outputs.result }}'
     steps:
       - name: Checkout Repository
@@ -542,13 +569,15 @@ jobs:
         run: echo "End Benchmarks"
       - name: Set result output
         id: result
-        run: |-
-          |
-                  RESULT="$(cat node/results/bare.json)"
-                  echo "::set-output name=result::$RESULT"
+        run: |
+          RESULT_PATH="node/results/bare.json"
+          RESULT="$(cat node/results/bare.json)"
+          echo "::set-output name=result_path::$RESULT_PATH"
+          echo "::set-output name=result::$RESULT"
   bare_oak:
     runs-on: ubuntu-latest
     outputs:
+      result_path: '${{ steps.result.outputs.result_path }}'
       result: '${{ steps.result.outputs.result }}'
     steps:
       - name: Checkout Repository
@@ -580,13 +609,15 @@ jobs:
         run: echo "End Benchmarks"
       - name: Set result output
         id: result
-        run: |-
-          |
-                  RESULT="$(cat oak/results/bare.json)"
-                  echo "::set-output name=result::$RESULT"
+        run: |
+          RESULT_PATH="oak/results/bare.json"
+          RESULT="$(cat oak/results/bare.json)"
+          echo "::set-output name=result_path::$RESULT_PATH"
+          echo "::set-output name=result::$RESULT"
   bare_pogo:
     runs-on: ubuntu-latest
     outputs:
+      result_path: '${{ steps.result.outputs.result_path }}'
       result: '${{ steps.result.outputs.result }}'
     steps:
       - name: Checkout Repository
@@ -618,13 +649,15 @@ jobs:
         run: echo "End Benchmarks"
       - name: Set result output
         id: result
-        run: |-
-          |
-                  RESULT="$(cat pogo/results/bare.json)"
-                  echo "::set-output name=result::$RESULT"
+        run: |
+          RESULT_PATH="pogo/results/bare.json"
+          RESULT="$(cat pogo/results/bare.json)"
+          echo "::set-output name=result_path::$RESULT_PATH"
+          echo "::set-output name=result::$RESULT"
   bare_reno:
     runs-on: ubuntu-latest
     outputs:
+      result_path: '${{ steps.result.outputs.result_path }}'
       result: '${{ steps.result.outputs.result }}'
     steps:
       - name: Checkout Repository
@@ -656,13 +689,15 @@ jobs:
         run: echo "End Benchmarks"
       - name: Set result output
         id: result
-        run: |-
-          |
-                  RESULT="$(cat reno/results/bare.json)"
-                  echo "::set-output name=result::$RESULT"
+        run: |
+          RESULT_PATH="reno/results/bare.json"
+          RESULT="$(cat reno/results/bare.json)"
+          echo "::set-output name=result_path::$RESULT_PATH"
+          echo "::set-output name=result::$RESULT"
   bare_opine:
     runs-on: ubuntu-latest
     outputs:
+      result_path: '${{ steps.result.outputs.result_path }}'
       result: '${{ steps.result.outputs.result }}'
     steps:
       - name: Checkout Repository
@@ -694,13 +729,15 @@ jobs:
         run: echo "End Benchmarks"
       - name: Set result output
         id: result
-        run: |-
-          |
-                  RESULT="$(cat opine/results/bare.json)"
-                  echo "::set-output name=result::$RESULT"
+        run: |
+          RESULT_PATH="opine/results/bare.json"
+          RESULT="$(cat opine/results/bare.json)"
+          echo "::set-output name=result_path::$RESULT_PATH"
+          echo "::set-output name=result::$RESULT"
   bare_tinyhttp:
     runs-on: ubuntu-latest
     outputs:
+      result_path: '${{ steps.result.outputs.result_path }}'
       result: '${{ steps.result.outputs.result }}'
     steps:
       - name: Checkout Repository
@@ -732,10 +769,11 @@ jobs:
         run: echo "End Benchmarks"
       - name: Set result output
         id: result
-        run: |-
-          |
-                  RESULT="$(cat tinyhttp/results/bare.json)"
-                  echo "::set-output name=result::$RESULT"
+        run: |
+          RESULT_PATH="tinyhttp/results/bare.json"
+          RESULT="$(cat tinyhttp/results/bare.json)"
+          echo "::set-output name=result_path::$RESULT_PATH"
+          echo "::set-output name=result::$RESULT"
   _results:
     runs-on: ubuntu-latest
     needs:
@@ -764,8 +802,82 @@ jobs:
         with:
           persist-credentials: false
           fetch-depth: 0
-      - name: Pull changes from other benchmarks
-        run: git pull
+      - name: Save bare_abc results
+        run: >-
+          echo ${{needs.bare_abc.outputs.result}} | tee
+          ${{needs.bare_abc.outputs.result_path}}
+      - name: Save bare_alosaur results
+        run: >-
+          echo ${{needs.bare_alosaur.outputs.result}} | tee
+          ${{needs.bare_alosaur.outputs.result_path}}
+      - name: Save bare_aqua results
+        run: >-
+          echo ${{needs.bare_aqua.outputs.result}} | tee
+          ${{needs.bare_aqua.outputs.result_path}}
+      - name: Save bare_deno results
+        run: >-
+          echo ${{needs.bare_deno.outputs.result}} | tee
+          ${{needs.bare_deno.outputs.result_path}}
+      - name: Save bare_dinatra results
+        run: >-
+          echo ${{needs.bare_dinatra.outputs.result}} | tee
+          ${{needs.bare_dinatra.outputs.result_path}}
+      - name: Save bare_drash results
+        run: >-
+          echo ${{needs.bare_drash.outputs.result}} | tee
+          ${{needs.bare_drash.outputs.result_path}}
+      - name: Save bare_express results
+        run: >-
+          echo ${{needs.bare_express.outputs.result}} | tee
+          ${{needs.bare_express.outputs.result_path}}
+      - name: Save bare_fastify results
+        run: >-
+          echo ${{needs.bare_fastify.outputs.result}} | tee
+          ${{needs.bare_fastify.outputs.result_path}}
+      - name: Save bare_http results
+        run: >-
+          echo ${{needs.bare_http.outputs.result}} | tee
+          ${{needs.bare_http.outputs.result_path}}
+      - name: Save bare_little_native results
+        run: >-
+          echo ${{needs.bare_little_native.outputs.result}} | tee
+          ${{needs.bare_little_native.outputs.result_path}}
+      - name: Save bare_little_std results
+        run: >-
+          echo ${{needs.bare_little_std.outputs.result}} | tee
+          ${{needs.bare_little_std.outputs.result_path}}
+      - name: Save bare_mandarinets results
+        run: >-
+          echo ${{needs.bare_mandarinets.outputs.result}} | tee
+          ${{needs.bare_mandarinets.outputs.result_path}}
+      - name: Save bare_mandarinets_canary results
+        run: >-
+          echo ${{needs.bare_mandarinets_canary.outputs.result}} | tee
+          ${{needs.bare_mandarinets_canary.outputs.result_path}}
+      - name: Save bare_node results
+        run: >-
+          echo ${{needs.bare_node.outputs.result}} | tee
+          ${{needs.bare_node.outputs.result_path}}
+      - name: Save bare_oak results
+        run: >-
+          echo ${{needs.bare_oak.outputs.result}} | tee
+          ${{needs.bare_oak.outputs.result_path}}
+      - name: Save bare_pogo results
+        run: >-
+          echo ${{needs.bare_pogo.outputs.result}} | tee
+          ${{needs.bare_pogo.outputs.result_path}}
+      - name: Save bare_reno results
+        run: >-
+          echo ${{needs.bare_reno.outputs.result}} | tee
+          ${{needs.bare_reno.outputs.result_path}}
+      - name: Save bare_opine results
+        run: >-
+          echo ${{needs.bare_opine.outputs.result}} | tee
+          ${{needs.bare_opine.outputs.result_path}}
+      - name: Save bare_tinyhttp results
+        run: >-
+          echo ${{needs.bare_tinyhttp.outputs.result}} | tee
+          ${{needs.bare_tinyhttp.outputs.result_path}}
       - name: Setup deno 1.x
         uses: denolib/setup-deno@v2
       - name: Generate README.md
