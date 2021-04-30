@@ -490,50 +490,6 @@ jobs:
           RESULT="$(cat mandarinets/results/bare.json)"
           echo "::set-output name=result_path::$RESULT_PATH"
           echo "::set-output name=result::$RESULT"
-  bare_mandarinets_canary:
-    runs-on: ubuntu-latest
-    outputs:
-      result_path: '${{ steps.result.outputs.result_path }}'
-      result: '${{ steps.result.outputs.result }}'
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@master
-        with:
-          persist-credentials: false
-          fetch-depth: 0
-      - name: Pull changes from other benchmarks
-        run: git pull
-      - name: Setup nodejs 13
-        uses: actions/setup-node@v1
-        with:
-          node-version: '13'
-      - name: Setup deno 1.9.0
-        uses: denoland/setup-deno@main
-        with:
-          deno-version: 1.9.0
-      - name: Install Autocannon
-        run: npm install -g autocannon
-      - name: START
-        run: echo "Starting Benchmarks"
-      - name: mandarinets_canary
-        run: |-
-          deno run -A --unstable bare.ts &
-          sleep 15 && 
-          mkdir -p results &&
-          autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
-          kill $!
-        working-directory: mandarinets_canary
-        env:
-          MANDARINE_SERVER_SESSION_MIDDLEWARE: false
-      - name: END
-        run: echo "End Benchmarks"
-      - name: Set result output
-        id: result
-        run: |
-          RESULT_PATH="mandarinets_canary/results/bare.json"
-          RESULT="$(cat mandarinets_canary/results/bare.json)"
-          echo "::set-output name=result_path::$RESULT_PATH"
-          echo "::set-output name=result::$RESULT"
   bare_node:
     runs-on: ubuntu-latest
     outputs:
@@ -789,7 +745,6 @@ jobs:
       - bare_little_native
       - bare_little_std
       - bare_mandarinets
-      - bare_mandarinets_canary
       - bare_node
       - bare_oak
       - bare_pogo
@@ -850,10 +805,6 @@ jobs:
         run: >-
           echo ${{needs.bare_mandarinets.outputs.result}} | tee
           ${{needs.bare_mandarinets.outputs.result_path}}
-      - name: Save bare_mandarinets_canary results
-        run: >-
-          echo ${{needs.bare_mandarinets_canary.outputs.result}} | tee
-          ${{needs.bare_mandarinets_canary.outputs.result_path}}
       - name: Save bare_node results
         run: >-
           echo ${{needs.bare_node.outputs.result}} | tee
