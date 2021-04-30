@@ -78,6 +78,7 @@ function generateResults(previous: string[]): Job {
           coauthor_email: "qu4k@users.noreply.github.com",
           coauthor_name: "qu4k",
           branch: "main",
+          force: true
         },
       },
     ],
