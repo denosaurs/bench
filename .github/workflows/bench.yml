@@ -759,75 +759,75 @@ jobs:
           fetch-depth: 0
       - name: Save bare_abc results
         run: >-
-          echo ${{needs.bare_abc.outputs.result}} | tee
+          echo '${{needs.bare_abc.outputs.result}}' | tee
           ${{needs.bare_abc.outputs.result_path}}
       - name: Save bare_alosaur results
         run: >-
-          echo ${{needs.bare_alosaur.outputs.result}} | tee
+          echo '${{needs.bare_alosaur.outputs.result}}' | tee
           ${{needs.bare_alosaur.outputs.result_path}}
       - name: Save bare_aqua results
         run: >-
-          echo ${{needs.bare_aqua.outputs.result}} | tee
+          echo '${{needs.bare_aqua.outputs.result}}' | tee
           ${{needs.bare_aqua.outputs.result_path}}
       - name: Save bare_deno results
         run: >-
-          echo ${{needs.bare_deno.outputs.result}} | tee
+          echo '${{needs.bare_deno.outputs.result}}' | tee
           ${{needs.bare_deno.outputs.result_path}}
       - name: Save bare_dinatra results
         run: >-
-          echo ${{needs.bare_dinatra.outputs.result}} | tee
+          echo '${{needs.bare_dinatra.outputs.result}}' | tee
           ${{needs.bare_dinatra.outputs.result_path}}
       - name: Save bare_drash results
         run: >-
-          echo ${{needs.bare_drash.outputs.result}} | tee
+          echo '${{needs.bare_drash.outputs.result}}' | tee
           ${{needs.bare_drash.outputs.result_path}}
       - name: Save bare_express results
         run: >-
-          echo ${{needs.bare_express.outputs.result}} | tee
+          echo '${{needs.bare_express.outputs.result}}' | tee
           ${{needs.bare_express.outputs.result_path}}
       - name: Save bare_fastify results
         run: >-
-          echo ${{needs.bare_fastify.outputs.result}} | tee
+          echo '${{needs.bare_fastify.outputs.result}}' | tee
           ${{needs.bare_fastify.outputs.result_path}}
       - name: Save bare_http results
         run: >-
-          echo ${{needs.bare_http.outputs.result}} | tee
+          echo '${{needs.bare_http.outputs.result}}' | tee
           ${{needs.bare_http.outputs.result_path}}
       - name: Save bare_little_native results
         run: >-
-          echo ${{needs.bare_little_native.outputs.result}} | tee
+          echo '${{needs.bare_little_native.outputs.result}}' | tee
           ${{needs.bare_little_native.outputs.result_path}}
       - name: Save bare_little_std results
         run: >-
-          echo ${{needs.bare_little_std.outputs.result}} | tee
+          echo '${{needs.bare_little_std.outputs.result}}' | tee
           ${{needs.bare_little_std.outputs.result_path}}
       - name: Save bare_mandarinets results
         run: >-
-          echo ${{needs.bare_mandarinets.outputs.result}} | tee
+          echo '${{needs.bare_mandarinets.outputs.result}}' | tee
           ${{needs.bare_mandarinets.outputs.result_path}}
       - name: Save bare_node results
         run: >-
-          echo ${{needs.bare_node.outputs.result}} | tee
+          echo '${{needs.bare_node.outputs.result}}' | tee
           ${{needs.bare_node.outputs.result_path}}
       - name: Save bare_oak results
         run: >-
-          echo ${{needs.bare_oak.outputs.result}} | tee
+          echo '${{needs.bare_oak.outputs.result}}' | tee
           ${{needs.bare_oak.outputs.result_path}}
       - name: Save bare_pogo results
         run: >-
-          echo ${{needs.bare_pogo.outputs.result}} | tee
+          echo '${{needs.bare_pogo.outputs.result}}' | tee
           ${{needs.bare_pogo.outputs.result_path}}
       - name: Save bare_reno results
         run: >-
-          echo ${{needs.bare_reno.outputs.result}} | tee
+          echo '${{needs.bare_reno.outputs.result}}' | tee
           ${{needs.bare_reno.outputs.result_path}}
       - name: Save bare_opine results
         run: >-
-          echo ${{needs.bare_opine.outputs.result}} | tee
+          echo '${{needs.bare_opine.outputs.result}}' | tee
           ${{needs.bare_opine.outputs.result_path}}
       - name: Save bare_tinyhttp results
         run: >-
-          echo ${{needs.bare_tinyhttp.outputs.result}} | tee
+          echo '${{needs.bare_tinyhttp.outputs.result}}' | tee
           ${{needs.bare_tinyhttp.outputs.result_path}}
       - name: Setup deno 1.x
         uses: denolib/setup-deno@v2

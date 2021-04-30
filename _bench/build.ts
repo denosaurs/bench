@@ -74,7 +74,7 @@ function generateResults(previous: string[]): Job {
   for (const step of previous) {
     steps.push({
       name: `Save ${step} results`,
-      run: `echo \${{needs.${step}.outputs.result}} | tee \${{needs.${step}.outputs.result_path}}`,
+      run: `echo '\${{needs.${step}.outputs.result}}' | tee \${{needs.${step}.outputs.result_path}}`,
     });
   }
 
