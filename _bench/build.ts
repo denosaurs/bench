@@ -59,8 +59,10 @@ function wrap(
       name: "Set result output",
       id: "result",
       run:
-        `RESULT_PATH="${benchmark.dir}/results/${group.name}_${benchmark.name}.json"
+        `RESULT_DIR="${benchmark.dir}/results/"
+RESULT_PATH="${benchmark.dir}/results/${group.name}_${benchmark.name}.json"
 RESULT="$(cat ${benchmark.dir}/results/${group.name}_${benchmark.name}.json)"
+echo "::set-output name=result_dir::$RESULT_DIR"
 echo "::set-output name=result_path::$RESULT_PATH"
 echo "::set-output name=result::$RESULT"
 `,
@@ -75,7 +77,9 @@ function generateResults(previous: string[]): Job {
     steps.push({
       name: `Save ${step} results`,
       run:
-        `echo '\${{needs.${step}.outputs.result}}' | tee \${{needs.${step}.outputs.result_path}}`,
+        `mkdir -p \${{needs.${step}.outputs.result_dir}}
+echo '\${{needs.${step}.outputs.result}}' | tee \${{needs.${step}.outputs.result_path}}
+`,
     });
   }
 
@@ -92,7 +96,7 @@ function generateResults(previous: string[]): Job {
       ...steps,
       {
         name: "Setup deno 1.x",
-        uses: "denolib/setup-deno@v2",
+        uses: "denoland/setup-deno@main",
       },
       {
         name: "Generate README.md",
@@ -144,6 +148,7 @@ if (import.meta.main) {
         "runs-on": "ubuntu-latest",
         // needs: [...previous],
         outputs: {
+          "result_dir": "${{ steps.result.outputs.result_dir }}",
           "result_path": "${{ steps.result.outputs.result_path }}",
           "result": "${{ steps.result.outputs.result }}",
         },
