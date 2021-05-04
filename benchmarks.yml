@@ -122,13 +122,13 @@ groups:
           desc: |
             Node.js JavaScript runtime
 
-#      - name: oak
-#        dir: oak
-#        exe: deno run -A --unstable bare.ts
-#        info:
-#          url: "https://deno.land/x/oak"
-#          desc: |
-#            A middleware framework for Deno's net server 🐿️ 🦕
+      - name: oak
+        dir: oak
+        exe: deno run -A --unstable bare.ts
+        info:
+          url: "https://deno.land/x/oak"
+          desc: |
+            A middleware framework for Deno's net server 🐿️ 🦕
 
       - name: pogo
         dir: pogo
