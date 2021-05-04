@@ -32,11 +32,16 @@ jobs:
       - name: START
         run: echo "Starting Benchmarks"
       - name: abc
-        run: |-
+        run: >-
           deno run -A --unstable bare.ts &
+
           sleep 15 && 
+
           mkdir -p results &&
-          autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
+
+          autocannon -c 40 -d 10 -j http://localhost:8000 >
+          results/bare_abc.json &&
+
           kill $!
         working-directory: abc
         continue-on-error: true
@@ -73,11 +78,16 @@ jobs:
       - name: START
         run: echo "Starting Benchmarks"
       - name: alosaur
-        run: |-
+        run: >-
           deno run -A --unstable bare.ts &
+
           sleep 15 && 
+
           mkdir -p results &&
-          autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
+
+          autocannon -c 40 -d 10 -j http://localhost:8000 >
+          results/bare_alosaur.json &&
+
           kill $!
         working-directory: alosaur
         continue-on-error: true
@@ -114,11 +124,16 @@ jobs:
       - name: START
         run: echo "Starting Benchmarks"
       - name: aqua
-        run: |-
+        run: >-
           deno run -A --unstable bare.ts &
+
           sleep 15 && 
+
           mkdir -p results &&
-          autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
+
+          autocannon -c 40 -d 10 -j http://localhost:8000 >
+          results/bare_aqua.json &&
+
           kill $!
         working-directory: aqua
         continue-on-error: true
@@ -155,11 +170,16 @@ jobs:
       - name: START
         run: echo "Starting Benchmarks"
       - name: deno
-        run: |-
+        run: >-
           deno run -A --unstable bare.ts &
+
           sleep 15 && 
+
           mkdir -p results &&
-          autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
+
+          autocannon -c 40 -d 10 -j http://localhost:8000 >
+          results/bare_deno.json &&
+
           kill $!
         working-directory: deno
         continue-on-error: true
@@ -198,11 +218,16 @@ jobs:
       - name: START
         run: echo "Starting Benchmarks"
       - name: deno_canary
-        run: |-
+        run: >-
           deno run -A --unstable bare.ts &
+
           sleep 15 && 
+
           mkdir -p results &&
-          autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
+
+          autocannon -c 40 -d 10 -j http://localhost:8000 >
+          results/bare_deno_canary.json &&
+
           kill $!
         working-directory: deno
         continue-on-error: true
@@ -239,11 +264,16 @@ jobs:
       - name: START
         run: echo "Starting Benchmarks"
       - name: dinatra
-        run: |-
+        run: >-
           deno run -A --unstable bare.ts &
+
           sleep 15 && 
+
           mkdir -p results &&
-          autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
+
+          autocannon -c 40 -d 10 -j http://localhost:8000 >
+          results/bare_dinatra.json &&
+
           kill $!
         working-directory: dinatra
         continue-on-error: true
@@ -280,11 +310,16 @@ jobs:
       - name: START
         run: echo "Starting Benchmarks"
       - name: drash
-        run: |-
+        run: >-
           deno run -A --unstable bare.ts &
+
           sleep 15 && 
+
           mkdir -p results &&
-          autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
+
+          autocannon -c 40 -d 10 -j http://localhost:8000 >
+          results/bare_drash.json &&
+
           kill $!
         working-directory: drash
         continue-on-error: true
@@ -321,11 +356,16 @@ jobs:
       - name: START
         run: echo "Starting Benchmarks"
       - name: express
-        run: |-
+        run: >-
           npm i && node bare.js &
+
           sleep 15 && 
+
           mkdir -p results &&
-          autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
+
+          autocannon -c 40 -d 10 -j http://localhost:8000 >
+          results/bare_express.json &&
+
           kill $!
         working-directory: express
         continue-on-error: true
@@ -362,11 +402,16 @@ jobs:
       - name: START
         run: echo "Starting Benchmarks"
       - name: fastify
-        run: |-
+        run: >-
           npm i && node bare.js &
+
           sleep 15 && 
+
           mkdir -p results &&
-          autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
+
+          autocannon -c 40 -d 10 -j http://localhost:8000 >
+          results/bare_fastify.json &&
+
           kill $!
         working-directory: fastify
         continue-on-error: true
@@ -403,11 +448,16 @@ jobs:
       - name: START
         run: echo "Starting Benchmarks"
       - name: http
-        run: |-
+        run: >-
           deno run -A --unstable bare.ts &
+
           sleep 15 && 
+
           mkdir -p results &&
-          autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
+
+          autocannon -c 40 -d 10 -j http://localhost:8000 >
+          results/bare_http.json &&
+
           kill $!
         working-directory: http
         continue-on-error: true
@@ -444,11 +494,16 @@ jobs:
       - name: START
         run: echo "Starting Benchmarks"
       - name: little_native
-        run: |-
+        run: >-
           deno run -A --unstable bare.ts &
+
           sleep 15 && 
+
           mkdir -p results &&
-          autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
+
+          autocannon -c 40 -d 10 -j http://localhost:8000 >
+          results/bare_little_native.json &&
+
           kill $!
         working-directory: little
         continue-on-error: true
@@ -485,11 +540,16 @@ jobs:
       - name: START
         run: echo "Starting Benchmarks"
       - name: little_std
-        run: |-
+        run: >-
           deno run -A bare.ts &
+
           sleep 15 && 
+
           mkdir -p results &&
-          autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
+
+          autocannon -c 40 -d 10 -j http://localhost:8000 >
+          results/bare_little_std.json &&
+
           kill $!
         working-directory: little
         continue-on-error: true
@@ -526,11 +586,16 @@ jobs:
       - name: START
         run: echo "Starting Benchmarks"
       - name: mandarinets
-        run: |-
+        run: >-
           deno run -A --unstable bare.ts &
+
           sleep 15 && 
+
           mkdir -p results &&
-          autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
+
+          autocannon -c 40 -d 10 -j http://localhost:8000 >
+          results/bare_mandarinets.json &&
+
           kill $!
         working-directory: mandarinets
         continue-on-error: true
@@ -569,11 +634,16 @@ jobs:
       - name: START
         run: echo "Starting Benchmarks"
       - name: node
-        run: |-
+        run: >-
           node bare.js &
+
           sleep 15 && 
+
           mkdir -p results &&
-          autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
+
+          autocannon -c 40 -d 10 -j http://localhost:8000 >
+          results/bare_node.json &&
+
           kill $!
         working-directory: node
         continue-on-error: true
@@ -610,11 +680,16 @@ jobs:
       - name: START
         run: echo "Starting Benchmarks"
       - name: oak
-        run: |-
+        run: >-
           deno run -A --unstable bare.ts &
+
           sleep 15 && 
+
           mkdir -p results &&
-          autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
+
+          autocannon -c 40 -d 10 -j http://localhost:8000 >
+          results/bare_oak.json &&
+
           kill $!
         working-directory: oak
         continue-on-error: true
@@ -651,11 +726,16 @@ jobs:
       - name: START
         run: echo "Starting Benchmarks"
       - name: opine
-        run: |-
+        run: >-
           deno run -A bare.ts &
+
           sleep 15 && 
+
           mkdir -p results &&
-          autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
+
+          autocannon -c 40 -d 10 -j http://localhost:8000 >
+          results/bare_opine.json &&
+
           kill $!
         working-directory: opine
         continue-on-error: true
@@ -692,11 +772,16 @@ jobs:
       - name: START
         run: echo "Starting Benchmarks"
       - name: pogo
-        run: |-
+        run: >-
           deno run -A --unstable bare.ts &
+
           sleep 15 && 
+
           mkdir -p results &&
-          autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
+
+          autocannon -c 40 -d 10 -j http://localhost:8000 >
+          results/bare_pogo.json &&
+
           kill $!
         working-directory: pogo
         continue-on-error: true
@@ -733,11 +818,16 @@ jobs:
       - name: START
         run: echo "Starting Benchmarks"
       - name: reno
-        run: |-
+        run: >-
           deno run -A --unstable bare.ts &
+
           sleep 15 && 
+
           mkdir -p results &&
-          autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
+
+          autocannon -c 40 -d 10 -j http://localhost:8000 >
+          results/bare_reno.json &&
+
           kill $!
         working-directory: reno
         continue-on-error: true
@@ -774,11 +864,16 @@ jobs:
       - name: START
         run: echo "Starting Benchmarks"
       - name: servest
-        run: |-
+        run: >-
           deno run -A --unstable bare.ts &
+
           sleep 15 && 
+
           mkdir -p results &&
-          autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
+
+          autocannon -c 40 -d 10 -j http://localhost:8000 >
+          results/bare_servest.json &&
+
           kill $!
         working-directory: servest
         continue-on-error: true
@@ -815,11 +910,16 @@ jobs:
       - name: START
         run: echo "Starting Benchmarks"
       - name: tinyhttp
-        run: |-
+        run: >-
           deno run -A bare.ts &
+
           sleep 15 && 
+
           mkdir -p results &&
-          autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
+
+          autocannon -c 40 -d 10 -j http://localhost:8000 >
+          results/bare_tinyhttp.json &&
+
           kill $!
         working-directory: tinyhttp
         continue-on-error: true

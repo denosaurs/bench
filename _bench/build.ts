@@ -2,11 +2,11 @@ import { join, parse, stringify } from "./deps.ts";
 
 import type { Action, Benchmark, Config, Group, Job, Step } from "./types.ts";
 
-function command(group: string, exe: string): string {
+function command(result: string, exe: string): string {
   return `${exe} &
 sleep 15 && 
 mkdir -p results &&
-autocannon -c 40 -d 10 -j http://localhost:8000 > results/${group}.json &&
+autocannon -c 40 -d 10 -j http://localhost:8000 > results/${result}.json &&
 kill $!`;
 }
 
@@ -127,9 +127,10 @@ if (import.meta.main) {
 
   for (const group of config.groups) {
     for (const benchmark of group.benchmarks) {
+      const name = `${group.name}_${benchmark.name}`;
       const test: Step = {
         name: benchmark.name,
-        run: command(group.name, benchmark.exe),
+        run: command(name, benchmark.exe),
         "working-directory": benchmark.dir,
         "continue-on-error": true,
       };
@@ -138,7 +139,6 @@ if (import.meta.main) {
         test.env = benchmark.env;
       }
 
-      const name = `${group.name}_${benchmark.name}`;
       const steps = wrap(test, benchmark, group);
       action.jobs[name] = {
         "runs-on": "ubuntu-latest",
