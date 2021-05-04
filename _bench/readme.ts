@@ -78,7 +78,7 @@ if (import.meta.main) {
       };
     } = {};
     for (const benchmark of group.benchmarks) {
-      const resultPath = join(benchmark.dir, "results", `${group.name}.json`);
+      const resultPath = join(benchmark.dir, "results", `${group.name}_${benchmark.name}.json`);
       const resultSource = await Deno.readTextFile(resultPath);
       const result = JSON.parse(resultSource) as Result;
       results[benchmark.name] = {
