@@ -104,7 +104,7 @@ if (import.meta.main) {
     markdown.push(`## benchmark \`${group.name}\``);
     toc.push(`- [benchmark ${group.name}](#benchmark-${group.name})`);
     for (const benchmark of group.benchmarks) {
-      const resultPath = join(benchmark.dir, "results", `${group.name}.json`);
+      const resultPath = join(benchmark.dir, "results", `${group.name}_${benchmark.name}.json`);
       const resultSource = await Deno.readTextFile(resultPath);
       const result = JSON.parse(resultSource) as Result;
       const [lat, latOps] = latency(result);
