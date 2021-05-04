@@ -32,6 +32,15 @@ groups:
           url: "https://deno.land/"
           desc: |
             A secure runtime for JavaScript and TypeScript
+            
+      - name: deno_canary
+        dir: deno
+        exe: deno run -A --unstable bare.ts
+        version: canary
+        info:
+          url: "https://deno.land/"
+          desc: |
+            The current canary build of deno
 
       - name: dinatra
         dir: dinatra

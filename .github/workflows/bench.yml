@@ -39,6 +39,7 @@ jobs:
           autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
           kill $!
         working-directory: abc
+        continue-on-error: true
       - name: END
         run: echo "End Benchmarks"
       - name: Set result output
@@ -79,6 +80,7 @@ jobs:
           autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
           kill $!
         working-directory: alosaur
+        continue-on-error: true
       - name: END
         run: echo "End Benchmarks"
       - name: Set result output
@@ -119,6 +121,7 @@ jobs:
           autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
           kill $!
         working-directory: aqua
+        continue-on-error: true
       - name: END
         run: echo "End Benchmarks"
       - name: Set result output
@@ -159,6 +162,50 @@ jobs:
           autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
           kill $!
         working-directory: deno
+        continue-on-error: true
+      - name: END
+        run: echo "End Benchmarks"
+      - name: Set result output
+        id: result
+        run: |
+          RESULT_PATH="deno/results/bare.json"
+          RESULT="$(cat deno/results/bare.json)"
+          echo "::set-output name=result_path::$RESULT_PATH"
+          echo "::set-output name=result::$RESULT"
+  bare_deno_canary:
+    runs-on: ubuntu-latest
+    outputs:
+      result_path: '${{ steps.result.outputs.result_path }}'
+      result: '${{ steps.result.outputs.result }}'
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@master
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - name: Pull changes from other benchmarks
+        run: git pull
+      - name: Setup nodejs 13
+        uses: actions/setup-node@v1
+        with:
+          node-version: '13'
+      - name: Setup deno canary
+        uses: denoland/setup-deno@main
+        with:
+          deno-version: canary
+      - name: Install Autocannon
+        run: npm install -g autocannon
+      - name: START
+        run: echo "Starting Benchmarks"
+      - name: deno_canary
+        run: |-
+          deno run -A --unstable bare.ts &
+          sleep 15 && 
+          mkdir -p results &&
+          autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
+          kill $!
+        working-directory: deno
+        continue-on-error: true
       - name: END
         run: echo "End Benchmarks"
       - name: Set result output
@@ -199,6 +246,7 @@ jobs:
           autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
           kill $!
         working-directory: dinatra
+        continue-on-error: true
       - name: END
         run: echo "End Benchmarks"
       - name: Set result output
@@ -239,6 +287,7 @@ jobs:
           autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
           kill $!
         working-directory: drash
+        continue-on-error: true
       - name: END
         run: echo "End Benchmarks"
       - name: Set result output
@@ -279,6 +328,7 @@ jobs:
           autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
           kill $!
         working-directory: express
+        continue-on-error: true
       - name: END
         run: echo "End Benchmarks"
       - name: Set result output
@@ -319,6 +369,7 @@ jobs:
           autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
           kill $!
         working-directory: fastify
+        continue-on-error: true
       - name: END
         run: echo "End Benchmarks"
       - name: Set result output
@@ -359,6 +410,7 @@ jobs:
           autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
           kill $!
         working-directory: http
+        continue-on-error: true
       - name: END
         run: echo "End Benchmarks"
       - name: Set result output
@@ -399,6 +451,7 @@ jobs:
           autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
           kill $!
         working-directory: little
+        continue-on-error: true
       - name: END
         run: echo "End Benchmarks"
       - name: Set result output
@@ -439,6 +492,7 @@ jobs:
           autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
           kill $!
         working-directory: little
+        continue-on-error: true
       - name: END
         run: echo "End Benchmarks"
       - name: Set result output
@@ -479,6 +533,7 @@ jobs:
           autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
           kill $!
         working-directory: mandarinets
+        continue-on-error: true
         env:
           MANDARINE_SERVER_SESSION_MIDDLEWARE: false
       - name: END
@@ -521,6 +576,7 @@ jobs:
           autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
           kill $!
         working-directory: node
+        continue-on-error: true
       - name: END
         run: echo "End Benchmarks"
       - name: Set result output
@@ -561,6 +617,7 @@ jobs:
           autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
           kill $!
         working-directory: oak
+        continue-on-error: true
       - name: END
         run: echo "End Benchmarks"
       - name: Set result output
@@ -601,6 +658,7 @@ jobs:
           autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
           kill $!
         working-directory: pogo
+        continue-on-error: true
       - name: END
         run: echo "End Benchmarks"
       - name: Set result output
@@ -641,6 +699,7 @@ jobs:
           autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
           kill $!
         working-directory: reno
+        continue-on-error: true
       - name: END
         run: echo "End Benchmarks"
       - name: Set result output
@@ -681,6 +740,7 @@ jobs:
           autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
           kill $!
         working-directory: opine
+        continue-on-error: true
       - name: END
         run: echo "End Benchmarks"
       - name: Set result output
@@ -721,6 +781,7 @@ jobs:
           autocannon -c 40 -d 10 -j http://localhost:8000 > results/bare.json &&
           kill $!
         working-directory: tinyhttp
+        continue-on-error: true
       - name: END
         run: echo "End Benchmarks"
       - name: Set result output
@@ -737,6 +798,7 @@ jobs:
       - bare_alosaur
       - bare_aqua
       - bare_deno
+      - bare_deno_canary
       - bare_dinatra
       - bare_drash
       - bare_express
@@ -773,6 +835,10 @@ jobs:
         run: >-
           echo '${{needs.bare_deno.outputs.result}}' | tee
           ${{needs.bare_deno.outputs.result_path}}
+      - name: Save bare_deno_canary results
+        run: >-
+          echo '${{needs.bare_deno_canary.outputs.result}}' | tee
+          ${{needs.bare_deno_canary.outputs.result_path}}
       - name: Save bare_dinatra results
         run: >-
           echo '${{needs.bare_dinatra.outputs.result}}' | tee

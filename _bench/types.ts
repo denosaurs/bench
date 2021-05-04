@@ -23,6 +23,7 @@ export interface Step extends Record<string, unknown> {
   name: string;
   run?: string;
   "working-directory"?: string;
+  "continue-on-error"?: boolean;
   env?: Record<string, string>;
 }
 

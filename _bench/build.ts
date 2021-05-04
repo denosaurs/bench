@@ -130,6 +130,7 @@ if (import.meta.main) {
         name: benchmark.name,
         run: command(group.name, benchmark.exe),
         "working-directory": benchmark.dir,
+        "continue-on-error": true
       };
 
       if (benchmark.env) {
