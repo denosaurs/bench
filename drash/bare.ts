@@ -1,18 +1,25 @@
-import { Drash } from "https://deno.land/x/drash/mod.ts";
+import {
+  Request,
+  Resource,
+  Response,
+  Server,
+} from "https://deno.land/x/drash/mod.ts";
 
-class HomeResource extends Drash.Http.Resource {
-  static paths = ["/"];
-  public GET() {
-    this.response.body = "Hello, Bench!";
-    return this.response;
+class HomeResource extends Resource {
+  public paths = ["/"];
+
+  public GET(_request: Request, response: Response) {
+    return response.send("text/plain", "Hello, Bench!");
   }
 }
 
-const server = new Drash.Http.Server({
-  resources: [HomeResource],
-});
-
-server.run({
+const server = new Server({
   hostname: "0.0.0.0",
   port: 8000,
+  protocol: "http",
+  resources: [
+    HomeResource,
+  ],
 });
+
+server.run();
