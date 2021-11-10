@@ -1025,121 +1025,121 @@ jobs:
         run: >
           mkdir -p ${{needs.bare_abc.outputs.result_dir}}
 
-          echo '${{needs.bare_abc.outputs.result}}' | tee
+          echo '${{needs.bare_abc.outputs.result}}' | jq . | tee
           ${{needs.bare_abc.outputs.result_path}}
       - name: Save bare_alosaur results
         run: >
           mkdir -p ${{needs.bare_alosaur.outputs.result_dir}}
 
-          echo '${{needs.bare_alosaur.outputs.result}}' | tee
+          echo '${{needs.bare_alosaur.outputs.result}}' | jq . | tee
           ${{needs.bare_alosaur.outputs.result_path}}
       - name: Save bare_aqua results
         run: >
           mkdir -p ${{needs.bare_aqua.outputs.result_dir}}
 
-          echo '${{needs.bare_aqua.outputs.result}}' | tee
+          echo '${{needs.bare_aqua.outputs.result}}' | jq . | tee
           ${{needs.bare_aqua.outputs.result_path}}
       - name: Save bare_deno results
         run: >
           mkdir -p ${{needs.bare_deno.outputs.result_dir}}
 
-          echo '${{needs.bare_deno.outputs.result}}' | tee
+          echo '${{needs.bare_deno.outputs.result}}' | jq . | tee
           ${{needs.bare_deno.outputs.result_path}}
       - name: Save bare_deno_canary results
         run: >
           mkdir -p ${{needs.bare_deno_canary.outputs.result_dir}}
 
-          echo '${{needs.bare_deno_canary.outputs.result}}' | tee
+          echo '${{needs.bare_deno_canary.outputs.result}}' | jq . | tee
           ${{needs.bare_deno_canary.outputs.result_path}}
       - name: Save bare_dinatra results
         run: >
           mkdir -p ${{needs.bare_dinatra.outputs.result_dir}}
 
-          echo '${{needs.bare_dinatra.outputs.result}}' | tee
+          echo '${{needs.bare_dinatra.outputs.result}}' | jq . | tee
           ${{needs.bare_dinatra.outputs.result_path}}
       - name: Save bare_drash results
         run: >
           mkdir -p ${{needs.bare_drash.outputs.result_dir}}
 
-          echo '${{needs.bare_drash.outputs.result}}' | tee
+          echo '${{needs.bare_drash.outputs.result}}' | jq . | tee
           ${{needs.bare_drash.outputs.result_path}}
       - name: Save bare_express results
         run: >
           mkdir -p ${{needs.bare_express.outputs.result_dir}}
 
-          echo '${{needs.bare_express.outputs.result}}' | tee
+          echo '${{needs.bare_express.outputs.result}}' | jq . | tee
           ${{needs.bare_express.outputs.result_path}}
       - name: Save bare_fastify results
         run: >
           mkdir -p ${{needs.bare_fastify.outputs.result_dir}}
 
-          echo '${{needs.bare_fastify.outputs.result}}' | tee
+          echo '${{needs.bare_fastify.outputs.result}}' | jq . | tee
           ${{needs.bare_fastify.outputs.result_path}}
       - name: Save bare_http results
         run: >
           mkdir -p ${{needs.bare_http.outputs.result_dir}}
 
-          echo '${{needs.bare_http.outputs.result}}' | tee
+          echo '${{needs.bare_http.outputs.result}}' | jq . | tee
           ${{needs.bare_http.outputs.result_path}}
       - name: Save bare_little_native results
         run: >
           mkdir -p ${{needs.bare_little_native.outputs.result_dir}}
 
-          echo '${{needs.bare_little_native.outputs.result}}' | tee
+          echo '${{needs.bare_little_native.outputs.result}}' | jq . | tee
           ${{needs.bare_little_native.outputs.result_path}}
       - name: Save bare_little_std results
         run: >
           mkdir -p ${{needs.bare_little_std.outputs.result_dir}}
 
-          echo '${{needs.bare_little_std.outputs.result}}' | tee
+          echo '${{needs.bare_little_std.outputs.result}}' | jq . | tee
           ${{needs.bare_little_std.outputs.result_path}}
       - name: Save bare_mandarinets results
         run: >
           mkdir -p ${{needs.bare_mandarinets.outputs.result_dir}}
 
-          echo '${{needs.bare_mandarinets.outputs.result}}' | tee
+          echo '${{needs.bare_mandarinets.outputs.result}}' | jq . | tee
           ${{needs.bare_mandarinets.outputs.result_path}}
       - name: Save bare_node results
         run: >
           mkdir -p ${{needs.bare_node.outputs.result_dir}}
 
-          echo '${{needs.bare_node.outputs.result}}' | tee
+          echo '${{needs.bare_node.outputs.result}}' | jq . | tee
           ${{needs.bare_node.outputs.result_path}}
       - name: Save bare_oak results
         run: >
           mkdir -p ${{needs.bare_oak.outputs.result_dir}}
 
-          echo '${{needs.bare_oak.outputs.result}}' | tee
+          echo '${{needs.bare_oak.outputs.result}}' | jq . | tee
           ${{needs.bare_oak.outputs.result_path}}
       - name: Save bare_opine results
         run: >
           mkdir -p ${{needs.bare_opine.outputs.result_dir}}
 
-          echo '${{needs.bare_opine.outputs.result}}' | tee
+          echo '${{needs.bare_opine.outputs.result}}' | jq . | tee
           ${{needs.bare_opine.outputs.result_path}}
       - name: Save bare_pogo results
         run: >
           mkdir -p ${{needs.bare_pogo.outputs.result_dir}}
 
-          echo '${{needs.bare_pogo.outputs.result}}' | tee
+          echo '${{needs.bare_pogo.outputs.result}}' | jq . | tee
           ${{needs.bare_pogo.outputs.result_path}}
       - name: Save bare_reno results
         run: >
           mkdir -p ${{needs.bare_reno.outputs.result_dir}}
 
-          echo '${{needs.bare_reno.outputs.result}}' | tee
+          echo '${{needs.bare_reno.outputs.result}}' | jq . | tee
           ${{needs.bare_reno.outputs.result_path}}
       - name: Save bare_servest results
         run: >
           mkdir -p ${{needs.bare_servest.outputs.result_dir}}
 
-          echo '${{needs.bare_servest.outputs.result}}' | tee
+          echo '${{needs.bare_servest.outputs.result}}' | jq . | tee
           ${{needs.bare_servest.outputs.result_path}}
       - name: Save bare_tinyhttp results
         run: >
           mkdir -p ${{needs.bare_tinyhttp.outputs.result_dir}}
 
-          echo '${{needs.bare_tinyhttp.outputs.result}}' | tee
+          echo '${{needs.bare_tinyhttp.outputs.result}}' | jq . | tee
           ${{needs.bare_tinyhttp.outputs.result_path}}
       - name: Setup deno 1.x
         uses: denoland/setup-deno@main
