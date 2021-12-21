@@ -871,7 +871,7 @@ jobs:
         run: echo "Starting Benchmarks"
       - name: reno
         run: >-
-          deno compile -o bare.out bare.ts
+          deno compile --allow-net -o bare.out bare.ts
           mkdir -p resultsv
 
           ./bare.out &
