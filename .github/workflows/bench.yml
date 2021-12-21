@@ -872,7 +872,7 @@ jobs:
       - name: reno
         run: >-
           deno compile --allow-net -o bare.out bare.ts
-          mkdir -p resultsv
+          mkdir -p results
 
           ./bare.out &
 
