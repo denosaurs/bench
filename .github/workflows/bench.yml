@@ -871,11 +871,12 @@ jobs:
         run: echo "Starting Benchmarks"
       - name: reno
         run: >-
-          deno run -A --unstable bare.ts &
+          deno compile --allow-net -o bare.out bare.ts
+          mkdir -p results
 
-          sleep 15 && 
+          ./bare.out &
 
-          mkdir -p results &&
+          sleep 5 &&
 
           autocannon -c 40 -d 10 -j http://localhost:8000 >
           results/bare_reno.json &&

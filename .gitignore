@@ -7,3 +7,4 @@ express/node_modules
 express/package-lock.json
 fastify/node_modules
 fastify/package-lock.json
+bare.out
