@@ -1048,6 +1048,7 @@ jobs:
       - bare_abc
       - bare_alosaur
       - bare_aqua
+      - bare_deco
       - bare_deno
       - bare_deno_canary
       - bare_dinatra
