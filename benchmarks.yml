@@ -24,6 +24,14 @@ groups:
           url: "https://deno.land/x/aqua"
           desc: |
             A minimal and fast 🏃 web framework for Deno
+      
+      - name: deco
+        dir: deco
+        exe: deno run -A --unstable bare.ts
+        info:
+          url: "https://deno.land/x/deco"
+          desc: |
+            Deco is a utility library for Deno developers
 
       - name: deno
         dir: deno
