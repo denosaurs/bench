@@ -4,9 +4,9 @@
   "pipelining": 1,
   "workers": 0,
   "duration": 10.02,
-  "start": "2022-01-24T00:31:33.610Z",
-  "finish": "2022-01-24T00:31:43.630Z",
-  "errors": 162015,
+  "start": "2022-01-25T00:35:54.111Z",
+  "finish": "2022-01-25T00:36:04.132Z",
+  "errors": 165158,
   "timeouts": 0,
   "mismatches": 0,
   "non2xx": 0,
@@ -62,7 +62,7 @@
     "p99_9": 0,
     "p99_99": 0,
     "p99_999": 0,
-    "sent": 162055
+    "sent": 165198
   },
   "throughput": {
     "average": 0,
