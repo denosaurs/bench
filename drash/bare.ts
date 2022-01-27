@@ -14,7 +14,7 @@ class HomeResource extends Resource {
 }
 
 const server = new Server({
-  hostname: "0.0.0.0",
+  hostname: "localhost",
   port: 8000,
   protocol: "http",
   resources: [
