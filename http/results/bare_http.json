@@ -1,12 +1,14 @@
 {
   "url": "http://localhost:8000",
   "connections": 40,
+  "sampleInt": 1000,
   "pipelining": 1,
   "workers": 0,
   "duration": 10.02,
-  "start": "2022-02-22T00:56:01.390Z",
-  "finish": "2022-02-22T00:56:11.411Z",
-  "errors": 156432,
+  "samples": 10,
+  "start": "2022-02-23T01:02:58.076Z",
+  "finish": "2022-02-23T01:03:08.099Z",
+  "errors": 184446,
   "timeouts": 0,
   "mismatches": 0,
   "non2xx": 0,
@@ -62,7 +64,7 @@
     "p99_9": 0,
     "p99_99": 0,
     "p99_999": 0,
-    "sent": 156472
+    "sent": 184486
   },
   "throughput": {
     "average": 0,
