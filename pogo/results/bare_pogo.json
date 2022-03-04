@@ -4,11 +4,11 @@
   "sampleInt": 1000,
   "pipelining": 1,
   "workers": 0,
-  "duration": 10.03,
+  "duration": 10.02,
   "samples": 10,
-  "start": "2022-03-03T01:03:06.065Z",
-  "finish": "2022-03-03T01:03:16.095Z",
-  "errors": 99204,
+  "start": "2022-03-04T01:07:05.676Z",
+  "finish": "2022-03-04T01:07:15.697Z",
+  "errors": 174272,
   "timeouts": 0,
   "mismatches": 0,
   "non2xx": 0,
@@ -64,7 +64,7 @@
     "p99_9": 0,
     "p99_99": 0,
     "p99_999": 0,
-    "sent": 99244
+    "sent": 174312
   },
   "throughput": {
     "average": 0,
