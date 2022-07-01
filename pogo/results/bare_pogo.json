@@ -6,9 +6,9 @@
   "workers": 0,
   "duration": 10.03,
   "samples": 10,
-  "start": "2022-06-30T01:29:02.187Z",
-  "finish": "2022-06-30T01:29:12.212Z",
-  "errors": 160396,
+  "start": "2022-07-01T01:50:15.583Z",
+  "finish": "2022-07-01T01:50:25.612Z",
+  "errors": 93757,
   "timeouts": 0,
   "mismatches": 0,
   "non2xx": 0,
@@ -64,7 +64,7 @@
     "p99_9": 0,
     "p99_99": 0,
     "p99_999": 0,
-    "sent": 160436
+    "sent": 93797
   },
   "throughput": {
     "average": 0,
