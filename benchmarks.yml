@@ -179,10 +179,3 @@ groups:
           url: "https://deno.land/x/tinyhttp"
           desc: |
             Deno port of tinyhttp, 0-legacy, tiny & fast web framework.
-     - name: fast
-       dir: fast
-       exe: deno run -A bare.ts
-       info:
-         url: "https://deno.land/x/fast"
-         desc: |
-           Small web framework.
