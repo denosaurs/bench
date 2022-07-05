@@ -993,7 +993,7 @@ jobs:
           echo "::set-output name=result_dir::$RESULT_DIR"
           echo "::set-output name=result_path::$RESULT_PATH"
           echo "::set-output name=result::$RESULT"
-   bare_fast:
+bare_fast:
     runs-on: ubuntu-latest
     outputs:
       result_dir: '${{ steps.result.outputs.result_dir }}'
