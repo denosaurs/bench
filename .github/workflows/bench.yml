@@ -1065,6 +1065,7 @@ jobs:
       - bare_reno
       - bare_servest
       - bare_tinyhttp
+      - bare_fast
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
