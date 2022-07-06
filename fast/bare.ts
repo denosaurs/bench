@@ -1,4 +1,4 @@
-import fast from "https://deno.land/x/fast@1.0.0/mod.ts";
+import fast from "https://deno.land/x/fast/mod.ts";
 
 const app = fast();
 
