@@ -1199,12 +1199,12 @@ jobs:
 
           echo '${{needs.bare_little_std.outputs.result}}' | jq . | tee
           ${{needs.bare_little_std.outputs.result_path}}
-      - name: Save bare_mandarinets results
-        run: >
-          mkdir -p ${{needs.bare_mandarinets.outputs.result_dir}}
-
-          echo '${{needs.bare_mandarinets.outputs.result}}' | jq . | tee
-          ${{needs.bare_mandarinets.outputs.result_path}}
+#      - name: Save bare_mandarinets results
+#        run: >
+#          mkdir -p ${{needs.bare_mandarinets.outputs.result_dir}}
+#
+#          echo '${{needs.bare_mandarinets.outputs.result}}' | jq . | tee
+#          ${{needs.bare_mandarinets.outputs.result_path}}
       - name: Save bare_node results
         run: >
           mkdir -p ${{needs.bare_node.outputs.result_dir}}
