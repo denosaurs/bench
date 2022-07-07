@@ -451,6 +451,55 @@ jobs:
           echo "::set-output name=result_dir::$RESULT_DIR"
           echo "::set-output name=result_path::$RESULT_PATH"
           echo "::set-output name=result::$RESULT"
+  bare_hono:
+    runs-on: ubuntu-latest
+    outputs:
+      result_dir: '${{ steps.result.outputs.result_dir }}'
+      result_path: '${{ steps.result.outputs.result_path }}'
+      result: '${{ steps.result.outputs.result }}'
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@master
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - name: Pull changes from other benchmarks
+        run: git pull
+      - name: Setup nodejs 13
+        uses: actions/setup-node@v1
+        with:
+          node-version: '13'
+      - name: Setup deno latest
+        uses: denoland/setup-deno@main
+      - name: Install Autocannon
+        run: npm install -g autocannon
+      - name: START
+        run: echo "Starting Benchmarks"
+      - name: hono
+        run: >-
+          deno run -A bare.ts &
+
+          sleep 15 &&
+
+          mkdir -p results &&
+
+          autocannon -c 40 -d 10 -j http://localhost:8000 >
+          results/bare_hono.json &&
+
+          kill $!
+        working-directory: hono
+        continue-on-error: true
+      - name: END
+        run: echo "End Benchmarks"
+      - name: Set result output
+        id: result
+        run: |
+          RESULT_DIR="hono/results/"
+          RESULT_PATH="hono/results/bare_hono.json"
+          RESULT="$(cat hono/results/bare_hono.json)"
+          echo "::set-output name=result_dir::$RESULT_DIR"
+          echo "::set-output name=result_path::$RESULT_PATH"
+          echo "::set-output name=result::$RESULT"
   bare_http:
     runs-on: ubuntu-latest
     outputs:
@@ -1005,6 +1054,7 @@ jobs:
       - bare_drash
       - bare_express
       - bare_fastify
+      - bare_hono
       - bare_http
       - bare_little_native
       - bare_little_std
@@ -1076,6 +1126,12 @@ jobs:
 
           echo '${{needs.bare_fastify.outputs.result}}' | jq . | tee
           ${{needs.bare_fastify.outputs.result_path}}
+      - name: Save bare_hono results
+        run: >
+          mkdir -p ${{needs.bare_hono.outputs.result_dir}}
+
+          echo '${{needs.bare_hono.outputs.result}}' | jq . | tee
+          ${{needs.bare_hono.outputs.result_path}}
       - name: Save bare_http results
         run: >
           mkdir -p ${{needs.bare_http.outputs.result_dir}}

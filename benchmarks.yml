@@ -74,6 +74,14 @@ groups:
           desc: |
             Fast and low overhead web framework, for Node.js
 
+      - name: hono
+        dir: hono
+        exe: deno run -A bare.ts
+        info:
+          url: "https://github.com/honojs/hono"
+          desc: |
+            Ultrafast web framework for Cloudflare Workers and Deno.
+
       - name: http
         dir: http
         exe: deno run -A --unstable bare.ts
