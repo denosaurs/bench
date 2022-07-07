@@ -647,57 +647,57 @@ jobs:
           echo "::set-output name=result_dir::$RESULT_DIR"
           echo "::set-output name=result_path::$RESULT_PATH"
           echo "::set-output name=result::$RESULT"
-  bare_mandarinets:
-    runs-on: ubuntu-latest
-    outputs:
-      result_dir: '${{ steps.result.outputs.result_dir }}'
-      result_path: '${{ steps.result.outputs.result_path }}'
-      result: '${{ steps.result.outputs.result }}'
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@master
-        with:
-          persist-credentials: false
-          fetch-depth: 0
-      - name: Pull changes from other benchmarks
-        run: git pull
-      - name: Setup nodejs 13
-        uses: actions/setup-node@v1
-        with:
-          node-version: '13'
-      - name: Setup deno latest
-        uses: denoland/setup-deno@main
-      - name: Install Autocannon
-        run: npm install -g autocannon
-      - name: START
-        run: echo "Starting Benchmarks"
-      - name: mandarinets
-        run: >-
-          deno run -A --unstable bare.ts &
-
-          sleep 15 && 
-
-          mkdir -p results &&
-
-          autocannon -c 40 -d 10 -j http://localhost:8000 >
-          results/bare_mandarinets.json &&
-
-          kill $!
-        working-directory: mandarinets
-        continue-on-error: true
-        env:
-          MANDARINE_SERVER_SESSION_MIDDLEWARE: false
-      - name: END
-        run: echo "End Benchmarks"
-      - name: Set result output
-        id: result
-        run: |
-          RESULT_DIR="mandarinets/results/"
-          RESULT_PATH="mandarinets/results/bare_mandarinets.json"
-          RESULT="$(cat mandarinets/results/bare_mandarinets.json)"
-          echo "::set-output name=result_dir::$RESULT_DIR"
-          echo "::set-output name=result_path::$RESULT_PATH"
-          echo "::set-output name=result::$RESULT"
+#  bare_mandarinets:
+#    runs-on: ubuntu-latest
+#    outputs:
+#      result_dir: '${{ steps.result.outputs.result_dir }}'
+#      result_path: '${{ steps.result.outputs.result_path }}'
+#      result: '${{ steps.result.outputs.result }}'
+#    steps:
+#      - name: Checkout Repository
+#        uses: actions/checkout@master
+#        with:
+#          persist-credentials: false
+#          fetch-depth: 0
+#      - name: Pull changes from other benchmarks
+#        run: git pull
+#      - name: Setup nodejs 13
+#        uses: actions/setup-node@v1
+#        with:
+#          node-version: '13'
+#      - name: Setup deno latest
+#        uses: denoland/setup-deno@main
+#      - name: Install Autocannon
+#        run: npm install -g autocannon
+#      - name: START
+#        run: echo "Starting Benchmarks"
+#      - name: mandarinets
+#        run: >-
+#          deno run -A --unstable bare.ts &
+#
+#          sleep 15 && 
+#
+#          mkdir -p results &&
+#
+#          autocannon -c 40 -d 10 -j http://localhost:8000 >
+#          results/bare_mandarinets.json &&
+#
+#          kill $!
+#        working-directory: mandarinets
+#        continue-on-error: true
+#        env:
+#          MANDARINE_SERVER_SESSION_MIDDLEWARE: false
+#      - name: END
+#        run: echo "End Benchmarks"
+#      - name: Set result output
+#        id: result
+#        run: |
+#          RESULT_DIR="mandarinets/results/"
+#          RESULT_PATH="mandarinets/results/bare_mandarinets.json"
+#          RESULT="$(cat mandarinets/results/bare_mandarinets.json)"
+#          echo "::set-output name=result_dir::$RESULT_DIR"
+#          echo "::set-output name=result_path::$RESULT_PATH"
+#          echo "::set-output name=result::$RESULT"
   bare_node:
     runs-on: ubuntu-latest
     outputs:
