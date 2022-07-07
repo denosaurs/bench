@@ -1075,7 +1075,7 @@ jobs:
           mkdir -p results &&
 
           autocannon -c 40 -d 10 -j http://localhost:8000 >
-          results/bare_servest.json &&
+          results/bare_fast.json &&
 
           kill $!
         working-directory: servest
@@ -1086,8 +1086,8 @@ jobs:
         id: result
         run: |
           RESULT_DIR="fast/results/"
-          RESULT_PATH="fast/results/bare_servest.json"
-          RESULT="$(cat fast/results/bare_servest.json)"
+          RESULT_PATH="fast/results/bare_fast.json"
+          RESULT="$(cat fast/results/bare_fast.json)"
           echo "::set-output name=result_dir::$RESULT_DIR"
           echo "::set-output name=result_path::$RESULT_PATH"
           echo "::set-output name=result::$RESULT"
