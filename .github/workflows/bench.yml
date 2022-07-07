@@ -1107,7 +1107,6 @@ jobs:
       - bare_http
       - bare_little_native
       - bare_little_std
-      - bare_mandarinets
       - bare_node
       - bare_oak
       - bare_opine
