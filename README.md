@@ -16,109 +16,81 @@
 - [Overview](#overview)
   - [Hello, bench!](#hello-bench)
 - [Frameworks](#frameworks)
-  - [Abc](#abc)
   - [Alosaur](#alosaur)
-  - [Aqua](#aqua)
-  - [Bun](#bun)
-  - [Deno](#deno)
-  - [Dinatra](#dinatra)
-  - [Drash](#drash)
-  - [Express](#express)
   - [Fast](#fast)
   - [Fastify](#fastify)
-  - [Hono](#hono)
-  - [http](#http)
-  - [Little](#little)
-  - [Node](#node)
+  - [Dinatra](#dinatra)
+  - [tinyhttp](#tinyhttp)
+  - [Router](#router)
   - [Oak](#oak)
+  - [http](#http)
   - [Opine](#opine)
   - [Reno](#reno)
-  - [Router](#router)
-  - [tinyhttp](#tinyhttp)
+  - [Aqua](#aqua)
   - [Servest](#servest)
+  - [Hono](#hono)
+  - [Drash](#drash)
+  - [Abc](#abc)
+  - [Bun](#bun)
+  - [Express](#express)
+  - [Little](#little)
+  - [Node](#node)
+  - [Deno](#deno)
 - [Benchmarks](#benchmarks)
   - [Hello, bench!](#hello-bench-1)
-    - [Abc](#abc-1)
     - [Alosaur](#alosaur-1)
-    - [Aqua](#aqua-1)
-    - [Bun](#bun-1)
-    - [Deno](#deno-1)
-    - [Dinatra](#dinatra-1)
-    - [Drash](#drash-1)
-    - [Express](#express-1)
     - [Fast](#fast-1)
     - [Fastify](#fastify-1)
-    - [Hono](#hono-1)
-    - [http](#http-1)
-    - [Little](#little-1)
-    - [Node](#node-1)
+    - [Dinatra](#dinatra-1)
+    - [tinyhttp](#tinyhttp-1)
+    - [Router](#router-1)
     - [Oak](#oak-1)
+    - [http](#http-1)
     - [Opine](#opine-1)
     - [Reno](#reno-1)
-    - [Router](#router-1)
-    - [tinyhttp](#tinyhttp-1)
+    - [Aqua](#aqua-1)
     - [Servest](#servest-1)
+    - [Hono](#hono-1)
+    - [Drash](#drash-1)
+    - [Abc](#abc-1)
+    - [Bun](#bun-1)
+    - [Express](#express-1)
+    - [Little](#little-1)
+    - [Node](#node-1)
+    - [Deno](#deno-1)
 
 # Overview
 
 ## Hello, bench!
 
-| Framework | Average  | Mean     | Stddev   | Min      | Max      | Total     |
-| --------- | -------- | -------- | -------- | -------- | -------- | --------- |
-| Deno      | 65632.00 | 65632.00 | 2895.85  | 57492.00 | 68817.00 | 721940.00 |
-| Fast      | 64871.28 | 64871.28 | 2221.57  | 59083.00 | 67284.00 | 713618.00 |
-| Hono      | 64515.20 | 64515.20 | 2882.41  | 56165.00 | 66855.00 | 645116.00 |
-| http      | 64173.10 | 64173.10 | 2813.26  | 55724.00 | 66489.00 | 705932.00 |
-| Node      | 59536.00 | 59536.00 | 3755.21  | 47809.00 | 61621.00 | 654924.00 |
-| Fastify   | 53473.46 | 53473.46 | 4665.77  | 38993.00 | 56412.00 | 588245.00 |
-| Alosaur   | 51879.28 | 51879.28 | 2110.16  | 46974.00 | 54352.00 | 570662.00 |
-| Reno      | 43675.64 | 43675.64 | 1056.43  | 40457.00 | 44469.00 | 480380.00 |
-| Oak       | 36233.46 | 36233.46 | 1339.52  | 32073.00 | 36948.00 | 398579.00 |
-| Aqua      | 33123.64 | 33123.64 | 1158.01  | 30394.00 | 34216.00 | 364342.00 |
-| Abc       | 23240.00 | 23240.00 | 1219.71  | 20025.00 | 24159.00 | 255623.00 |
-| Drash     | 22925.82 | 22925.82 | 1139.93  | 19658.00 | 23727.00 | 252177.00 |
-| Router    | 22282.80 | 22282.80 | 11404.78 | 14322.00 | 42171.00 | 222857.00 |
-| Bun       | 20720.00 | 20720.00 | 1295.56  | 17202.00 | 21903.00 | 207167.00 |
-| Opine     | 12664.37 | 12664.37 | 737.70   | 10369.00 | 13083.00 | 139300.00 |
-| Little    | 11145.10 | 11145.10 | 492.44   | 9627.00  | 11455.00 | 122595.00 |
-| Dinatra   | 9110.19  | 9110.19  | 327.11   | 8434.00  | 9549.00  | 100203.00 |
-| Express   | 6678.00  | 6678.00  | 493.79   | 5154.00  | 6935.00  | 73450.00  |
-| Servest   | 2827.00  | 2827.00  | 212.78   | 2281.00  | 3005.00  | 28266.00  |
-| tinyhttp  | 2586.10  | 2586.10  | 967.76   | 2067.00  | 3623.00  | 25859.00  |
+| Framework | Average  | Mean     | Stddev  | Min      | Max      | Total     |
+| --------- | -------- | -------- | ------- | -------- | -------- | --------- |
+| Deno      | 42986.19 | 42986.19 | 2915.82 | 33867.00 | 44360.00 | 472784.00 |
+| Fast      | 42485.60 | 42485.60 | 3358.12 | 32578.00 | 44248.00 | 424847.00 |
+| http      | 42383.20 | 42383.20 | 3347.70 | 32512.00 | 43958.00 | 423806.00 |
+| Node      | 41757.60 | 41757.60 | 4791.03 | 27478.00 | 44190.00 | 417603.00 |
+| Hono      | 39559.20 | 39559.20 | 3027.61 | 30554.00 | 41048.00 | 395646.00 |
+| Bun       | 38915.64 | 38915.64 | 2134.14 | 32204.00 | 39920.00 | 428124.00 |
+| Fastify   | 36432.73 | 36432.73 | 4539.75 | 22163.00 | 38696.00 | 400784.00 |
+| Reno      | 30560.00 | 30560.00 | 2270.81 | 23909.00 | 31844.00 | 305600.00 |
+| Router    | 28726.55 | 28726.55 | 1819.04 | 23190.00 | 29784.00 | 315986.00 |
+| Alosaur   | 27237.82 | 27237.82 | 8412.01 | 15485.00 | 35324.00 | 299650.00 |
+| Oak       | 24928.73 | 24928.73 | 2195.25 | 18043.00 | 25854.00 | 274239.00 |
+| Aqua      | 23416.00 | 23416.00 | 1735.03 | 18228.00 | 24136.00 | 234141.00 |
+| Abc       | 17115.28 | 17115.28 | 1381.26 | 12776.00 | 17808.00 | 188267.00 |
+| Drash     | 16179.20 | 16179.20 | 1259.43 | 12825.00 | 17248.00 | 161771.00 |
+| Little    | 13985.10 | 13985.10 | 1149.69 | 10436.00 | 14539.00 | 153830.00 |
+| Dinatra   | 11399.20 | 11399.20 | 842.68  | 9074.00  | 12032.00 | 113977.00 |
+| Opine     | 9581.00  | 9581.00  | 922.34  | 6853.00  | 10146.00 | 95801.00  |
+| Express   | 6849.30  | 6849.30  | 974.90  | 3967.00  | 7387.00  | 68492.00  |
+| Servest   | 5390.80  | 5390.80  | 432.22  | 4106.00  | 5693.00  | 53908.00  |
+| tinyhttp  | 3960.80  | 3960.80  | 642.40  | 3160.00  | 5400.00  | 39599.00  |
 
 # Frameworks
-
-## [Abc](https://deno.land/x/abc)
-
-A better Deno framework to create web application
 
 ## [Alosaur](https://deno.land/x/alosaur)
 
 Deno web framework with many decorators
-
-## [Aqua](https://deno.land/x/aqua)
-
-A minimal and fast 🏃 web framework for Deno
-
-## [Bun](https://bun.sh/)
-
-Bun is a fast all-in-one JavaScript runtime
-
-## [Deno](https://deno.land/)
-
-A modern runtime for JavaScript and TypeScript
-
-## [Dinatra](https://github.com/syumai/dinatra)
-
-Sinatra like light weight web app framework for deno.
-
-## [Drash](https://deno.land/x/drash)
-
-A REST microframework for Deno's HTTP server with zero dependencies.
-
-## [Express](https://expressjs.com/)
-
-Fast, unopinionated, minimalist web framework for Node.js
 
 ## [Fast](https://deno.land/x/fast)
 
@@ -128,28 +100,27 @@ Small web framework with near-native performance.
 
 Fast and low overhead web framework, for Node.js
 
-## [Hono](https://github.com/honojs/hono)
+## [Dinatra](https://github.com/syumai/dinatra)
 
-Ultrafast web framework for Cloudflare Workers and Deno. Fast, but not only
-fast.
+Sinatra like light weight web app framework for deno.
 
-## [http](https://deno.land/std/http)
+## [tinyhttp](https://deno.land/x/tinyhttp)
 
-The deno standard library http server
+🦕 Deno port of tinyhttp, 0-legacy, tiny & fast web framework
 
-## [Little](https://deno.land/x/little)
+## [Router](https://crux.land/router@0.0.12)
 
-A minimalistic connect-like web framework. Automatically works out of the box
-with Deno Deploy, Deno's Native HTTP and Deno's Standard HTTP server.
-
-## [Node](https://nodejs.org/)
-
-Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine.
+The tiny, modern and fast router by the denosaurs for deno and deno deploy. Used
+by projects like fresh
 
 ## [Oak](https://deno.land/x/oak)
 
 A middleware framework for Deno's native HTTP server, Deno Deploy and Node.js
 16.5 and later. It also includes a middleware router.
+
+## [http](https://deno.land/std/http)
+
+The deno standard library http server
 
 ## [Opine](https://deno.land/x/opine)
 
@@ -160,18 +131,47 @@ Fast, minimalist web framework for Deno ported from ExpressJS.
 A thin, testable routing library designed to sit on top of Deno's standard HTTP
 module.
 
-## [Router](https://crux.land/router@0.0.12)
+## [Aqua](https://deno.land/x/aqua)
 
-The tiny, modern and fast router by the denosaurs for deno and deno deploy. Used
-by projects like fresh
-
-## [tinyhttp](https://deno.land/x/tinyhttp)
-
-🦕 Deno port of tinyhttp, 0-legacy, tiny & fast web framework
+A minimal and fast 🏃 web framework for Deno
 
 ## [Servest](https://servestjs.org/)
 
 🌾A progressive http server for Deno🌾
+
+## [Hono](https://github.com/honojs/hono)
+
+Ultrafast web framework for Cloudflare Workers and Deno. Fast, but not only
+fast.
+
+## [Drash](https://deno.land/x/drash)
+
+A REST microframework for Deno's HTTP server with zero dependencies.
+
+## [Abc](https://deno.land/x/abc)
+
+A better Deno framework to create web application
+
+## [Bun](https://bun.sh/)
+
+Bun is a fast all-in-one JavaScript runtime
+
+## [Express](https://expressjs.com/)
+
+Fast, unopinionated, minimalist web framework for Node.js
+
+## [Little](https://deno.land/x/little)
+
+A minimalistic connect-like web framework. Automatically works out of the box
+with Deno Deploy, Deno's Native HTTP and Deno's Standard HTTP server.
+
+## [Node](https://nodejs.org/)
+
+Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine.
+
+## [Deno](https://deno.land/)
+
+A modern runtime for JavaScript and TypeScript
 
 # Benchmarks
 
@@ -180,286 +180,286 @@ by projects like fresh
 A simple benchmark which expects a response simply containing the text
 "`Hello, Bench!`"
 
-### [Abc](#abc)
-
-| **Stat**      | Average  | Mean     | Stddev  | Min      | Max      | Total     |
-| ------------- | -------- | -------- | ------- | -------- | -------- | --------- |
-| **Req/Sec**   | 23240.00 | 23240.00 | 1219.71 | 20025.00 | 24159.00 | 255623.00 |
-| **Bytes/Sec** | 2.16 MB  | 2.16 MB  | 113 kB  | 1.86 MB  | 2.25 MB  | 23.8 MB   |
-| **Latency**   | 1ms      | 1ms      | 490µs   | 1ms      | 42ms     | N/A       |
-
-| **Stat**      | 1        | 2.5      | 50       | 90       | 97.5     | 99       |
-| ------------- | -------- | -------- | -------- | -------- | -------- | -------- |
-| **Req/Sec**   | 20031.00 | 20031.00 | 23631.00 | 24127.00 | 24159.00 | 24159.00 |
-| **Bytes/Sec** | 1.86 MB  | 1.86 MB  | 2.2 MB   | 2.24 MB  | 2.25 MB  | 2.25 MB  |
-| **Latency**   | 1ms      | 1ms      | 1ms      | 2ms      | 2ms      | 3ms      |
-
 ### [Alosaur](#alosaur)
 
 | **Stat**      | Average  | Mean     | Stddev  | Min      | Max      | Total     |
 | ------------- | -------- | -------- | ------- | -------- | -------- | --------- |
-| **Req/Sec**   | 51879.28 | 51879.28 | 2110.16 | 46974.00 | 54352.00 | 570662.00 |
-| **Bytes/Sec** | 5.81 MB  | 5.81 MB  | 236 kB  | 5.26 MB  | 6.09 MB  | 63.9 MB   |
-| **Latency**   | 120µs    | 120µs    | 410µs   | 1ms      | 16ms     | N/A       |
+| **Req/Sec**   | 27237.82 | 27237.82 | 8412.01 | 15485.00 | 35324.00 | 299650.00 |
+| **Bytes/Sec** | 3.05 MB  | 3.05 MB  | 942 kB  | 1.73 MB  | 3.96 MB  | 33.6 MB   |
+| **Latency**   | 1ms      | 1ms      | 960µs   | 1ms      | 22ms     | N/A       |
 
 | **Stat**      | 1        | 2.5      | 50       | 90       | 97.5     | 99       |
 | ------------- | -------- | -------- | -------- | -------- | -------- | -------- |
-| **Req/Sec**   | 46975.00 | 46975.00 | 52223.00 | 53951.00 | 54367.00 | 54367.00 |
-| **Bytes/Sec** | 5.26 MB  | 5.26 MB  | 5.85 MB  | 6.04 MB  | 6.09 MB  | 6.09 MB  |
-| **Latency**   | 0ms      | 0ms      | 0ms      | 0ms      | 1ms      | 2ms      |
-
-### [Aqua](#aqua)
-
-| **Stat**      | Average  | Mean     | Stddev  | Min      | Max      | Total     |
-| ------------- | -------- | -------- | ------- | -------- | -------- | --------- |
-| **Req/Sec**   | 33123.64 | 33123.64 | 1158.01 | 30394.00 | 34216.00 | 364342.00 |
-| **Bytes/Sec** | 5.03 MB  | 5.03 MB  | 176 kB  | 4.62 MB  | 5.2 MB   | 55.4 MB   |
-| **Latency**   | 910µs    | 910µs    | 430µs   | 1ms      | 20ms     | N/A       |
-
-| **Stat**      | 1        | 2.5      | 50       | 90       | 97.5     | 99       |
-| ------------- | -------- | -------- | -------- | -------- | -------- | -------- |
-| **Req/Sec**   | 30399.00 | 30399.00 | 33695.00 | 33983.00 | 34239.00 | 34239.00 |
-| **Bytes/Sec** | 4.62 MB  | 4.62 MB  | 5.12 MB  | 5.17 MB  | 5.2 MB   | 5.2 MB   |
-| **Latency**   | 0ms      | 0ms      | 1ms      | 1ms      | 2ms      | 2ms      |
-
-### [Bun](#bun)
-
-| **Stat**      | Average  | Mean     | Stddev  | Min      | Max      | Total     |
-| ------------- | -------- | -------- | ------- | -------- | -------- | --------- |
-| **Req/Sec**   | 20720.00 | 20720.00 | 1295.56 | 17202.00 | 21903.00 | 207167.00 |
-| **Bytes/Sec** | 1.91 MB  | 1.91 MB  | 119 kB  | 1.58 MB  | 2.02 MB  | 19.1 MB   |
-| **Latency**   | 1ms      | 1ms      | 560µs   | 1ms      | 17ms     | N/A       |
-
-| **Stat**      | 1        | 2.5      | 50       | 90       | 97.5     | 99       |
-| ------------- | -------- | -------- | -------- | -------- | -------- | -------- |
-| **Req/Sec**   | 17215.00 | 17215.00 | 21103.00 | 21439.00 | 21903.00 | 21903.00 |
-| **Bytes/Sec** | 1.58 MB  | 1.58 MB  | 1.94 MB  | 1.97 MB  | 2.02 MB  | 2.02 MB  |
-| **Latency**   | 1ms      | 1ms      | 1ms      | 2ms      | 3ms      | 3ms      |
-
-### [Deno](#deno)
-
-| **Stat**      | Average  | Mean     | Stddev  | Min      | Max      | Total     |
-| ------------- | -------- | -------- | ------- | -------- | -------- | --------- |
-| **Req/Sec**   | 65632.00 | 65632.00 | 2895.85 | 57492.00 | 68817.00 | 721940.00 |
-| **Bytes/Sec** | 9.98 MB  | 9.98 MB  | 440 kB  | 8.74 MB  | 10.5 MB  | 110 MB    |
-| **Latency**   | 70µs     | 70µs     | 290µs   | 1ms      | 15ms     | N/A       |
-
-| **Stat**      | 1        | 2.5      | 50       | 90       | 97.5     | 99       |
-| ------------- | -------- | -------- | -------- | -------- | -------- | -------- |
-| **Req/Sec**   | 57503.00 | 57503.00 | 66367.00 | 68607.00 | 68863.00 | 68863.00 |
-| **Bytes/Sec** | 8.74 MB  | 8.74 MB  | 10.1 MB  | 10.4 MB  | 10.5 MB  | 10.5 MB  |
-| **Latency**   | 0ms      | 0ms      | 0ms      | 0ms      | 1ms      | 1ms      |
-
-### [Dinatra](#dinatra)
-
-| **Stat**      | Average | Mean    | Stddev | Min     | Max     | Total     |
-| ------------- | ------- | ------- | ------ | ------- | ------- | --------- |
-| **Req/Sec**   | 9110.19 | 9110.19 | 327.11 | 8434.00 | 9549.00 | 100203.00 |
-| **Bytes/Sec** | 474 kB  | 474 kB  | 17 kB  | 439 kB  | 497 kB  | 5.21 MB   |
-| **Latency**   | 4ms     | 4ms     | 1ms    | 2ms     | 43ms    | N/A       |
-
-| **Stat**      | 1       | 2.5     | 50      | 90      | 97.5    | 99      |
-| ------------- | ------- | ------- | ------- | ------- | ------- | ------- |
-| **Req/Sec**   | 8439.00 | 8439.00 | 9063.00 | 9431.00 | 9551.00 | 9551.00 |
-| **Bytes/Sec** | 439 kB  | 439 kB  | 471 kB  | 490 kB  | 497 kB  | 497 kB  |
-| **Latency**   | 3ms     | 3ms     | 4ms     | 4ms     | 6ms     | 7ms     |
-
-### [Drash](#drash)
-
-| **Stat**      | Average  | Mean     | Stddev  | Min      | Max      | Total     |
-| ------------- | -------- | -------- | ------- | -------- | -------- | --------- |
-| **Req/Sec**   | 22925.82 | 22925.82 | 1139.93 | 19658.00 | 23727.00 | 252177.00 |
-| **Bytes/Sec** | 2.13 MB  | 2.13 MB  | 106 kB  | 1.83 MB  | 2.21 MB  | 23.5 MB   |
-| **Latency**   | 1ms      | 1ms      | 490µs   | 1ms      | 45ms     | N/A       |
-
-| **Stat**      | 1        | 2.5      | 50       | 90       | 97.5     | 99       |
-| ------------- | -------- | -------- | -------- | -------- | -------- | -------- |
-| **Req/Sec**   | 19663.00 | 19663.00 | 23407.00 | 23695.00 | 23727.00 | 23727.00 |
-| **Bytes/Sec** | 1.83 MB  | 1.83 MB  | 2.18 MB  | 2.2 MB   | 2.21 MB  | 2.21 MB  |
-| **Latency**   | 1ms      | 1ms      | 1ms      | 2ms      | 2ms      | 3ms      |
-
-### [Express](#express)
-
-| **Stat**      | Average | Mean    | Stddev | Min     | Max     | Total    |
-| ------------- | ------- | ------- | ------ | ------- | ------- | -------- |
-| **Req/Sec**   | 6678.00 | 6678.00 | 493.79 | 5154.00 | 6935.00 | 73450.00 |
-| **Bytes/Sec** | 1.6 MB  | 1.6 MB  | 119 kB | 1.24 MB | 1.66 MB | 17.6 MB  |
-| **Latency**   | 5ms     | 5ms     | 1ms    | 4ms     | 24ms    | N/A      |
-
-| **Stat**      | 1       | 2.5     | 50      | 90      | 97.5    | 99      |
-| ------------- | ------- | ------- | ------- | ------- | ------- | ------- |
-| **Req/Sec**   | 5155.00 | 5155.00 | 6859.00 | 6931.00 | 6935.00 | 6935.00 |
-| **Bytes/Sec** | 1.24 MB | 1.24 MB | 1.65 MB | 1.66 MB | 1.67 MB | 1.67 MB |
-| **Latency**   | 5ms     | 5ms     | 5ms     | 7ms     | 8ms     | 10ms    |
+| **Req/Sec**   | 15487.00 | 15487.00 | 31487.00 | 35295.00 | 35327.00 | 35327.00 |
+| **Bytes/Sec** | 1.73 MB  | 1.73 MB  | 3.53 MB  | 3.95 MB  | 3.96 MB  | 3.96 MB  |
+| **Latency**   | 0ms      | 0ms      | 1ms      | 2ms      | 3ms      | 4ms      |
 
 ### [Fast](#fast)
 
 | **Stat**      | Average  | Mean     | Stddev  | Min      | Max      | Total     |
 | ------------- | -------- | -------- | ------- | -------- | -------- | --------- |
-| **Req/Sec**   | 64871.28 | 64871.28 | 2221.57 | 59083.00 | 67284.00 | 713618.00 |
-| **Bytes/Sec** | 9.86 MB  | 9.86 MB  | 338 kB  | 8.98 MB  | 10.2 MB  | 108 MB    |
-| **Latency**   | 70µs     | 70µs     | 280µs   | 1ms      | 16ms     | N/A       |
+| **Req/Sec**   | 42485.60 | 42485.60 | 3358.12 | 32578.00 | 44248.00 | 424847.00 |
+| **Bytes/Sec** | 6.46 MB  | 6.46 MB  | 512 kB  | 4.95 MB  | 6.73 MB  | 64.6 MB   |
+| **Latency**   | 160µs    | 160µs    | 620µs   | 1ms      | 27ms     | N/A       |
 
 | **Stat**      | 1        | 2.5      | 50       | 90       | 97.5     | 99       |
 | ------------- | -------- | -------- | -------- | -------- | -------- | -------- |
-| **Req/Sec**   | 59103.00 | 59103.00 | 65599.00 | 67007.00 | 67327.00 | 67327.00 |
-| **Bytes/Sec** | 8.99 MB  | 8.99 MB  | 9.97 MB  | 10.2 MB  | 10.2 MB  | 10.2 MB  |
-| **Latency**   | 0ms      | 0ms      | 0ms      | 0ms      | 1ms      | 1ms      |
+| **Req/Sec**   | 32591.00 | 32591.00 | 43647.00 | 44095.00 | 44255.00 | 44255.00 |
+| **Bytes/Sec** | 4.95 MB  | 4.95 MB  | 6.64 MB  | 6.71 MB  | 6.73 MB  | 6.73 MB  |
+| **Latency**   | 0ms      | 0ms      | 0ms      | 1ms      | 2ms      | 3ms      |
 
 ### [Fastify](#fastify)
 
 | **Stat**      | Average  | Mean     | Stddev  | Min      | Max      | Total     |
 | ------------- | -------- | -------- | ------- | -------- | -------- | --------- |
-| **Req/Sec**   | 53473.46 | 53473.46 | 4665.77 | 38993.00 | 56412.00 | 588245.00 |
-| **Bytes/Sec** | 9.52 MB  | 9.52 MB  | 831 kB  | 6.94 MB  | 10 MB    | 105 MB    |
-| **Latency**   | 150µs    | 150µs    | 430µs   | 1ms      | 19ms     | N/A       |
+| **Req/Sec**   | 36432.73 | 36432.73 | 4539.75 | 22163.00 | 38696.00 | 400784.00 |
+| **Bytes/Sec** | 6.49 MB  | 6.49 MB  | 808 kB  | 3.95 MB  | 6.89 MB  | 71.3 MB   |
+| **Latency**   | 460µs    | 460µs    | 760µs   | 1ms      | 23ms     | N/A       |
 
 | **Stat**      | 1        | 2.5      | 50       | 90       | 97.5     | 99       |
 | ------------- | -------- | -------- | -------- | -------- | -------- | -------- |
-| **Req/Sec**   | 39007.00 | 39007.00 | 54975.00 | 55775.00 | 56415.00 | 56415.00 |
-| **Bytes/Sec** | 6.94 MB  | 6.94 MB  | 9.79 MB  | 9.93 MB  | 10 MB    | 10 MB    |
-| **Latency**   | 0ms      | 0ms      | 0ms      | 1ms      | 1ms      | 1ms      |
+| **Req/Sec**   | 22175.00 | 22175.00 | 37631.00 | 38623.00 | 38719.00 | 38719.00 |
+| **Bytes/Sec** | 3.95 MB  | 3.95 MB  | 6.7 MB   | 6.87 MB  | 6.89 MB  | 6.89 MB  |
+| **Latency**   | 0ms      | 0ms      | 0ms      | 1ms      | 2ms      | 2ms      |
 
-### [Hono](#hono)
-
-| **Stat**      | Average  | Mean     | Stddev  | Min      | Max      | Total     |
-| ------------- | -------- | -------- | ------- | -------- | -------- | --------- |
-| **Req/Sec**   | 64515.20 | 64515.20 | 2882.41 | 56165.00 | 66855.00 | 645116.00 |
-| **Bytes/Sec** | 9.87 MB  | 9.87 MB  | 442 kB  | 8.59 MB  | 10.2 MB  | 98.7 MB   |
-| **Latency**   | 70µs     | 70µs     | 300µs   | 1ms      | 17ms     | N/A       |
-
-| **Stat**      | 1        | 2.5      | 50       | 90       | 97.5     | 99       |
-| ------------- | -------- | -------- | -------- | -------- | -------- | -------- |
-| **Req/Sec**   | 56191.00 | 56191.00 | 65375.00 | 66175.00 | 66879.00 | 66879.00 |
-| **Bytes/Sec** | 8.59 MB  | 8.59 MB  | 10 MB    | 10.1 MB  | 10.2 MB  | 10.2 MB  |
-| **Latency**   | 0ms      | 0ms      | 0ms      | 0ms      | 1ms      | 1ms      |
-
-### [http](#http)
-
-| **Stat**      | Average  | Mean     | Stddev  | Min      | Max      | Total     |
-| ------------- | -------- | -------- | ------- | -------- | -------- | --------- |
-| **Req/Sec**   | 64173.10 | 64173.10 | 2813.26 | 55724.00 | 66489.00 | 705932.00 |
-| **Bytes/Sec** | 10.7 MB  | 10.7 MB  | 467 kB  | 9.25 MB  | 11 MB    | 117 MB    |
-| **Latency**   | 70µs     | 70µs     | 290µs   | 1ms      | 15ms     | N/A       |
-
-| **Stat**      | 1        | 2.5      | 50       | 90       | 97.5     | 99       |
-| ------------- | -------- | -------- | -------- | -------- | -------- | -------- |
-| **Req/Sec**   | 55743.00 | 55743.00 | 64895.00 | 65855.00 | 66495.00 | 66495.00 |
-| **Bytes/Sec** | 9.26 MB  | 9.26 MB  | 10.8 MB  | 10.9 MB  | 11 MB    | 11 MB    |
-| **Latency**   | 0ms      | 0ms      | 0ms      | 0ms      | 1ms      | 1ms      |
-
-### [Little](#little)
+### [Dinatra](#dinatra)
 
 | **Stat**      | Average  | Mean     | Stddev  | Min     | Max      | Total     |
 | ------------- | -------- | -------- | ------- | ------- | -------- | --------- |
-| **Req/Sec**   | 11145.10 | 11145.10 | 492.44  | 9627.00 | 11455.00 | 122595.00 |
-| **Bytes/Sec** | 1.69 MB  | 1.69 MB  | 74.8 kB | 1.46 MB | 1.74 MB  | 18.6 MB   |
-| **Latency**   | 3ms      | 3ms      | 500µs   | 1ms     | 17ms     | N/A       |
+| **Req/Sec**   | 11399.20 | 11399.20 | 842.68  | 9074.00 | 12032.00 | 113977.00 |
+| **Bytes/Sec** | 593 kB   | 593 kB   | 43.8 kB | 472 kB  | 626 kB   | 5.93 MB   |
+| **Latency**   | 3ms      | 3ms      | 2ms     | 1ms     | 85ms     | N/A       |
 
 | **Stat**      | 1       | 2.5     | 50       | 90       | 97.5     | 99       |
 | ------------- | ------- | ------- | -------- | -------- | -------- | -------- |
-| **Req/Sec**   | 9631.00 | 9631.00 | 11319.00 | 11415.00 | 11455.00 | 11455.00 |
-| **Bytes/Sec** | 1.46 MB | 1.46 MB | 1.72 MB  | 1.74 MB  | 1.74 MB  | 1.74 MB  |
-| **Latency**   | 2ms     | 2ms     | 3ms      | 3ms      | 4ms      | 5ms      |
+| **Req/Sec**   | 9079.00 | 9079.00 | 11559.00 | 11991.00 | 12039.00 | 12039.00 |
+| **Bytes/Sec** | 472 kB  | 472 kB  | 601 kB   | 624 kB   | 626 kB   | 626 kB   |
+| **Latency**   | 2ms     | 2ms     | 3ms      | 3ms      | 7ms      | 7ms      |
 
-### [Node](#node)
+### [tinyhttp](#tinyhttp)
+
+| **Stat**      | Average | Mean    | Stddev  | Min     | Max     | Total    |
+| ------------- | ------- | ------- | ------- | ------- | ------- | -------- |
+| **Req/Sec**   | 3960.80 | 3960.80 | 642.40  | 3160.00 | 5400.00 | 39599.00 |
+| **Bytes/Sec** | 455 kB  | 455 kB  | 73.8 kB | 363 kB  | 621 kB  | 4.55 MB  |
+| **Latency**   | 9ms     | 9ms     | 16ms    | 1ms     | 56ms    | N/A      |
+
+| **Stat**      | 1       | 2.5     | 50      | 90      | 97.5    | 99      |
+| ------------- | ------- | ------- | ------- | ------- | ------- | ------- |
+| **Req/Sec**   | 3161.00 | 3161.00 | 3855.00 | 4519.00 | 5403.00 | 5403.00 |
+| **Bytes/Sec** | 364 kB  | 364 kB  | 443 kB  | 519 kB  | 621 kB  | 621 kB  |
+| **Latency**   | 0ms     | 0ms     | 2ms     | 44ms    | 47ms    | 48ms    |
+
+### [Router](#router)
 
 | **Stat**      | Average  | Mean     | Stddev  | Min      | Max      | Total     |
 | ------------- | -------- | -------- | ------- | -------- | -------- | --------- |
-| **Req/Sec**   | 59536.00 | 59536.00 | 3755.21 | 47809.00 | 61621.00 | 654924.00 |
-| **Bytes/Sec** | 8.1 MB   | 8.1 MB   | 512 kB  | 6.5 MB   | 8.38 MB  | 89.1 MB   |
-| **Latency**   | 100µs    | 100µs    | 350µs   | 1ms      | 19ms     | N/A       |
+| **Req/Sec**   | 28726.55 | 28726.55 | 1819.04 | 23190.00 | 29784.00 | 315986.00 |
+| **Bytes/Sec** | 4.37 MB  | 4.37 MB  | 276 kB  | 3.52 MB  | 4.53 MB  | 48 MB     |
+| **Latency**   | 1ms      | 1ms      | 550µs   | 1ms      | 27ms     | N/A       |
 
 | **Stat**      | 1        | 2.5      | 50       | 90       | 97.5     | 99       |
 | ------------- | -------- | -------- | -------- | -------- | -------- | -------- |
-| **Req/Sec**   | 47839.00 | 47839.00 | 60639.00 | 61407.00 | 61631.00 | 61631.00 |
-| **Bytes/Sec** | 6.5 MB   | 6.5 MB   | 8.25 MB  | 8.35 MB  | 8.38 MB  | 8.38 MB  |
-| **Latency**   | 0ms      | 0ms      | 0ms      | 0ms      | 1ms      | 1ms      |
+| **Req/Sec**   | 23199.00 | 23199.00 | 29407.00 | 29727.00 | 29791.00 | 29791.00 |
+| **Bytes/Sec** | 3.53 MB  | 3.53 MB  | 4.47 MB  | 4.52 MB  | 4.53 MB  | 4.53 MB  |
+| **Latency**   | 0ms      | 1ms      | 1ms      | 1ms      | 2ms      | 3ms      |
 
 ### [Oak](#oak)
 
 | **Stat**      | Average  | Mean     | Stddev  | Min      | Max      | Total     |
 | ------------- | -------- | -------- | ------- | -------- | -------- | --------- |
-| **Req/Sec**   | 36233.46 | 36233.46 | 1339.52 | 32073.00 | 36948.00 | 398579.00 |
-| **Bytes/Sec** | 5.54 MB  | 5.54 MB  | 205 kB  | 4.91 MB  | 5.65 MB  | 61 MB     |
-| **Latency**   | 840µs    | 840µs    | 470µs   | 1ms      | 20ms     | N/A       |
+| **Req/Sec**   | 24928.73 | 24928.73 | 2195.25 | 18043.00 | 25854.00 | 274239.00 |
+| **Bytes/Sec** | 3.81 MB  | 3.81 MB  | 336 kB  | 2.76 MB  | 3.96 MB  | 42 MB     |
+| **Latency**   | 1ms      | 1ms      | 660µs   | 1ms      | 23ms     | N/A       |
 
 | **Stat**      | 1        | 2.5      | 50       | 90       | 97.5     | 99       |
 | ------------- | -------- | -------- | -------- | -------- | -------- | -------- |
-| **Req/Sec**   | 32079.00 | 32079.00 | 36735.00 | 36927.00 | 36959.00 | 36959.00 |
-| **Bytes/Sec** | 4.91 MB  | 4.91 MB  | 5.62 MB  | 5.65 MB  | 5.66 MB  | 5.66 MB  |
-| **Latency**   | 0ms      | 0ms      | 1ms      | 1ms      | 1ms      | 2ms      |
+| **Req/Sec**   | 18047.00 | 18047.00 | 25711.00 | 25839.00 | 25855.00 | 25855.00 |
+| **Bytes/Sec** | 2.76 MB  | 2.76 MB  | 3.93 MB  | 3.95 MB  | 3.96 MB  | 3.96 MB  |
+| **Latency**   | 0ms      | 1ms      | 1ms      | 1ms      | 3ms      | 3ms      |
+
+### [http](#http)
+
+| **Stat**      | Average  | Mean     | Stddev  | Min      | Max      | Total     |
+| ------------- | -------- | -------- | ------- | -------- | -------- | --------- |
+| **Req/Sec**   | 42383.20 | 42383.20 | 3347.70 | 32512.00 | 43958.00 | 423806.00 |
+| **Bytes/Sec** | 7.04 MB  | 7.04 MB  | 556 kB  | 5.4 MB   | 7.3 MB   | 70.4 MB   |
+| **Latency**   | 170µs    | 170µs    | 600µs   | 1ms      | 20ms     | N/A       |
+
+| **Stat**      | 1        | 2.5      | 50       | 90       | 97.5     | 99       |
+| ------------- | -------- | -------- | -------- | -------- | -------- | -------- |
+| **Req/Sec**   | 32527.00 | 32527.00 | 43647.00 | 43935.00 | 43967.00 | 43967.00 |
+| **Bytes/Sec** | 5.4 MB   | 5.4 MB   | 7.25 MB  | 7.29 MB  | 7.3 MB   | 7.3 MB   |
+| **Latency**   | 0ms      | 0ms      | 0ms      | 1ms      | 1ms      | 3ms      |
 
 ### [Opine](#opine)
 
-| **Stat**      | Average  | Mean     | Stddev | Min      | Max      | Total     |
-| ------------- | -------- | -------- | ------ | -------- | -------- | --------- |
-| **Req/Sec**   | 12664.37 | 12664.37 | 737.70 | 10369.00 | 13083.00 | 139300.00 |
-| **Bytes/Sec** | 2.71 MB  | 2.71 MB  | 158 kB | 2.22 MB  | 2.8 MB   | 29.8 MB   |
-| **Latency**   | 2ms      | 2ms      | 700µs  | 1ms      | 34ms     | N/A       |
+| **Stat**      | Average | Mean    | Stddev | Min     | Max      | Total    |
+| ------------- | ------- | ------- | ------ | ------- | -------- | -------- |
+| **Req/Sec**   | 9581.00 | 9581.00 | 922.34 | 6853.00 | 10146.00 | 95801.00 |
+| **Bytes/Sec** | 2.05 MB | 2.05 MB | 197 kB | 1.47 MB | 2.17 MB  | 20.5 MB  |
+| **Latency**   | 3ms     | 3ms     | 1ms    | 1ms     | 43ms     | N/A      |
 
-| **Stat**      | 1        | 2.5      | 50       | 90       | 97.5     | 99       |
-| ------------- | -------- | -------- | -------- | -------- | -------- | -------- |
-| **Req/Sec**   | 10375.00 | 10375.00 | 12823.00 | 13087.00 | 13087.00 | 13087.00 |
-| **Bytes/Sec** | 2.22 MB  | 2.22 MB  | 2.74 MB  | 2.8 MB   | 2.8 MB   | 2.8 MB   |
-| **Latency**   | 2ms      | 2ms      | 3ms      | 3ms      | 4ms      | 5ms      |
+| **Stat**      | 1       | 2.5     | 50      | 90       | 97.5     | 99       |
+| ------------- | ------- | ------- | ------- | -------- | -------- | -------- |
+| **Req/Sec**   | 6855.00 | 6855.00 | 9919.00 | 10071.00 | 10151.00 | 10151.00 |
+| **Bytes/Sec** | 1.47 MB | 1.47 MB | 2.12 MB | 2.15 MB  | 2.17 MB  | 2.17 MB  |
+| **Latency**   | 1ms     | 1ms     | 4ms     | 4ms      | 6ms      | 8ms      |
 
 ### [Reno](#reno)
 
 | **Stat**      | Average  | Mean     | Stddev  | Min      | Max      | Total     |
 | ------------- | -------- | -------- | ------- | -------- | -------- | --------- |
-| **Req/Sec**   | 43675.64 | 43675.64 | 1056.43 | 40457.00 | 44469.00 | 480380.00 |
-| **Bytes/Sec** | 6.64 MB  | 6.64 MB  | 161 kB  | 6.15 MB  | 6.76 MB  | 73 MB     |
-| **Latency**   | 180µs    | 180µs    | 450µs   | 1ms      | 17ms     | N/A       |
+| **Req/Sec**   | 30560.00 | 30560.00 | 2270.81 | 23909.00 | 31844.00 | 305600.00 |
+| **Bytes/Sec** | 4.65 MB  | 4.65 MB  | 346 kB  | 3.63 MB  | 4.84 MB  | 46.5 MB   |
+| **Latency**   | 1ms      | 1ms      | 560µs   | 1ms      | 20ms     | N/A       |
 
 | **Stat**      | 1        | 2.5      | 50       | 90       | 97.5     | 99       |
 | ------------- | -------- | -------- | -------- | -------- | -------- | -------- |
-| **Req/Sec**   | 40479.00 | 40479.00 | 43935.00 | 44415.00 | 44479.00 | 44479.00 |
-| **Bytes/Sec** | 6.15 MB  | 6.15 MB  | 6.68 MB  | 6.75 MB  | 6.76 MB  | 6.76 MB  |
-| **Latency**   | 0ms      | 0ms      | 0ms      | 1ms      | 1ms      | 1ms      |
+| **Req/Sec**   | 23919.00 | 23919.00 | 31359.00 | 31695.00 | 31855.00 | 31855.00 |
+| **Bytes/Sec** | 3.64 MB  | 3.64 MB  | 4.77 MB  | 4.82 MB  | 4.84 MB  | 4.84 MB  |
+| **Latency**   | 0ms      | 0ms      | 1ms      | 1ms      | 2ms      | 3ms      |
 
-### [Router](#router)
+### [Aqua](#aqua)
 
-| **Stat**      | Average  | Mean     | Stddev   | Min      | Max      | Total     |
-| ------------- | -------- | -------- | -------- | -------- | -------- | --------- |
-| **Req/Sec**   | 22282.80 | 22282.80 | 11404.78 | 14322.00 | 42171.00 | 222857.00 |
-| **Bytes/Sec** | 3.39 MB  | 3.39 MB  | 1.73 MB  | 2.18 MB  | 6.41 MB  | 33.9 MB   |
-| **Latency**   | 1ms      | 1ms      | 2ms      | 1ms      | 26ms     | N/A       |
+| **Stat**      | Average  | Mean     | Stddev  | Min      | Max      | Total     |
+| ------------- | -------- | -------- | ------- | -------- | -------- | --------- |
+| **Req/Sec**   | 23416.00 | 23416.00 | 1735.03 | 18228.00 | 24136.00 | 234141.00 |
+| **Bytes/Sec** | 3.56 MB  | 3.56 MB  | 264 kB  | 2.77 MB  | 3.67 MB  | 35.6 MB   |
+| **Latency**   | 1ms      | 1ms      | 700µs   | 1ms      | 41ms     | N/A       |
 
 | **Stat**      | 1        | 2.5      | 50       | 90       | 97.5     | 99       |
 | ------------- | -------- | -------- | -------- | -------- | -------- | -------- |
-| **Req/Sec**   | 14327.00 | 14327.00 | 15007.00 | 40031.00 | 42175.00 | 42175.00 |
-| **Bytes/Sec** | 2.18 MB  | 2.18 MB  | 2.28 MB  | 6.09 MB  | 6.41 MB  | 6.41 MB  |
-| **Latency**   | 0ms      | 0ms      | 1ms      | 3ms      | 10ms     | 11ms     |
-
-### [tinyhttp](#tinyhttp)
-
-| **Stat**      | Average | Mean    | Stddev | Min     | Max     | Total    |
-| ------------- | ------- | ------- | ------ | ------- | ------- | -------- |
-| **Req/Sec**   | 2586.10 | 2586.10 | 967.76 | 2067.00 | 3623.00 | 25859.00 |
-| **Bytes/Sec** | 297 kB  | 297 kB  | 111 kB | 238 kB  | 417 kB  | 2.97 MB  |
-| **Latency**   | 1s      | 1s      | 352ms  | 98ms    | 2s      | N/A      |
-
-| **Stat**      | 1     | 2.5   | 50      | 90      | 97.5    | 99      |
-| ------------- | ----- | ----- | ------- | ------- | ------- | ------- |
-| **Req/Sec**   | 0.00  | 0.00  | 2769.00 | 3515.00 | 3623.00 | 3623.00 |
-| **Bytes/Sec** | 0 B   | 0 B   | 318 kB  | 404 kB  | 417 kB  | 417 kB  |
-| **Latency**   | 227ms | 537ms | 1s      | 1s      | 1s      | 1s      |
+| **Req/Sec**   | 18239.00 | 18239.00 | 24031.00 | 24127.00 | 24143.00 | 24143.00 |
+| **Bytes/Sec** | 2.77 MB  | 2.77 MB  | 3.65 MB  | 3.67 MB  | 3.67 MB  | 3.67 MB  |
+| **Latency**   | 0ms      | 1ms      | 1ms      | 1ms      | 2ms      | 3ms      |
 
 ### [Servest](#servest)
 
 | **Stat**      | Average | Mean    | Stddev  | Min     | Max     | Total    |
 | ------------- | ------- | ------- | ------- | ------- | ------- | -------- |
-| **Req/Sec**   | 2827.00 | 2827.00 | 212.78  | 2281.00 | 3005.00 | 28266.00 |
-| **Bytes/Sec** | 444 kB  | 444 kB  | 33.4 kB | 358 kB  | 472 kB  | 4.44 MB  |
-| **Latency**   | 13ms    | 13ms    | 6ms     | 1ms     | 56ms    | N/A      |
+| **Req/Sec**   | 5390.80 | 5390.80 | 432.22  | 4106.00 | 5693.00 | 53908.00 |
+| **Bytes/Sec** | 846 kB  | 846 kB  | 67.8 kB | 645 kB  | 894 kB  | 8.46 MB  |
+| **Latency**   | 6ms     | 6ms     | 2ms     | 1ms     | 67ms    | N/A      |
 
 | **Stat**      | 1       | 2.5     | 50      | 90      | 97.5    | 99      |
 | ------------- | ------- | ------- | ------- | ------- | ------- | ------- |
-| **Req/Sec**   | 2281.00 | 2281.00 | 2949.00 | 2981.00 | 3005.00 | 3005.00 |
-| **Bytes/Sec** | 358 kB  | 358 kB  | 463 kB  | 468 kB  | 472 kB  | 472 kB  |
-| **Latency**   | 2ms     | 3ms     | 13ms    | 21ms    | 28ms    | 33ms    |
+| **Req/Sec**   | 4107.00 | 4107.00 | 5503.00 | 5559.00 | 5695.00 | 5695.00 |
+| **Bytes/Sec** | 645 kB  | 645 kB  | 864 kB  | 873 kB  | 894 kB  | 894 kB  |
+| **Latency**   | 4ms     | 5ms     | 6ms     | 10ms    | 16ms    | 18ms    |
+
+### [Hono](#hono)
+
+| **Stat**      | Average  | Mean     | Stddev  | Min      | Max      | Total     |
+| ------------- | -------- | -------- | ------- | -------- | -------- | --------- |
+| **Req/Sec**   | 39559.20 | 39559.20 | 3027.61 | 30554.00 | 41048.00 | 395646.00 |
+| **Bytes/Sec** | 6.05 MB  | 6.05 MB  | 463 kB  | 4.67 MB  | 6.28 MB  | 60.5 MB   |
+| **Latency**   | 170µs    | 170µs    | 640µs   | 1ms      | 22ms     | N/A       |
+
+| **Stat**      | 1        | 2.5      | 50       | 90       | 97.5     | 99       |
+| ------------- | -------- | -------- | -------- | -------- | -------- | -------- |
+| **Req/Sec**   | 30559.00 | 30559.00 | 40479.00 | 40927.00 | 41055.00 | 41055.00 |
+| **Bytes/Sec** | 4.68 MB  | 4.68 MB  | 6.19 MB  | 6.26 MB  | 6.28 MB  | 6.28 MB  |
+| **Latency**   | 0ms      | 0ms      | 0ms      | 1ms      | 2ms      | 3ms      |
+
+### [Drash](#drash)
+
+| **Stat**      | Average  | Mean     | Stddev  | Min      | Max      | Total     |
+| ------------- | -------- | -------- | ------- | -------- | -------- | --------- |
+| **Req/Sec**   | 16179.20 | 16179.20 | 1259.43 | 12825.00 | 17248.00 | 161771.00 |
+| **Bytes/Sec** | 1.5 MB   | 1.5 MB   | 117 kB  | 1.19 MB  | 1.6 MB   | 15 MB     |
+| **Latency**   | 2ms      | 2ms      | 920µs   | 1ms      | 47ms     | N/A       |
+
+| **Stat**      | 1        | 2.5      | 50       | 90       | 97.5     | 99       |
+| ------------- | -------- | -------- | -------- | -------- | -------- | -------- |
+| **Req/Sec**   | 12831.00 | 12831.00 | 16591.00 | 17231.00 | 17263.00 | 17263.00 |
+| **Bytes/Sec** | 1.19 MB  | 1.19 MB  | 1.54 MB  | 1.6 MB   | 1.6 MB   | 1.6 MB   |
+| **Latency**   | 1ms      | 1ms      | 2ms      | 3ms      | 4ms      | 6ms      |
+
+### [Abc](#abc)
+
+| **Stat**      | Average  | Mean     | Stddev  | Min      | Max      | Total     |
+| ------------- | -------- | -------- | ------- | -------- | -------- | --------- |
+| **Req/Sec**   | 17115.28 | 17115.28 | 1381.26 | 12776.00 | 17808.00 | 188267.00 |
+| **Bytes/Sec** | 1.59 MB  | 1.59 MB  | 128 kB  | 1.19 MB  | 1.66 MB  | 17.5 MB   |
+| **Latency**   | 2ms      | 2ms      | 700µs   | 1ms      | 35ms     | N/A       |
+
+| **Stat**      | 1        | 2.5      | 50       | 90       | 97.5     | 99       |
+| ------------- | -------- | -------- | -------- | -------- | -------- | -------- |
+| **Req/Sec**   | 12783.00 | 12783.00 | 17583.00 | 17695.00 | 17823.00 | 17823.00 |
+| **Bytes/Sec** | 1.19 MB  | 1.19 MB  | 1.64 MB  | 1.64 MB  | 1.66 MB  | 1.66 MB  |
+| **Latency**   | 1ms      | 2ms      | 2ms      | 2ms      | 3ms      | 4ms      |
+
+### [Bun](#bun)
+
+| **Stat**      | Average  | Mean     | Stddev  | Min      | Max      | Total     |
+| ------------- | -------- | -------- | ------- | -------- | -------- | --------- |
+| **Req/Sec**   | 38915.64 | 38915.64 | 2134.14 | 32204.00 | 39920.00 | 428124.00 |
+| **Bytes/Sec** | 3.58 MB  | 3.58 MB  | 196 kB  | 2.96 MB  | 3.67 MB  | 39.4 MB   |
+| **Latency**   | 210µs    | 210µs    | 480µs   | 1ms      | 18ms     | N/A       |
+
+| **Stat**      | 1        | 2.5      | 50       | 90       | 97.5     | 99       |
+| ------------- | -------- | -------- | -------- | -------- | -------- | -------- |
+| **Req/Sec**   | 32207.00 | 32207.00 | 39615.00 | 39903.00 | 39935.00 | 39935.00 |
+| **Bytes/Sec** | 2.96 MB  | 2.96 MB  | 3.65 MB  | 3.67 MB  | 3.67 MB  | 3.67 MB  |
+| **Latency**   | 0ms      | 0ms      | 0ms      | 1ms      | 1ms      | 1ms      |
+
+### [Express](#express)
+
+| **Stat**      | Average | Mean    | Stddev | Min     | Max     | Total    |
+| ------------- | ------- | ------- | ------ | ------- | ------- | -------- |
+| **Req/Sec**   | 6849.30 | 6849.30 | 974.90 | 3967.00 | 7387.00 | 68492.00 |
+| **Bytes/Sec** | 1.64 MB | 1.64 MB | 234 kB | 952 kB  | 1.77 MB | 16.4 MB  |
+| **Latency**   | 5ms     | 5ms     | 1ms    | 1ms     | 36ms    | N/A      |
+
+| **Stat**      | 1       | 2.5     | 50      | 90      | 97.5    | 99      |
+| ------------- | ------- | ------- | ------- | ------- | ------- | ------- |
+| **Req/Sec**   | 3967.00 | 3967.00 | 7191.00 | 7263.00 | 7387.00 | 7387.00 |
+| **Bytes/Sec** | 952 kB  | 952 kB  | 1.73 MB | 1.74 MB | 1.77 MB | 1.77 MB |
+| **Latency**   | 4ms     | 5ms     | 5ms     | 7ms     | 11ms    | 13ms    |
+
+### [Little](#little)
+
+| **Stat**      | Average  | Mean     | Stddev  | Min      | Max      | Total     |
+| ------------- | -------- | -------- | ------- | -------- | -------- | --------- |
+| **Req/Sec**   | 13985.10 | 13985.10 | 1149.69 | 10436.00 | 14539.00 | 153830.00 |
+| **Bytes/Sec** | 2.13 MB  | 2.13 MB  | 175 kB  | 1.59 MB  | 2.21 MB  | 23.4 MB   |
+| **Latency**   | 2ms      | 2ms      | 780µs   | 1ms      | 20ms     | N/A       |
+
+| **Stat**      | 1        | 2.5      | 50       | 90       | 97.5     | 99       |
+| ------------- | -------- | -------- | -------- | -------- | -------- | -------- |
+| **Req/Sec**   | 10439.00 | 10439.00 | 14455.00 | 14511.00 | 14543.00 | 14543.00 |
+| **Bytes/Sec** | 1.59 MB  | 1.59 MB  | 2.2 MB   | 2.21 MB  | 2.21 MB  | 2.21 MB  |
+| **Latency**   | 1ms      | 2ms      | 2ms      | 3ms      | 4ms      | 5ms      |
+
+### [Node](#node)
+
+| **Stat**      | Average  | Mean     | Stddev  | Min      | Max      | Total     |
+| ------------- | -------- | -------- | ------- | -------- | -------- | --------- |
+| **Req/Sec**   | 41757.60 | 41757.60 | 4791.03 | 27478.00 | 44190.00 | 417603.00 |
+| **Bytes/Sec** | 5.68 MB  | 5.68 MB  | 652 kB  | 3.74 MB  | 6.01 MB  | 56.8 MB   |
+| **Latency**   | 230µs    | 230µs    | 620µs   | 1ms      | 23ms     | N/A       |
+
+| **Stat**      | 1        | 2.5      | 50       | 90       | 97.5     | 99       |
+| ------------- | -------- | -------- | -------- | -------- | -------- | -------- |
+| **Req/Sec**   | 27487.00 | 27487.00 | 43007.00 | 44127.00 | 44191.00 | 44191.00 |
+| **Bytes/Sec** | 3.74 MB  | 3.74 MB  | 5.85 MB  | 6 MB     | 6.01 MB  | 6.01 MB  |
+| **Latency**   | 0ms      | 0ms      | 0ms      | 1ms      | 1ms      | 2ms      |
+
+### [Deno](#deno)
+
+| **Stat**      | Average  | Mean     | Stddev  | Min      | Max      | Total     |
+| ------------- | -------- | -------- | ------- | -------- | -------- | --------- |
+| **Req/Sec**   | 42986.19 | 42986.19 | 2915.82 | 33867.00 | 44360.00 | 472784.00 |
+| **Bytes/Sec** | 6.53 MB  | 6.53 MB  | 444 kB  | 5.15 MB  | 6.74 MB  | 71.9 MB   |
+| **Latency**   | 470µs    | 470µs    | 670µs   | 1ms      | 19ms     | N/A       |
+
+| **Stat**      | 1        | 2.5      | 50       | 90       | 97.5     | 99       |
+| ------------- | -------- | -------- | -------- | -------- | -------- | -------- |
+| **Req/Sec**   | 33887.00 | 33887.00 | 43999.00 | 44319.00 | 44383.00 | 44383.00 |
+| **Bytes/Sec** | 5.15 MB  | 5.15 MB  | 6.68 MB  | 6.73 MB  | 6.75 MB  | 6.75 MB  |
+| **Latency**   | 0ms      | 0ms      | 0ms      | 1ms      | 1ms      | 3ms      |
 
 ---
 
-<p align="center">Generated 2022-07-09T17:59:48.427Z</p>
+<p align="center">Generated 2022-07-09T18:33:46.596Z</p>
