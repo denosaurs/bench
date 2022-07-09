@@ -18,6 +18,7 @@ const setup: any = {
         "**.jsx",
         "**.yml",
         "**.json",
+        "!frameworks/*/results/*.json"
       ],
     },
   },
@@ -51,7 +52,7 @@ if (import.meta.main) {
         },
         {
           name: "Install Bun",
-          uses: "antongolub/action-setup-bun@v1"
+          uses: "antongolub/action-setup-bun@v1.4.0",
         },
         {
           name: "Install Autocannon",
