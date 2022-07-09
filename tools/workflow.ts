@@ -51,8 +51,7 @@ if (import.meta.main) {
         },
         {
           name: "Install Bun",
-          run: `curl -fsSL https://bun.sh/install | bash\n` +
-            "echo '$HOME/.bun/bin:$PATH' >> $GITHUB_PATH",
+          uses: "antongolub/action-setup-bun@v1"
         },
         {
           name: "Install Autocannon",
