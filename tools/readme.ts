@@ -76,7 +76,7 @@ if (import.meta.main) {
   markdown += "# Overview\n";
   for (const [identifier, benchmark] of Object.entries(benchmarks)) {
     markdown += `## ${benchmark.name}\n`;
-    let table: [string, number, number, number, number, number, number][] = [];
+    let table: [string, number, number, number, number, number][] = [];
 
     for (const [name, framework] of Object.entries(frameworks)) {
       if (framework.benchmarks[identifier]) {
@@ -84,7 +84,6 @@ if (import.meta.main) {
         table.push([
           framework.name,
           result.requests.average,
-          result.requests.mean,
           result.requests.stddev,
           result.requests.min,
           result.requests.max,
@@ -97,7 +96,7 @@ if (import.meta.main) {
 
     markdown += `\n${
       markdownTable([
-        ["Framework", "Average", "Mean", "Stddev", "Min", "Max", "Total"],
+        ["Framework", "Average", "Stddev", "Min", "Max", "Total"],
         ...table.map((row) =>
           row.map((value) =>
             typeof value === "number" ? value.toFixed(2) : value
@@ -130,7 +129,6 @@ if (import.meta.main) {
             [
               "**Stat**",
               "Average",
-              "Mean",
               "Stddev",
               "Min",
               "Max",
@@ -139,7 +137,6 @@ if (import.meta.main) {
             [
               "**Req/Sec**",
               result.requests.average.toFixed(2),
-              result.requests.mean.toFixed(2),
               result.requests.stddev.toFixed(2),
               result.requests.min.toFixed(2),
               result.requests.max.toFixed(2),
@@ -148,7 +145,6 @@ if (import.meta.main) {
             [
               "**Bytes/Sec**",
               prettyBytes(result.throughput.average),
-              prettyBytes(result.throughput.mean),
               prettyBytes(result.throughput.stddev),
               prettyBytes(result.throughput.min),
               prettyBytes(result.throughput.max),
@@ -157,7 +153,6 @@ if (import.meta.main) {
             [
               "**Latency**",
               prettyMilliseconds(result.latency.average),
-              prettyMilliseconds(result.latency.mean),
               prettyMilliseconds(result.latency.stddev),
               prettyMilliseconds(result.latency.min),
               prettyMilliseconds(result.latency.max),
