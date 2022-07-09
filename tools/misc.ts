@@ -22,7 +22,7 @@ export async function getFrameworks(): Promise<
     }
   }
 
-  return frameworks;
+  return Object.fromEntries(Object.entries(frameworks).sort());
 }
 
 export async function getFramework(
