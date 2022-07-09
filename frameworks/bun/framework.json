@@ -1,0 +1,8 @@
+{
+  "name": "Bun",
+  "description": "Bun is a fast all-in-one JavaScript runtime",
+  "website": "https://bun.sh/",
+  "benchmarks": {
+    "hello_bench": "bun run hello_bench.ts"
+  }
+}

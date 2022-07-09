@@ -1,0 +1,8 @@
+{
+  "name": "Servest",
+  "description": "🌾A progressive http server for Deno🌾",
+  "website": "https://servestjs.org/",
+  "benchmarks": {
+    "hello_bench": "deno run -A --unstable hello_bench.ts"
+  }
+}

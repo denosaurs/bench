@@ -1,0 +1,8 @@
+{
+  "name": "Little",
+  "description": "A minimalistic connect-like web framework. Automatically works out of the box with Deno Deploy, Deno's Native HTTP and Deno's Standard HTTP server.",
+  "website": "https://deno.land/x/little",
+  "benchmarks": {
+    "hello_bench": "deno run -A --unstable hello_bench.ts"
+  }
+}

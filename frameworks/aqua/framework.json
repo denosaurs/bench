@@ -1,0 +1,8 @@
+{
+  "name": "Aqua",
+  "description": "A minimal and fast 🏃 web framework for Deno",
+  "website": "https://deno.land/x/aqua",
+  "benchmarks": {
+    "hello_bench": "deno run -A --unstable hello_bench.ts"
+  }
+}

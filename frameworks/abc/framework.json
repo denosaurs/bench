@@ -1,0 +1,8 @@
+{
+  "name": "Abc",
+  "description": "A better Deno framework to create web application",
+  "website": "https://deno.land/x/abc",
+  "benchmarks": {
+    "hello_bench": "deno run -A --unstable hello_bench.ts"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "name": "Dinatra",
+  "description": "Sinatra like light weight web app framework for deno.",
+  "website": "https://github.com/syumai/dinatra",
+  "benchmarks": {
+    "hello_bench": "deno run -A --unstable hello_bench.ts"
+  }
+}

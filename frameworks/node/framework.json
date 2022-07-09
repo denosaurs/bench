@@ -1,0 +1,8 @@
+{
+  "name": "Node",
+  "description": "Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine.",
+  "website": "https://nodejs.org/",
+  "benchmarks": {
+    "hello_bench": "node hello_bench.ts"
+  }
+}

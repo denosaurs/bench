@@ -1,0 +1,8 @@
+{
+  "name": "Fast",
+  "description": "Small web framework with near-native performance.",
+  "website": "https://deno.land/x/fast",
+  "benchmarks": {
+    "hello_bench": "deno run -A --unstable hello_bench.ts"
+  }
+}

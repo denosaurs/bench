@@ -1,0 +1,8 @@
+{
+  "name": "tinyhttp",
+  "description": "🦕 Deno port of tinyhttp, 0-legacy, tiny & fast web framework",
+  "website": "https://deno.land/x/tinyhttp",
+  "benchmarks": {
+    "hello_bench": "deno run -A --unstable hello_bench.ts"
+  }
+}

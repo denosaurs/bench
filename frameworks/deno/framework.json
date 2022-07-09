@@ -1,0 +1,8 @@
+{
+  "name": "Deno",
+  "description": "A modern runtime for JavaScript and TypeScript",
+  "website": "https://deno.land/",
+  "benchmarks": {
+    "hello_bench": "deno run -A --unstable hello_bench.ts"
+  }
+}

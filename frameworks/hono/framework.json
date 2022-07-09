@@ -1,0 +1,8 @@
+{
+  "name": "Hono",
+  "description": "Ultrafast web framework for Cloudflare Workers and Deno. Fast, but not only fast.",
+  "website": "https://github.com/honojs/hono",
+  "benchmarks": {
+    "hello_bench": "deno run -A --unstable hello_bench.ts"
+  }
+}

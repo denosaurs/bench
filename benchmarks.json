@@ -1,0 +1,8 @@
+{
+  "benchmarks": {
+    "hello_bench": {
+      "name": "Hello, bench!",
+      "description": "A simple benchmark which expects a response simply containing the text \"`Hello, Bench!`\""
+    }
+  }
+}

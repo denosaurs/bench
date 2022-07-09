@@ -1,0 +1,7 @@
+{
+  "tasks": {
+    "workflow": "deno run -A --unstable tools/workflow.ts",
+    "readme": "deno run -A --unstable tools/readme.ts && deno fmt README.md",
+    "benchmark": "deno run -A --unstable tools/benchmark.ts"
+  }
+}

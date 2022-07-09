@@ -1,0 +1,8 @@
+{
+  "name": "Opine",
+  "description": "Fast, minimalist web framework for Deno ported from ExpressJS.",
+  "website": "https://deno.land/x/opine",
+  "benchmarks": {
+    "hello_bench": "deno run -A --unstable hello_bench.ts"
+  }
+}

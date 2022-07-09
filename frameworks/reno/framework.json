@@ -1,0 +1,8 @@
+{
+  "name": "Reno",
+  "description": "A thin, testable routing library designed to sit on top of Deno's standard HTTP module.",
+  "website": "https://deno.land/x/reno",
+  "benchmarks": {
+    "hello_bench": "deno run -A --unstable hello_bench.ts"
+  }
+}

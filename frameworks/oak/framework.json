@@ -1,0 +1,8 @@
+{
+  "name": "Oak",
+  "description": "A middleware framework for Deno's native HTTP server, Deno Deploy and Node.js 16.5 and later. It also includes a middleware router.",
+  "website": "https://deno.land/x/oak",
+  "benchmarks": {
+    "hello_bench": "deno run -A --unstable hello_bench.ts"
+  }
+}

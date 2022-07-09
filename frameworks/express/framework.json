@@ -1,0 +1,11 @@
+{
+  "name": "Express",
+  "description": "Fast, unopinionated, minimalist web framework for Node.js",
+  "website": "https://expressjs.com/",
+  "benchmarks": {
+    "hello_bench": [
+      "npm install",
+      "node hello_bench.js"
+    ]
+  }
+}

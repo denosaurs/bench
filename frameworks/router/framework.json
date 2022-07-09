@@ -1,0 +1,8 @@
+{
+  "name": "Router",
+  "description": "The tiny, modern and fast router by the denosaurs for deno and deno deploy. Used by projects like fresh",
+  "website": "https://crux.land/router@0.0.12",
+  "benchmarks": {
+    "hello_bench": "deno run -A --unstable hello_bench.ts"
+  }
+}
