@@ -2,7 +2,7 @@ import {
   join,
   markdownTable,
   prettyBytes,
-  prettyMilliseconds,
+  prettyMilliseconds as originalPrettyMilliseconds,
 } from "./deps.ts";
 import {
   getBenchmarkResults,
@@ -22,8 +22,8 @@ function link(altText: string, link: string): string {
   return `[${altText}](${link})`;
 }
 
-function prettyMicroseconds(microseconds: number): string {
-  return prettyMilliseconds(microseconds / 1000, {
+function prettyMilliseconds(microseconds: number): string {
+  return originalPrettyMilliseconds(microseconds, {
     formatSubMilliseconds: true,
     compact: true,
   });
@@ -76,16 +76,18 @@ if (import.meta.main) {
   markdown += "# Overview\n";
   for (const [identifier, benchmark] of Object.entries(benchmarks)) {
     markdown += `## ${benchmark.name}\n`;
-    let table: [string, number, number, number][] = [];
+    let table: [string, number, number, number, number, number][] = [];
 
     for (const [name, framework] of Object.entries(frameworks)) {
       if (framework.benchmarks[identifier]) {
-        const { result } = results[identifier][name];
+        const result = results[identifier][name];
         table.push([
           framework.name,
-          result.rps.mean,
-          result.rps.stddev,
-          result.rps.max,
+          result.requests.average,
+          result.requests.stddev,
+          result.requests.min,
+          result.requests.max,
+          result.requests.total,
         ]);
       }
     }
@@ -94,7 +96,7 @@ if (import.meta.main) {
 
     markdown += `\n${
       markdownTable([
-        ["Framework", "Average", "Stddev", "Max"],
+        ["Framework", "Average", "Stddev", "Min", "Max", "Total"],
         ...table.map((row) =>
           row.map((value) =>
             typeof value === "number" ? value.toFixed(2) : value
@@ -120,7 +122,7 @@ if (import.meta.main) {
     markdown += "\n";
     for (const [name, framework] of Object.entries(frameworks)) {
       if (framework.benchmarks[identifier]) {
-        const { result } = results[identifier][name];
+        const result = results[identifier][name];
         markdown += `### ${link(framework.name, anchorLink(framework.name))}\n`;
         markdown += `\n${
           markdownTable([
@@ -128,53 +130,33 @@ if (import.meta.main) {
               "**Stat**",
               "Average",
               "Stddev",
+              "Min",
               "Max",
-              "50%",
-              "75%",
-              "90%",
-              "95%",
-              "99%",
+              "Total",
             ],
             [
               "**Req/Sec**",
-              result.rps.mean.toFixed(2),
-              result.rps.stddev.toFixed(2),
-              result.rps.max.toFixed(2),
-              result.rps.percentiles["50"].toFixed(2),
-              result.rps.percentiles["75"].toFixed(2),
-              result.rps.percentiles["90"].toFixed(2),
-              result.rps.percentiles["95"].toFixed(2),
-              result.rps.percentiles["99"].toFixed(2),
-            ],
-            [
-              "**Latency**",
-              prettyMicroseconds(result.latency.mean),
-              prettyMicroseconds(result.latency.stddev),
-              prettyMicroseconds(result.latency.max),
-              prettyMicroseconds(result.latency.percentiles["50"]),
-              prettyMicroseconds(result.latency.percentiles["75"]),
-              prettyMicroseconds(result.latency.percentiles["90"]),
-              prettyMicroseconds(result.latency.percentiles["95"]),
-              prettyMicroseconds(result.latency.percentiles["99"]),
-            ],
-          ])
-        }\n`;
-        markdown += `\n${
-          markdownTable([
-            [
-              "**Stat**",
-              "Read",
-              "Written",
-              "Total",
+              result.requests.average.toFixed(2),
+              result.requests.stddev.toFixed(2),
+              result.requests.min.toFixed(2),
+              result.requests.max.toFixed(2),
+              result.requests.total.toFixed(2),
             ],
             [
               "**Bytes/Sec**",
-              prettyBytes(result.bytesRead / result.timeTakenSeconds),
-              prettyBytes(result.bytesWritten / result.timeTakenSeconds),
-              prettyBytes(
-                (result.bytesRead + result.bytesWritten) /
-                  result.timeTakenSeconds,
-              ),
+              prettyBytes(result.throughput.average),
+              prettyBytes(result.throughput.stddev),
+              prettyBytes(result.throughput.min),
+              prettyBytes(result.throughput.max),
+              prettyBytes(result.throughput.total),
+            ],
+            [
+              "**Latency**",
+              prettyMilliseconds(result.latency.average),
+              prettyMilliseconds(result.latency.stddev),
+              prettyMilliseconds(result.latency.min),
+              prettyMilliseconds(result.latency.max),
+              "N/A",
             ],
           ])
         }\n`;
@@ -182,24 +164,39 @@ if (import.meta.main) {
           markdownTable([
             [
               "**Stat**",
-              "1xx",
-              "2xx",
-              "3xx",
-              "4xx",
-              "5xx",
-              "Others",
-              "Total",
+              "1",
+              "2.5",
+              "50",
+              "90",
+              "97.5",
+              "99",
             ],
             [
-              "**Requests**",
-              result.req1xx.toFixed(0),
-              result.req2xx.toFixed(0),
-              result.req3xx.toFixed(0),
-              result.req4xx.toFixed(0),
-              result.req5xx.toFixed(0),
-              result.others.toFixed(0),
-              (result.req1xx + result.req2xx + result.req3xx + result.req4xx +
-                result.req5xx + result.others).toFixed(0),
+              "**Req/Sec**",
+              result.requests.p1.toFixed(2),
+              result.requests.p2_5.toFixed(2),
+              result.requests.p50.toFixed(2),
+              result.requests.p90.toFixed(2),
+              result.requests.p97_5.toFixed(2),
+              result.requests.p99.toFixed(2),
+            ],
+            [
+              "**Bytes/Sec**",
+              prettyBytes(result.throughput.p1),
+              prettyBytes(result.throughput.p2_5),
+              prettyBytes(result.throughput.p50),
+              prettyBytes(result.throughput.p90),
+              prettyBytes(result.throughput.p97_5),
+              prettyBytes(result.throughput.p99),
+            ],
+            [
+              "**Latency**",
+              prettyMilliseconds(result.latency.p1),
+              prettyMilliseconds(result.latency.p2_5),
+              prettyMilliseconds(result.latency.p50),
+              prettyMilliseconds(result.latency.p90),
+              prettyMilliseconds(result.latency.p97_5),
+              prettyMilliseconds(result.latency.p99),
             ],
           ])
         }\n`;

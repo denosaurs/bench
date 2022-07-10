@@ -6,30 +6,30 @@ import {
 } from "./types.ts";
 import { decoder, getBenchmarks, getFrameworks, workdir } from "./misc.ts";
 
-export async function bombardier(
+export async function autocannon(
   url: string,
   benchmark: BenchmarkDefinition,
 ): Promise<BenchmarkResult> {
   // deno-fmt-ignore
   const args = [
     // Enable JSON output
-    "-p", "r", "-o", "j", "-l",
+    "-j",
     // The number of connections
     "-c", (benchmark.connections ?? 40).toString(),
     // The duration of the benchmark
-    "-d", benchmark.duration ?? "10s",
+    "-d", (benchmark.duration ?? 10).toString(),
     // The method
     "-m", benchmark.method ?? "GET",
   ];
 
-  const bombardier = await Deno.spawn("bombardier", {
+  const autocannon = await Deno.spawn("autocannon", {
     args: [...args, url],
     stdin: "null",
     stdout: "piped",
     stderr: "null",
   });
 
-  return JSON.parse(decoder.decode(bombardier.stdout));
+  return JSON.parse(decoder.decode(autocannon.stdout));
 }
 
 export async function runBenchmark(
@@ -52,6 +52,9 @@ export async function runBenchmark(
     await Deno.run({
       cmd: cmd.split(" "),
       cwd: join(workdir, "frameworks", frameworkIdentifier),
+      stdin: "inherit",
+      stdout: "inherit",
+      stderr: "inherit",
     }).status();
   }
 
@@ -59,13 +62,16 @@ export async function runBenchmark(
   const server = Deno.run({
     cmd: cmds.pop()!.split(" "),
     cwd: join(workdir, "frameworks", frameworkIdentifier),
+    stdin: "inherit",
+    stdout: "inherit",
+    stderr: "inherit",
   });
 
   // Warmup
   await delay(benchmark.warmup ?? 5000);
 
   // Run benchmark
-  const result = await bombardier("localhost:8000", benchmark);
+  const result = await autocannon("localhost:8000", benchmark);
 
   // Close server process
   server.close();

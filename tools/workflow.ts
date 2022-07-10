@@ -18,15 +18,12 @@ const setup: any = {
         "**.jsx",
         "**.yml",
         "**.json",
-        "!frameworks/*/results/*.json",
+        "!frameworks/*/results/*.json"
       ],
     },
   },
   jobs: {},
 };
-
-const bombardier =
-  "https://github.com/codesenberg/bombardier/releases/download/v1.2.5/bombardier-linux-amd64";
 
 if (import.meta.main) {
   const { benchmarks } = await getBenchmarks();
@@ -58,10 +55,8 @@ if (import.meta.main) {
           uses: "antongolub/action-setup-bun@v1.4.0",
         },
         {
-          name: "Install Bombardier",
-          run: `wget ${bombardier} -O bombardier\n`
-             + "chmod +x bombardier\n"
-             + "echo . >> $GITHUB_PATH"
+          name: "Install Autocannon",
+          run: "npm install -g autocannon",
         },
         {
           name: "Run Benchmark",
@@ -112,7 +107,6 @@ if (import.meta.main) {
       },
       {
         name: "Push changes",
-        if: "${{ github.ref == 'refs/heads/main' }}",
         uses: "actions-js/push@v1",
         with: {
           github_token: "${{ secrets.GITHUB_TOKEN }}",

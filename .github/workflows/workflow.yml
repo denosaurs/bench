@@ -30,11 +30,8 @@ jobs:
         uses: actions/setup-node@v3
       - name: Install Bun
         uses: antongolub/action-setup-bun@v1.4.0
-      - name: Install Bombardier
-        run: |-
-          wget https://github.com/codesenberg/bombardier/releases/download/v1.2.5/bombardier-linux-amd64 -O bombardier
-          chmod +x bombardier
-          echo . >> $GITHUB_PATH
+      - name: Install Autocannon
+        run: npm install -g autocannon
       - name: Run Benchmark
         run: deno task benchmark hello_bench
       - name: Save hello_bench results
@@ -65,7 +62,6 @@ jobs:
       - name: Generate README.md
         run: deno task readme
       - name: Push changes
-        if: '${{ github.ref == ''refs/heads/main'' }}'
         uses: actions-js/push@v1
         with:
           github_token: '${{ secrets.GITHUB_TOKEN }}'
