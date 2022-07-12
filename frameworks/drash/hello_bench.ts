@@ -1,9 +1,25 @@
-import { Application } from "https://deno.land/x/abc/mod.ts";
+import {
+  Request as DrashRequest,
+  Resource,
+  Response as DrashResponse,
+  Server,
+} from "https://deno.land/x/drash/mod.ts";
 
-const app = new Application();
+class HelloResource extends Resource {
+  public paths = ["/"];
 
-app
-  .get("/", (_) => {
-    return "Hello, Bench!";
-  })
-  .start({ port: 8000 });
+  public GET(_request: DrashRequest, response: DrashResponse) {
+    return response.send("text/plain", "Hello, Bench!");
+  }
+}
+
+const server = new Server({
+  hostname: "localhost",
+  port: 8000,
+  protocol: "http",
+  resources: [
+    HelloResource,
+  ],
+});
+
+server.run();
