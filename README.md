@@ -13,6 +13,7 @@
 
 # Table of Contents
 
+- [Table of Contents](#table-of-contents)
 - [Overview](#overview)
   - [Hello, bench!](#hello-bench)
 - [Frameworks](#frameworks)
@@ -462,4 +463,4 @@ A simple benchmark which expects a response simply containing the text
 
 ---
 
-<p align="center">Generated 2022-09-06T13:27:47.764Z</p>
+<p align="center">Generated 2022-09-06T02:50:59.973Z</p>
