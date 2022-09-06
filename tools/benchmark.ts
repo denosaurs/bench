@@ -14,8 +14,9 @@ export async function oha(
   const args = [
     // Enable JSON output
     "-j",
+    // Disable tui
+    "--no-tui"
   ];
-  
 
   // The number of request to run
   if (benchmark.requests) {
@@ -91,7 +92,7 @@ export async function runBenchmark(
   await delay(benchmark.warmup);
 
   // Run benchmark
-  const result = await oha("localhost:8000", benchmark);
+  const result = await oha("http://localhost:8000", benchmark);
 
   // Close server process
   server.close();

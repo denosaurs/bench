@@ -43,89 +43,53 @@ export interface BenchmarksDefinition {
 }
 
 export interface BenchmarkResult {
-  url: string;
-  requests: {
-    average: number;
-    mean: number;
-    stddev: number;
-    min: number;
-    max: number;
+  summary: {
+    successRate: number;
     total: number;
-    p0_001: number;
-    p0_01: number;
-    p0_1: number;
-    p1: number;
-    p2_5: number;
+    slowest: number;
+    fastest: number;
+    average: number;
+    requestsPerSec: number;
+    totalData: number;
+    sizePerRequest: number;
+    sizePerSec: number;
+  };
+  responseTimeHistogram: Record<`${number}`, number>;
+  latencyPercentiles: {
     p10: number;
     p25: number;
     p50: number;
     p75: number;
     p90: number;
-    p97_5: number;
+    p95: number;
     p99: number;
-    p99_9: number;
-    p99_99: number;
-    p99_999: number;
-    sent: number;
   };
-  latency: {
-    average: number;
+  rps: {
     mean: number;
     stddev: number;
-    min: number;
     max: number;
-    p0_001: number;
-    p0_01: number;
-    p0_1: number;
-    p1: number;
-    p2_5: number;
-    p10: number;
-    p25: number;
-    p50: number;
-    p75: number;
-    p90: number;
-    p97_5: number;
-    p99: number;
-    p99_9: number;
-    p99_99: number;
-    p99_999: number;
-    totalCount: number;
+    percentiles: {
+      p10: number;
+      p25: number;
+      p50: number;
+      p75: number;
+      p90: number;
+      p95: number;
+      p99: number;
+    };
   };
-  throughput: {
-    average: number;
-    mean: number;
-    stddev: number;
-    min: number;
-    max: number;
-    total: number;
-    p0_001: number;
-    p0_01: number;
-    p0_1: number;
-    p1: number;
-    p2_5: number;
-    p10: number;
-    p25: number;
-    p50: number;
-    p75: number;
-    p90: number;
-    p97_5: number;
-    p99: number;
-    p99_9: number;
-    p99_99: number;
-    p99_999: number;
+  details: {
+    DNSDialup: {
+      average: number;
+      fastest: number;
+      slowest: number;
+    };
+    DNSLookup: {
+      average: number;
+      fastest: number;
+      slowest: number;
+    };
   };
-  errors: number;
-  timeouts: number;
-  mismatches: number;
-  duration: number;
-  start: string;
-  finish: string;
-  connections: number;
-  pipelining: number;
-  non2xx: number;
-  "1xx": number;
-  "2xx": number;
-  "3xx": number;
-  "4xx": number;
-  "5xx": number;
+  statusCodeDistribution: Record<`${number}`, number>;
+  errorDistribution: Record<string, number>;
 }
