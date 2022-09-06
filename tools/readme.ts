@@ -82,9 +82,9 @@ if (import.meta.main) {
         const result = results[identifier][name];
         table.push([
           framework.name,
-          result.rps.mean,
-          result.rps.stddev,
-          result.rps.max,
+          result.rps.mean ?? 0,
+          result.rps.stddev ?? 0,
+          result.rps.max ?? 0,
           "",
         ]);
       }
@@ -137,9 +137,9 @@ if (import.meta.main) {
               "Max",
             ],
             [
-              result.rps.mean.toFixed(2),
-              result.rps.stddev.toFixed(2),
-              result.rps.max.toFixed(2),
+              (result.rps.mean ?? 0).toFixed(2),
+              (result.rps.stddev ?? 0).toFixed(2),
+              (result.rps.max ?? 0).toFixed(2),
             ],
           ])
         }\n`;
@@ -157,23 +157,23 @@ if (import.meta.main) {
             ],
             [
               "**Req/Sec**",
-              result.rps.percentiles.p10.toFixed(2),
-              result.rps.percentiles.p25.toFixed(2),
-              result.rps.percentiles.p50.toFixed(2),
-              result.rps.percentiles.p75.toFixed(2),
-              result.rps.percentiles.p90.toFixed(2),
-              result.rps.percentiles.p95.toFixed(2),
-              result.rps.percentiles.p99.toFixed(2),
+              (result.rps.percentiles.p10 ?? 0).toFixed(2),
+              (result.rps.percentiles.p25 ?? 0).toFixed(2),
+              (result.rps.percentiles.p50 ?? 0).toFixed(2),
+              (result.rps.percentiles.p75 ?? 0).toFixed(2),
+              (result.rps.percentiles.p90 ?? 0).toFixed(2),
+              (result.rps.percentiles.p95 ?? 0).toFixed(2),
+              (result.rps.percentiles.p99 ?? 0).toFixed(2),
             ],
             [
               "**Latency**",
-              prettyMilliseconds(result.latencyPercentiles.p10),
-              prettyMilliseconds(result.latencyPercentiles.p25),
-              prettyMilliseconds(result.latencyPercentiles.p50),
-              prettyMilliseconds(result.latencyPercentiles.p75),
-              prettyMilliseconds(result.latencyPercentiles.p90),
-              prettyMilliseconds(result.latencyPercentiles.p95),
-              prettyMilliseconds(result.latencyPercentiles.p99),
+              prettyMilliseconds(result.latencyPercentiles.p10 ?? 0),
+              prettyMilliseconds(result.latencyPercentiles.p25 ?? 0),
+              prettyMilliseconds(result.latencyPercentiles.p50 ?? 0),
+              prettyMilliseconds(result.latencyPercentiles.p75 ?? 0),
+              prettyMilliseconds(result.latencyPercentiles.p90 ?? 0),
+              prettyMilliseconds(result.latencyPercentiles.p95 ?? 0),
+              prettyMilliseconds(result.latencyPercentiles.p99 ?? 0),
             ],
           ])
         }\n`;

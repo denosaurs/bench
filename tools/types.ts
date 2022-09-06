@@ -56,26 +56,26 @@ export interface BenchmarkResult {
   };
   responseTimeHistogram: Record<`${number}`, number>;
   latencyPercentiles: {
-    p10: number;
-    p25: number;
-    p50: number;
-    p75: number;
-    p90: number;
-    p95: number;
-    p99: number;
+    p10?: number;
+    p25?: number;
+    p50?: number;
+    p75?: number;
+    p90?: number;
+    p95?: number;
+    p99?: number;
   };
   rps: {
-    mean: number;
-    stddev: number;
-    max: number;
+    mean?: number;
+    stddev?: number;
+    max?: number;
     percentiles: {
-      p10: number;
-      p25: number;
-      p50: number;
-      p75: number;
-      p90: number;
-      p95: number;
-      p99: number;
+      p10?: number;
+      p25?: number;
+      p50?: number;
+      p75?: number;
+      p90?: number;
+      p95?: number;
+      p99?: number;
     };
   };
   details: {
