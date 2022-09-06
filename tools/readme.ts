@@ -1,7 +1,7 @@
 import {
   join,
   markdownTable,
-  prettyMilliseconds as originalPrettyMilliseconds,
+  prettyMilliseconds,
 } from "./deps.ts";
 import {
   getBenchmarkResults,
@@ -21,8 +21,8 @@ function link(altText: string, link: string): string {
   return `[${altText}](${link})`;
 }
 
-function prettyMilliseconds(microseconds: number): string {
-  return originalPrettyMilliseconds(microseconds, {
+function prettySeconds(seconds: number): string {
+  return prettyMilliseconds(seconds * 1000, {
     formatSubMilliseconds: true,
     compact: true,
   });
@@ -167,13 +167,13 @@ if (import.meta.main) {
             ],
             [
               "**Latency**",
-              prettyMilliseconds(result.latencyPercentiles.p10 ?? 0),
-              prettyMilliseconds(result.latencyPercentiles.p25 ?? 0),
-              prettyMilliseconds(result.latencyPercentiles.p50 ?? 0),
-              prettyMilliseconds(result.latencyPercentiles.p75 ?? 0),
-              prettyMilliseconds(result.latencyPercentiles.p90 ?? 0),
-              prettyMilliseconds(result.latencyPercentiles.p95 ?? 0),
-              prettyMilliseconds(result.latencyPercentiles.p99 ?? 0),
+              prettySeconds(result.latencyPercentiles.p10 ?? 0),
+              prettySeconds(result.latencyPercentiles.p25 ?? 0),
+              prettySeconds(result.latencyPercentiles.p50 ?? 0),
+              prettySeconds(result.latencyPercentiles.p75 ?? 0),
+              prettySeconds(result.latencyPercentiles.p90 ?? 0),
+              prettySeconds(result.latencyPercentiles.p95 ?? 0),
+              prettySeconds(result.latencyPercentiles.p99 ?? 0),
             ],
           ])
         }\n`;
