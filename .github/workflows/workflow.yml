@@ -42,7 +42,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: frameworks/*/results/hello_bench.json
-          key: hello_bench-results
+          key: 'hello_bench-results-${{ hashFiles("frameworks/*/results/hello_bench.json") }}'
   finish:
     name: Finish
     runs-on: ubuntu-latest
@@ -59,7 +59,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: frameworks/*/results/hello_bench.json
-          key: hello_bench-results
+          restore-keys: hello_bench-results-
       - name: Install Deno
         uses: denoland/setup-deno@v1
       - name: Generate README.md
