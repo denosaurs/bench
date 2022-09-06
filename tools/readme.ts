@@ -1,7 +1,6 @@
 import {
   join,
   markdownTable,
-  prettyBytes,
   prettyMilliseconds as originalPrettyMilliseconds,
 } from "./deps.ts";
 import {
@@ -86,7 +85,7 @@ if (import.meta.main) {
           result.rps.mean,
           result.rps.stddev,
           result.rps.max,
-          ""
+          "",
         ]);
       }
     }
