@@ -1,0 +1,8 @@
+{
+  "name": "Acorn",
+  "description": "A focused RESTful server framework for Deno 🌰🦕",
+  "website": "https://deno.land/x/acorn",
+  "benchmarks": {
+    "hello_bench": "deno run -A --unstable hello_bench.ts"
+  }
+}
