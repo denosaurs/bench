@@ -58,7 +58,7 @@ if (import.meta.main) {
           uses: "actions-rs/install@v0.1",
           with: {
             crate: "oha",
-            version: "v0.5.4",
+            version: "0.5.4",
           },
         },
         {
