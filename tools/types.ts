@@ -24,11 +24,13 @@ export interface BenchmarkDefinition {
   description: string;
   /** The number of milliseconds before starting to bombard the target with requests, defaults to 5 seconds */
   warmup?: number;
-  /** The number of connections, defaults to 40 */
+  /** The number of request to run */
+  requests?: number;
+  /** The number of connections */
   connections?: number;
-  /** The request method of the benchmark, defaults to GET */
+  /** The request method of the benchmark */
   method?: "GET" | "HEAD" | "POST" | "PUT" | "DELETE" | "OPTIONS" | "PATCH";
-  /** The duration of the benchmark, defaults to 10 seconds */
+  /** The duration of the benchmark */
   duration?: string;
 }
 

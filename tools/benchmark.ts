@@ -14,13 +14,30 @@ export async function oha(
   const args = [
     // Enable JSON output
     "-j",
-    // The number of connections
-    "-c", (benchmark.connections ?? 40).toString(),
-    // The duration of the benchmark
-    "-d", (benchmark.duration ?? 10).toString(),
-    // The method
-    "-m", benchmark.method ?? "GET",
   ];
+  
+
+  // The number of request to run
+  if (benchmark.requests) {
+    args.push("-n", benchmark.requests.toString());
+  }
+
+  // The number of connections
+  if (benchmark.connections) {
+    args.push("-c", benchmark.connections.toString());
+  }
+
+  // The duration of the benchmark
+  if (benchmark.duration) {
+    args.push("-z", `${benchmark.duration}sec`);
+  }
+
+  // The method
+  if (benchmark.method) {
+    args.push("-m", benchmark.method.toString());
+  }
+
+  console.log(`Running: oha ${[...args, url].join(" ")}`);
 
   const oha = await Deno.spawn("oha", {
     args: [...args, url],
@@ -29,7 +46,8 @@ export async function oha(
     stderr: "null",
   });
 
-  return JSON.parse(decoder.decode(oha.stdout));
+  const output = decoder.decode(oha.stdout);
+  return JSON.parse(output);
 }
 
 export async function runBenchmark(
@@ -68,7 +86,9 @@ export async function runBenchmark(
   });
 
   // Warmup
-  await delay(benchmark.warmup ?? 5000);
+  benchmark.warmup ??= 5000;
+  console.log(`Warming up for ${benchmark.warmup}ms`);
+  await delay(benchmark.warmup);
 
   // Run benchmark
   const result = await oha("localhost:8000", benchmark);
@@ -101,7 +121,7 @@ if (import.meta.main) {
       continue;
     }
 
-    console.log(`Running ${benchmark} on ${framework.name}`);
+    console.log(`Benchmarking ${benchmark} on ${framework.name}`);
     const result = await runBenchmark(
       benchmarks[benchmark],
       framework,
