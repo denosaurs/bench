@@ -71,7 +71,7 @@ if (import.meta.main) {
           uses: "actions/cache@v3",
           with: {
             path: `frameworks/*/results/${identifier}.json`,
-            key: `${identifier}-results-\${{ hashFiles('frameworks/*/results/${identifier}.json') }}`,
+            key: `${identifier}-results-\${{ github.run_id }}`,
           },
         },
       ],
@@ -84,7 +84,7 @@ if (import.meta.main) {
       uses: "actions/cache@v3",
       with: {
         path: `frameworks/*/results/${identifier}.json`,
-        "restore-keys": `${identifier}-results-`,
+        key: `${identifier}-results-\${{ github.run_id }}`,
       },
     });
   }
