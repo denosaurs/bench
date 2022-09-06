@@ -95,6 +95,7 @@ export async function runBenchmark(
   const result = await oha("http://localhost:8000", benchmark);
 
   // Close server process
+  server.kill("SIGKILL");
   server.close();
 
   return result;
