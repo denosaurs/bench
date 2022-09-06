@@ -6,7 +6,7 @@ import {
 } from "./types.ts";
 import { decoder, getBenchmarks, getFrameworks, workdir } from "./misc.ts";
 
-export async function autocannon(
+export async function oha(
   url: string,
   benchmark: BenchmarkDefinition,
 ): Promise<BenchmarkResult> {
@@ -22,14 +22,14 @@ export async function autocannon(
     "-m", benchmark.method ?? "GET",
   ];
 
-  const autocannon = await Deno.spawn("autocannon", {
+  const oha = await Deno.spawn("oha", {
     args: [...args, url],
     stdin: "null",
     stdout: "piped",
     stderr: "null",
   });
 
-  return JSON.parse(decoder.decode(autocannon.stdout));
+  return JSON.parse(decoder.decode(oha.stdout));
 }
 
 export async function runBenchmark(
@@ -71,7 +71,7 @@ export async function runBenchmark(
   await delay(benchmark.warmup ?? 5000);
 
   // Run benchmark
-  const result = await autocannon("localhost:8000", benchmark);
+  const result = await oha("localhost:8000", benchmark);
 
   // Close server process
   server.close();
