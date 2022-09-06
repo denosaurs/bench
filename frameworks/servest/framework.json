@@ -1,5 +1,6 @@
 {
   "name": "tinyhttp",
+  "ignore": true,
   "description": "🦕 Deno port of tinyhttp, 0-legacy, tiny & fast web framework",
   "website": "https://deno.land/x/tinyhttp",
   "benchmarks": {
