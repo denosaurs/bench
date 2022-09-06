@@ -1,4 +1,3 @@
-import { serve } from "https://deno.land/std/http/server.ts";
 import {
   createRouteMap,
   createRouter,
@@ -10,6 +9,6 @@ const routes = createRouteMap([
 
 const router = createRouter(routes);
 
-await serve((req) => router(req), {
+await Deno.serve((req) => router(req), {
   port: 8000,
 });

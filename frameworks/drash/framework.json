@@ -1,5 +1,6 @@
 {
   "name": "Drash",
+  "ignore": true,
   "description": "A REST microframework for Deno's HTTP server with zero dependencies.",
   "website": "https://deno.land/x/drash",
   "benchmarks": {
