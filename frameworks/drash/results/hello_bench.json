@@ -1,96 +1,55 @@
 {
-  "url": "http://localhost:8000",
-  "connections": 40,
-  "sampleInt": 1000,
-  "pipelining": 1,
-  "workers": 0,
-  "duration": 11.05,
-  "samples": 11,
-  "start": "2022-07-09T18:51:01.030Z",
-  "finish": "2022-07-09T18:51:12.081Z",
-  "errors": 0,
-  "timeouts": 0,
-  "mismatches": 0,
-  "non2xx": 0,
-  "resets": 0,
-  "1xx": 0,
-  "2xx": 213155,
-  "3xx": 0,
-  "4xx": 0,
-  "5xx": 0,
-  "statusCodeStats": {
-    "200": {
-      "count": 213155
+  "summary": {
+    "successRate": 0,
+    "total": 10.001800599,
+    "slowest": null,
+    "fastest": null,
+    "average": null,
+    "requestsPerSec": 77489.4472578757,
+    "totalData": 0,
+    "sizePerRequest": null,
+    "sizePerSec": 0
+  },
+  "responseTimeHistogram": {
+    "NaN": 0
+  },
+  "latencyPercentiles": {
+    "p10": null,
+    "p25": null,
+    "p50": null,
+    "p75": null,
+    "p90": null,
+    "p95": null,
+    "p99": null
+  },
+  "rps": {
+    "mean": 0,
+    "stddev": 0,
+    "max": null,
+    "percentiles": {
+      "p10": null,
+      "p25": null,
+      "p50": null,
+      "p75": null,
+      "p90": null,
+      "p95": null,
+      "p99": null
     }
   },
-  "latency": {
-    "average": 1.22,
-    "mean": 1.22,
-    "stddev": 0.71,
-    "min": 1,
-    "max": 31,
-    "p0_001": 0,
-    "p0_01": 0,
-    "p0_1": 1,
-    "p1": 1,
-    "p2_5": 1,
-    "p10": 1,
-    "p25": 1,
-    "p50": 1,
-    "p75": 1,
-    "p90": 2,
-    "p97_5": 3,
-    "p99": 3,
-    "p99_9": 8,
-    "p99_99": 19,
-    "p99_999": 31,
-    "totalCount": 213155
+  "details": {
+    "DNSDialup": {
+      "average": 0,
+      "fastest": null,
+      "slowest": null
+    },
+    "DNSLookup": {
+      "average": 0,
+      "fastest": null,
+      "slowest": null
+    }
   },
-  "requests": {
-    "average": 19377.1,
-    "mean": 19377.1,
-    "stddev": 1484.29,
-    "min": 14700,
-    "max": 19998,
-    "total": 213155,
-    "p0_001": 14703,
-    "p0_01": 14703,
-    "p0_1": 14703,
-    "p1": 14703,
-    "p2_5": 14703,
-    "p10": 19519,
-    "p25": 19759,
-    "p50": 19887,
-    "p75": 19935,
-    "p90": 19967,
-    "p97_5": 19999,
-    "p99": 19999,
-    "p99_9": 19999,
-    "p99_99": 19999,
-    "p99_999": 19999,
-    "sent": 213195
-  },
-  "throughput": {
-    "average": 1802286.55,
-    "mean": 1802286.55,
-    "stddev": 137981.77,
-    "min": 1367100,
-    "max": 1859814,
-    "total": 19823415,
-    "p0_001": 1368063,
-    "p0_01": 1368063,
-    "p0_1": 1368063,
-    "p1": 1368063,
-    "p2_5": 1368063,
-    "p10": 1814527,
-    "p25": 1838079,
-    "p50": 1850367,
-    "p75": 1853439,
-    "p90": 1856511,
-    "p97_5": 1860607,
-    "p99": 1860607,
-    "p99_9": 1860607,
-    "p99_99": 1860607,
-    "p99_999": 1860607
+  "statusCodeDistribution": {},
+  "errorDistribution": {
+    "Connection refused (os error 111)": 775034
   }
 }
