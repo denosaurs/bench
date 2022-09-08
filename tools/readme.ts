@@ -1,8 +1,4 @@
-import {
-  join,
-  markdownTable,
-  prettyMilliseconds,
-} from "./deps.ts";
+import { join, markdownTable, prettyMilliseconds } from "./deps.ts";
 import {
   getBenchmarkResults,
   getBenchmarks,

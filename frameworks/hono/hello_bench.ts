@@ -6,4 +6,6 @@ app.get("/", (c) => {
   return c.text("Hello, Bench!");
 });
 
-await Deno.serve((req) => app.fetch(req));
+await Deno.serve((req) => app.fetch(req), {
+  port: 8000,
+});
