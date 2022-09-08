@@ -4,4 +4,4 @@ const app = fast();
 
 app.get("/", () => new Response("Hello, Bench!"));
 
-await app.serve();
+await app.serve({port: 8000});
