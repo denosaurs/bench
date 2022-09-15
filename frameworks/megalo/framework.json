@@ -1,0 +1,8 @@
+{
+  "name": "Megalo",
+  "description": "Deno HTTP server framework focused on speed",
+  "website": "https://github.com/tsar-boomba/megalo",
+  "benchmarks": {
+    "hello_bench": "deno run -A --unstable hello_bench.ts"
+  }
+}
