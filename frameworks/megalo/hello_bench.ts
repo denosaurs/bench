@@ -1,5 +1,5 @@
-import { Megalo } from 'https://deno.land/x/megalo/mod.ts';
+import { Megalo } from "https://deno.land/x/megalo/mod.ts";
 
 new Megalo()
-	.get('/', () => new Response("Hello, Bench!", { status: 200 }))
+  .get('/', (req, res) => res.body("Hello, Bench!"))
   .serve({ port: 8000 });
