@@ -153,7 +153,7 @@ if (import.meta.main) {
           },
         },
       };
-      const chartUrl = getChartUrl(chart);
+      const chartUrl = await getChartUrl(chart);
 
       if (typeof chartUrl === "string") {
         markdown += `![Chart](${chartUrl})\n`;
