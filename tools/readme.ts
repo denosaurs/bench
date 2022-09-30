@@ -24,6 +24,21 @@ function prettySeconds(seconds: number): string {
   });
 }
 
+async function getChartUrl(chart: unknown): Promise<string> {
+  const repsonse = await fetch("https://quickchart.io/chart/create", {
+    method: "POST",
+    body: JSON.stringify({
+      width: 800,
+      height: 400,
+      backgroundColor: "rgb(255, 255, 255)",
+      format: "png",
+      chart: chart,
+    }),
+    headers: { "Content-Type": "application/json" },
+  });
+  return (await repsonse.json()).url;
+}
+
 if (import.meta.main) {
   const { benchmarks } = await getBenchmarks();
   const frameworks = await getFrameworks();
@@ -103,6 +118,50 @@ if (import.meta.main) {
         ),
       ])
     }\n`;
+
+    // Generate chart
+    try {
+      const chart = {
+        type: "bar",
+        data: {
+          labels: table.map((item) => item[0]),
+          datasets: [
+            {
+              label: "Mean",
+              backgroundColor: "rgb(255, 99, 132)",
+              data: table.map((item) => item[1]),
+            },
+            {
+              label: "Max",
+              backgroundColor: "rgb(54, 162, 235)",
+              data: table.map((item) => item[3]),
+            },
+          ],
+        },
+        options: {
+          scales: {
+            xAxes: [
+              {
+                stacked: true,
+              },
+            ],
+            yAxes: [
+              {
+                stacked: true,
+              },
+            ],
+          },
+        },
+      };
+      const chartUrl = await getChartUrl(chart);
+
+      if (typeof chartUrl === "string") {
+        markdown += `![Chart](${chartUrl})\n`;
+      }
+
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   // Generate frameworks section
