@@ -2,21 +2,21 @@
 # Please do not edit manually, instead run deno task workflow
 
 name: bench
-'on':
+"on":
   schedule:
     - cron: 0 0 * * *
   push:
     paths:
-      - '**.ts'
-      - '**.js'
-      - '**.tsx'
-      - '**.jsx'
-      - '**.yml'
-      - '**.json'
-      - '!frameworks/*/results/*.json'
+      - "**.ts"
+      - "**.js"
+      - "**.tsx"
+      - "**.jsx"
+      - "**.yml"
+      - "**.json"
+      - "!frameworks/*/results/*.json"
 jobs:
   hello_bench:
-    name: 'Hello, bench!'
+    name: "Hello, bench!"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -34,7 +34,8 @@ jobs:
         uses: actions-rs/install@v0.1
         with:
           crate: oha
-          version: 0.5.4
+          version: 0.5.5
+          use-tool-cache: true
       - name: Run Benchmark
         run: deno task benchmark hello_bench
       - name: Save hello_bench results
@@ -42,7 +43,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: frameworks/*/results/hello_bench.json
-          key: 'hello_bench-results-${{ github.run_id }}'
+          key: "hello_bench-results-${{ github.run_id }}"
   finish:
     name: Finish
     runs-on: ubuntu-latest
@@ -59,7 +60,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: frameworks/*/results/hello_bench.json
-          key: 'hello_bench-results-${{ github.run_id }}'
+          key: "hello_bench-results-${{ github.run_id }}"
       - name: Install Deno
         uses: denoland/setup-deno@v1
       - name: Generate README.md
@@ -67,5 +68,5 @@ jobs:
       - name: Push changes
         uses: actions-js/push@v1
         with:
-          github_token: '${{ secrets.GITHUB_TOKEN }}'
+          github_token: "${{ secrets.GITHUB_TOKEN }}"
           branch: main
