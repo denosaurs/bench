@@ -1,0 +1,8 @@
+{
+  "name": "Hyper Express",
+  "description": "High performance Node.js webserver with a simple-to-use API powered by uWebsockets.js under the hood.",
+  "website": "https://github.com/kartikk221/hyper-express",
+  "benchmarks": {
+    "hello_bench": ["npm install", "node hello_bench.js"]
+  }
+}
