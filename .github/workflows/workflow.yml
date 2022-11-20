@@ -31,11 +31,10 @@ jobs:
       - name: Install Bun
         uses: antongolub/action-setup-bun@v1.4.0
       - name: Install Oha
-        uses: actions-rs/install@v0.1
+        uses: baptiste0928/cargo-install@v1
         with:
           crate: oha
           version: 0.5.5
-          use-tool-cache: true
       - name: Run Benchmark
         run: deno task benchmark hello_bench
       - name: Save hello_bench results
