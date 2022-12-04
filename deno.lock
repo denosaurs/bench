@@ -77,12 +77,12 @@
     "https://deno.land/std@0.147.0/path/posix.ts": "c1f7afe274290ea0b51da07ee205653b2964bd74909a82deb07b69a6cc383aaa",
     "https://deno.land/std@0.147.0/path/separator.ts": "fe1816cb765a8068afb3e8f13ad272351c85cbc739af56dacfc7d93d710fe0f9",
     "https://deno.land/std@0.147.0/path/win32.ts": "bd7549042e37879c68ff2f8576a25950abbfca1d696d41d82c7bca0b7e6f452c",
-    "https://esm.sh/markdown-table@3.0.2": "462160a5fb152cfc66f344e4d39ec85c07e08c69320d823014574b56bbfed78b",
-    "https://esm.sh/pretty-ms@8.0.0": "de1bde7862c05244e9a63e62dc87df061a300c00d9a005295e4c9b1126a66f02",
-    "https://esm.sh/v99/markdown-table@3.0.2/deno/markdown-table.js": "7f696ca444c5432f139fadb749ea0c1a27e228bf38c8892fb904b49afc98e801",
-    "https://esm.sh/v99/markdown-table@3.0.2/index.d.ts": "1fa5495d0b616602a4da09463f31d95e7d724d5861f5a2a4d164dac14d777d42",
-    "https://esm.sh/v99/parse-ms@3.0.0/deno/parse-ms.js": "bd21ab338da80b2ab17b08745b5f944d2baa6c163d387b9cfdbbb712c16cb1ed",
-    "https://esm.sh/v99/pretty-ms@8.0.0/deno/pretty-ms.js": "c29543051429c7166abc3887c43dad24837ef23ed343fa6eea9472eafadd548d",
-    "https://esm.sh/v99/pretty-ms@8.0.0/index.d.ts": "4ae779eac2cc17df9f31fd4985adcac35c0904faa3eb103dd9bc90e6261b736b"
+    "https://esm.sh/markdown-table@3.0.2": "87ba8b8e77fd0a1115a531e126835f1add1ec116f7f8c6890c2275d90dbb8149",
+    "https://esm.sh/pretty-ms@8.0.0": "c39f3f74a9aefebe3617023b42708bb0771f3f788114f2be61f24c42a8aa89ad",
+    "https://esm.sh/v86/markdown-table@3.0.2/deno/markdown-table.js": "7f696ca444c5432f139fadb749ea0c1a27e228bf38c8892fb904b49afc98e801",
+    "https://esm.sh/v86/markdown-table@3.0.2/index.d.ts": "1fa5495d0b616602a4da09463f31d95e7d724d5861f5a2a4d164dac14d777d42",
+    "https://esm.sh/v86/parse-ms@3.0.0/deno/parse-ms.js": "bd21ab338da80b2ab17b08745b5f944d2baa6c163d387b9cfdbbb712c16cb1ed",
+    "https://esm.sh/v86/pretty-ms@8.0.0/deno/pretty-ms.js": "9e191bf1e179c5226643c01887b22936c86d7c34e54fb74b21f2bcd4b2fc93e1",
+    "https://esm.sh/v86/pretty-ms@8.0.0/index.d.ts": "4ae779eac2cc17df9f31fd4985adcac35c0904faa3eb103dd9bc90e6261b736b"
   }
 }

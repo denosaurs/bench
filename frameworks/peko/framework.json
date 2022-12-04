@@ -1,0 +1,8 @@
+{
+  "name": "Peko",
+  "description": "Featherweight server/router framework + middleware and handler library 🐣",
+  "website": "https://peko.deno.dev",
+  "benchmarks": {
+    "hello_bench": "deno run -A --unstable hello_bench.ts"
+  }
+}

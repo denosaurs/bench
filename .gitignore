@@ -5,3 +5,6 @@
 # Node
 node_modules
 package-lock.json
+
+# Deno
+deno.lock
