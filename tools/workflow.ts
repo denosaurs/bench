@@ -51,14 +51,14 @@ if (import.meta.main) {
         },
         {
           name: "Install Bun",
-          uses: "antongolub/action-setup-bun@v1.4.0",
+          uses: "antongolub/action-setup-bun@v1",
         },
         {
           name: "Install Oha",
-          uses: "actions-rs/install@v0.1",
+          uses: "baptiste0928/cargo-install@v1",
           with: {
             crate: "oha",
-            version: "0.5.4",
+            version: "0.5.5",
           },
         },
         {
