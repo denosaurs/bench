@@ -1,0 +1,8 @@
+{
+  "name": "Fastro",
+  "description": "Fast and simple web application framework for deno",
+  "website": "https://fastro.dev",
+  "benchmarks": {
+    "hello_bench": "deno run -A --unstable hello_bench.ts"
+  }
+}
