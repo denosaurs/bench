@@ -40,14 +40,14 @@ export async function oha(
 
   console.log(`Running: oha ${[...args, url].join(" ")}`);
 
-  const oha = await Deno.spawn("oha", {
+  const oha = new Deno.Command("oha", {
     args: [...args, url],
     stdin: "null",
     stdout: "piped",
     stderr: "null",
   });
 
-  const output = decoder.decode(oha.stdout);
+  const output = decoder.decode((await oha.output()).stdout);
   return JSON.parse(output);
 }
 

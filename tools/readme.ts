@@ -158,7 +158,6 @@ if (import.meta.main) {
       if (typeof chartUrl === "string") {
         markdown += `![Chart](${chartUrl})\n`;
       }
-
     } catch (error) {
       console.error(error);
     }
