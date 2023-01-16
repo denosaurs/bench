@@ -48,8 +48,8 @@
       "slowest": null
     }
   },
-  "statusCodeDistribution": {},
-  "errorDistribution": {
-    "Connection refused (os error 111)": 655661
-  }
+  "statusCodeDistribution": {
+    "200": 97201
+  },
+  "errorDistribution": {}
 }

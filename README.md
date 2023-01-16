@@ -6,13 +6,14 @@
   <br>
   <p align="center">
     <a alt="Bench" href="https://github.com/denosaurs/bench/actions">
-      <img src="https://img.shields.io/github/workflow/status/denosaurs/bench/bench" />
+      <img src="https://img.shields.io/github/actions/workflow/status/denosaurs/bench/workflow.yml?branch=main" />
     </a>
   </p>
 </div>
 
 # Table of Contents
 
+- [Table of Contents](#table-of-contents)
 - [Overview](#overview)
   - [Hello, bench!](#hello-bench)
 - [Frameworks](#frameworks)
