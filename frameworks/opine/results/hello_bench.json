@@ -1,55 +1,65 @@
 {
   "summary": {
-    "successRate": 0,
-    "total": 10.001663913,
-    "slowest": null,
-    "fastest": null,
-    "average": null,
-    "requestsPerSec": 65555.19218635037,
-    "totalData": 0,
-    "sizePerRequest": null,
-    "sizePerSec": 0
+    "successRate": 1,
+    "total": 10.002669141,
+    "slowest": 0.030304826,
+    "fastest": 0.000927853,
+    "average": 0.006196428649773048,
+    "requestsPerSec": 8062.048125680377,
+    "totalData": 1048346,
+    "sizePerRequest": 13,
+    "sizePerSec": 104806.6256338449
   },
   "responseTimeHistogram": {
-    "NaN": 0
+    "0.000927853": 1,
+    "0.0038655503000000003": 1147,
+    "0.0068032476": 67134,
+    "0.0097409449": 11099,
+    "0.0126786422": 694,
+    "0.0156163395": 208,
+    "0.0185540368": 68,
+    "0.0214917341": 241,
+    "0.0244294314": 30,
+    "0.0273671287": 7,
+    "0.030304826": 13
   },
   "latencyPercentiles": {
-    "p10": null,
-    "p25": null,
-    "p50": null,
-    "p75": null,
-    "p90": null,
-    "p95": null,
-    "p99": null
+    "p10": 0.005652222,
+    "p25": 0.00579643,
+    "p50": 0.00596994,
+    "p75": 0.006292358,
+    "p90": 0.007153613,
+    "p95": 0.007535129,
+    "p99": 0.010818116
   },
   "rps": {
-    "mean": 0,
-    "stddev": 0,
-    "max": null,
+    "mean": 8095.032344466285,
+    "stddev": 1165.1397847668893,
+    "max": 10653.990650057825,
     "percentiles": {
-      "p10": null,
-      "p25": null,
-      "p50": null,
-      "p75": null,
-      "p90": null,
-      "p95": null,
-      "p99": null
+      "p10": 6863.272032312449,
+      "p25": 7779.669101777241,
+      "p50": 8446.197173166265,
+      "p75": 8674.825644565062,
+      "p90": 8893.32237478331,
+      "p95": 9151.91930646252,
+      "p99": 10099.80271024552
     }
   },
   "details": {
     "DNSDialup": {
-      "average": 0,
-      "fastest": null,
-      "slowest": null
+      "average": 0.0017471955399999998,
+      "fastest": 0.000085705,
+      "slowest": 0.002374836
     },
     "DNSLookup": {
-      "average": 0,
-      "fastest": null,
-      "slowest": null
+      "average": 0.000006822280000000003,
+      "fastest": 0.000004,
+      "slowest": 0.000059804
     }
   },
   "statusCodeDistribution": {
-    "200": 97201
+    "200": 80642
   },
   "errorDistribution": {}
 }
