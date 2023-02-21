@@ -5,7 +5,7 @@ const server = new Peko.Server();
 server.addRoute({
   path: "/",
   method: "GET",
-  handler: (_) => new Response("Hello, Bench!"),
+  handler: (_) => new Response("Hello, Bench!")
 });
 
 server.listen(8000);
