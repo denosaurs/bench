@@ -26,6 +26,8 @@ jobs:
           fetch-depth: 0
       - name: Install Deno
         uses: denoland/setup-deno@v1
+        with:
+          deno-version: vx.x.x
       - name: Install Node
         uses: actions/setup-node@v3
       - name: Install Bun
