@@ -43,7 +43,10 @@ if (import.meta.main) {
         },
         {
           name: "Install Deno",
-          uses: "denoland/setup-deno@v1",
+          uses: "denoland/setup-deno@v1.1.1",
+          with: {
+            "deno-version": "vx.x.x"
+          },
         },
         {
           name: "Install Node",
