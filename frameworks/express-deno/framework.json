@@ -1,0 +1,8 @@
+{
+  "name": "Express (Deno)",
+  "description": "Fast, unopinionated, minimalist web framework for Node.js, run on Deno",
+  "website": "https://expressjs.com/",
+  "benchmarks": {
+    "hello_bench": "deno run -A --unstable hello_bench.ts"
+  }
+}
