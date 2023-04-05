@@ -1,0 +1,8 @@
+{
+  "name": "NHttp",
+  "description": "An Simple web-framework for Deno and Friends",
+  "website": "https://github.com/nhttp/nhttp",
+  "benchmarks": {
+    "hello_bench": "deno run -A --unstable hello_bench.ts"
+  }
+}
