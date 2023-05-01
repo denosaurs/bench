@@ -8,14 +8,14 @@ import { decoder, getBenchmarks, getFrameworks, workdir } from "./misc.ts";
 
 export async function oha(
   url: string,
-  benchmark: BenchmarkDefinition,
+  benchmark: BenchmarkDefinition
 ): Promise<BenchmarkResult> {
   // deno-fmt-ignore
   const args = [
     // Enable JSON output
     "-j",
     // Disable tui
-    "--no-tui"
+    "--no-tui",
   ];
 
   // The number of request to run
@@ -55,37 +55,42 @@ export async function runBenchmark(
   benchmark: BenchmarkDefinition,
   framework: FrameworkDefinition,
   benchmarkIdentifier: string,
-  frameworkIdentifier: string,
+  frameworkIdentifier: string
 ): Promise<BenchmarkResult> {
   let cmds = framework.benchmarks[benchmarkIdentifier];
   cmds = typeof cmds === "string" ? [cmds] : cmds;
 
   if (!cmds || cmds.length === 0) {
     throw new TypeError(
-      `No benchmark or command with the identifier ${benchmarkIdentifier} could be found in ${framework.name}`,
+      `No benchmark or command with the identifier ${benchmarkIdentifier} could be found in ${framework.name}`
     );
   }
 
   // Run setup commands if there are any
   for (const cmd of cmds.slice(0, -1)) {
-    await Deno.run({
-      cmd: cmd.split(" "),
+    const [cliCmd, ...args] = cmd.split(" ");
+    const setupCommand = new Deno.Command(cliCmd, {
+      args,
       cwd: join(workdir, "frameworks", frameworkIdentifier),
       stdin: "inherit",
       stdout: "inherit",
       stderr: "inherit",
-    }).status();
+    });
+    await setupCommand.output();
   }
 
   // Run server
-  const server = Deno.run({
-    cmd: cmds.pop()!.split(" "),
+  const [cliCmd, ...args] = cmds.pop()!.split(" ");
+  const serverAbortController = new AbortController();
+  const server = new Deno.Command(cliCmd, {
+    args,
     cwd: join(workdir, "frameworks", frameworkIdentifier),
     stdin: "inherit",
     stdout: "inherit",
     stderr: "inherit",
+    signal: serverAbortController.signal,
   });
-
+  server.spawn();
   // Warmup
   benchmark.warmup ??= 5000;
   console.log(`Warming up for ${benchmark.warmup}ms`);
@@ -95,8 +100,7 @@ export async function runBenchmark(
   const result = await oha("http://localhost:8000", benchmark);
 
   // Close server process
-  server.kill("SIGKILL");
-  server.close();
+  serverAbortController.abort();
 
   return result;
 }
@@ -107,7 +111,7 @@ if (import.meta.main) {
 
   if (benchmark === undefined) {
     throw new TypeError(
-      `No benchmark identifier provided as command line argument`,
+      `No benchmark identifier provided as command line argument`
     );
   }
 
@@ -128,21 +132,16 @@ if (import.meta.main) {
       benchmarks[benchmark],
       framework,
       benchmark,
-      identifier,
+      identifier
     );
     // Ensure results directory exists
-    await ensureDir(join(
-      workdir,
-      "frameworks",
-      identifier,
-      "results",
-    ));
+    await ensureDir(join(workdir, "frameworks", identifier, "results"));
     const resultPath = join(
       workdir,
       "frameworks",
       identifier,
       "results",
-      `${benchmark}.json`,
+      `${benchmark}.json`
     );
     console.log(`Writing results to ${resultPath}...`);
     await Deno.writeTextFile(resultPath, JSON.stringify(result, null, 2));
