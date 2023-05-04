@@ -1,0 +1,8 @@
+{
+    "name": "Cheetah",
+    "description": "🐈 A blazing fast framework for the modern web.",
+    "website": "https://github.com/azurystudio/cheetah",
+    "benchmarks": {
+      "hello_bench": "deno run -A --unstable hello_bench.ts"
+    }
+  }
