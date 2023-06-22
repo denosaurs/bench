@@ -1,0 +1,8 @@
+{
+  "name": "Vixeny (Deno)",
+  "description": "A pure functional web framework",
+  "website": "https://github.com/mimiMonads/functor",
+  "benchmarks": {
+    "hello_bench": "deno run -A --unstable hello_bench.ts"
+  }
+}
