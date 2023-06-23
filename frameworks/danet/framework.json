@@ -1,0 +1,8 @@
+{
+    "name": "Danet",
+    "description": "The most mature backend framework for Deno",
+    "website": "https://docs.danet.land/",
+    "benchmarks": {
+      "hello_bench": "deno run -A --unstable hello_bench.ts"
+    }
+  }
