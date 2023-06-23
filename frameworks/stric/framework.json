@@ -1,0 +1,8 @@
+{
+  "name": "Stric",
+  "description": "Stric is a minimalist, fast web framework for Bun.",
+  "website": "https://bun.sh/docs/ecosystem/stric",
+  "benchmarks": {
+    "hello_bench": "bun run hello_bench.ts"
+  }
+}
