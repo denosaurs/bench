@@ -4,4 +4,4 @@ const app = fast();
 
 app.get("/", () => new Response("Hello, Bench!"));
 
-await Deno.serve(app.handle, { port: 8000 });
+Deno.serve(app.handle, { port: 8000 });

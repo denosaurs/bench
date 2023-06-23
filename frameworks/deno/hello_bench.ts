@@ -1,3 +1,3 @@
-await Deno.serve(() => new Response("Hello, Bench!"), {
+Deno.serve(() => new Response("Hello, Bench!"), {
   port: 8000,
 });
