@@ -9,6 +9,6 @@ const routes = createRouteMap([
 
 const router = createRouter(routes);
 
-await Deno.serve((req) => router(req), {
+Deno.serve((req) => router(req), {
   port: 8000,
 });
