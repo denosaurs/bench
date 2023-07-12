@@ -1,0 +1,11 @@
+{
+  "name": "Fastify (UWS)",
+  "description": "Fast and low overhead web framework, for Node.js",
+  "website": "https://www.fastify.io/",
+  "benchmarks": {
+    "hello_bench": [
+      "npm install",
+      "node hello_bench.js"
+    ]
+  }
+}
