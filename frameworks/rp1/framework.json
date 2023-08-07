@@ -1,0 +1,8 @@
+{
+    "name": "rp1",
+    "description": "Blazingly fast and simple web framework for Deno",
+    "website": "https://deno.land/x/rp1",
+    "benchmarks": {
+        "hello_bench": "deno run --allow-net hello_bench.ts"
+    }
+}
