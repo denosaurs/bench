@@ -86,6 +86,7 @@ if (import.meta.main) {
   markdown += "# Overview\n";
   for (const [identifier, benchmark] of Object.entries(benchmarks)) {
     markdown += `## ${benchmark.name}\n`;
+    markdown += `> Requests per second\n`;
     let table: [string, number, number, number, string][] = [];
 
     for (const [name, framework] of Object.entries(frameworks)) {
