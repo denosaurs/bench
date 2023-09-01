@@ -2,10 +2,11 @@
 import vixeny from "https://deno.land/x/endofunctor/fun.ts";
 
 Deno.serve(
-  vixeny({ hasName: "http://localhost:8000/" })([
+  vixeny()([
     {
       path: "/",
-      f: () => "hello world",
+      type: "response",
+      r: () => new Response("hello world")
     },
   ]),
 );
