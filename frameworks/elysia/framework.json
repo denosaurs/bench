@@ -3,6 +3,6 @@
     "description": "Ergonomic Framework for Humans",
     "website": "https://elysiajs.com/",
     "benchmarks": {
-        "hello_bench": "bun run hello_bench.ts"
+        "hello_bench": ["bun install", "bun run hello_bench.ts"]
     }
 }
