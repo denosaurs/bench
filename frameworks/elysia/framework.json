@@ -1,0 +1,8 @@
+{
+    "name": "Elysia",
+    "description": "Ergonomic Framework for Humans",
+    "website": "https://elysiajs.com/",
+    "benchmarks": {
+        "hello_bench": "bun run hello_bench.ts"
+    }
+}
