@@ -8,3 +8,6 @@ package-lock.json
 
 # Deno
 deno.lock
+
+# Bun
+bun.lockb
