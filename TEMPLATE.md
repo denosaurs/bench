@@ -1,7 +1,7 @@
 <div align="center">
   <h1><code>bench</code></h1>
   <p>
-    <strong>📊 Daily benchmarks of deno & node HTTP frameworks</strong>
+    <strong>📊 Daily benchmarks of deno & node & bun HTTP frameworks</strong>
   </p>
   <br>
   <p align="center">
