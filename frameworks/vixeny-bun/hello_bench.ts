@@ -1,13 +1,14 @@
 
-import vixeny from "https://deno.land/x/endofunctor/fun.ts";
+import { vixeny } from "vixeny";
 
-Deno.serve(
-  vixeny()([
+
+export default {
+  port: 8000,
+  fetch: vixeny()([
     {
       path: "/",
       type: "response",
       r: () => new Response('Hello, Bench!')
     },
-  ]),
-);
-
+  ])
+}

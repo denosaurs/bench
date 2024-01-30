@@ -1,0 +1,8 @@
+{
+  "name": "Vixeny (Bun)",
+  "description": "A pure functional web framework",
+  "website": "https://vixeny.dev/",
+  "benchmarks": {
+    "hello_bench": "bun run hello_bench.ts"
+  }
+}
