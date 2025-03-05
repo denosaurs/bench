@@ -1,0 +1,6 @@
+{
+  "lock": false,
+  "compilerOptions": {
+    "experimentalDecorators": true
+  }
+}
