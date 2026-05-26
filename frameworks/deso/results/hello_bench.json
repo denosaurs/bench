@@ -1,18 +1,16 @@
 {
   "summary": {
     "successRate": 0,
-    "total": 10.001060157,
+    "total": 0,
     "slowest": null,
     "fastest": null,
     "average": null,
-    "requestsPerSec": 88684.09809326178,
+    "requestsPerSec": 0,
     "totalData": 0,
     "sizePerRequest": null,
     "sizePerSec": 0
   },
-  "responseTimeHistogram": {
-    "NaN": 0
-  },
+  "responseTimeHistogram": {},
   "latencyPercentiles": {
     "p10": null,
     "p25": null,
@@ -36,20 +34,7 @@
       "p99": null
     }
   },
-  "details": {
-    "DNSDialup": {
-      "average": 0,
-      "fastest": null,
-      "slowest": null
-    },
-    "DNSLookup": {
-      "average": 0,
-      "fastest": null,
-      "slowest": null
-    }
-  },
+  "details": {},
   "statusCodeDistribution": {},
-  "errorDistribution": {
-    "Connection refused (os error 111)": 886935
-  }
+  "errorDistribution": {}
 }

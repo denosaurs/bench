@@ -1,4 +1,4 @@
-import { Deso } from "https://deno.land/x/deso/mod.ts";
+import { Deso } from "jsr:@deso/core";
 
 const app = new Deso();
 

@@ -3,6 +3,6 @@
     "description": "A simple & fast HTTP web framework for Deno",
     "website": "https://github.com/gothammm/deso",
     "benchmarks": {
-      "hello_bench": "deno run -A --unstable hello_bench.ts"
+      "hello_bench": "deno run -A hello_bench.ts"
     }
   }
