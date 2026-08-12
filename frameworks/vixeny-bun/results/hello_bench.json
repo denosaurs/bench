@@ -1,11 +1,11 @@
 {
   "summary": {
     "successRate": 0,
-    "total": 10.001295848,
+    "total": 10.001155551,
     "slowest": null,
     "fastest": null,
     "average": null,
-    "requestsPerSec": 130696.16376375791,
+    "requestsPerSec": 198443.2688682216,
     "totalData": 0,
     "sizePerRequest": null,
     "sizePerSec": 0
@@ -50,6 +50,6 @@
   },
   "statusCodeDistribution": {},
   "errorDistribution": {
-    "Connection refused (os error 111)": 1307131
+    "Connection refused (os error 111)": 1984662
   }
 }
